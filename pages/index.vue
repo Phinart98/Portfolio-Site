@@ -11,7 +11,7 @@
         </div>
       </div>
       <div>
-        <h1 class="flex justify-center text-5xl my-1">
+        <h1 class="flex justify-center text-5xl my-1 dark:text-white">
           Hello, I'm&nbsp;<span class="text-orange-500"> Philip</span>!
         </h1>
         <h2 class="flex justify-center text-2xl my-1">A Software Engineer</h2>
@@ -122,7 +122,7 @@
         </div>
         <p class="flex justify-center mt-4 mb-1">You can also find me here</p>
         <div class="flex justify-center">
-          <div class="flex justify-between mx-4 w-3/5">
+          <div class="flex justify-between mx-4 mb-8 w-3/5">
             <NuxtLink to="https://github.com/Phinart98" target="_blank">
               <i
                 type="fontisto-17607"
