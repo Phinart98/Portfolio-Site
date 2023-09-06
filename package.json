@@ -12,5 +12,8 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "nuxt": "^3.7.0"
+  },
+  "dependencies": {
+    "nuxt-protected-mailto": "^0.0.12"
   }
 }
