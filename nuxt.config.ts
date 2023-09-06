@@ -2,12 +2,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
 
-  modules: ["@nuxtjs/tailwindcss",],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
 
   components: [
     {
       path: "~/components",
     },
   ],
-  
 });
