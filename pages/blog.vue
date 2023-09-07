@@ -8,7 +8,7 @@
       <div
         v-for="(post, index) in blogPosts"
         :key="index"
-        class="h-40 sm:h-32 bg-white dark:bg-slate-600 mb-4 mx-4 border rounded-lg drop-shadow-lg"
+        class="h-40 sm:h-32 bg-white dark:bg-slate-700 mb-4 mx-4 border rounded-lg drop-shadow-lg"
       >
         <NuxtLink to="">
           <h5 class="mt-4 mx-8 text-sm dark:text-white">{{ post.date }}</h5>
