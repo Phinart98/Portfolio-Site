@@ -10,7 +10,7 @@
           >
         </div>
         <div
-          class="flex justify-between mt-2 text-sm sm:text-lg gap-2 sm:gap-8"
+          class="flex justify-between mt-1 text-sm sm:text-lg gap-2 sm:gap-8"
         >
           <div>
             <NuxtLink
