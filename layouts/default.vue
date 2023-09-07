@@ -43,14 +43,11 @@
 <script></script>
 
 <style scoped>
-@media (prefers-color-scheme: dark) {
-  .router-link-exact-active {
-  color: white;
-  text-decoration: none;
-}
-}
 .router-link-exact-active {
   color: black;
   text-decoration: none;
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 }
 </style>
