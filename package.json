@@ -12,9 +12,11 @@
     "@nuxt/content": "^2.8.2",
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@tailwindcss/typography": "^0.5.10",
     "nuxt": "^3.7.0"
   },
   "dependencies": {
-    "nuxt-protected-mailto": "^0.0.12"
+    "nuxt-protected-mailto": "^0.0.12",
+    "reading-time": "^1.5.0"
   }
 }

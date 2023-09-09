@@ -43,7 +43,7 @@
 <script></script>
 
 <style scoped>
-.router-link-exact-active {
+.router-link-active, .router-link-exact-active {
   color: black;
   text-decoration: none;
   @media (prefers-color-scheme: dark) {
