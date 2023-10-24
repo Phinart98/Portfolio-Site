@@ -19,13 +19,13 @@
               >About</NuxtLink
             >
           </div>
-          <div>
+          <!-- <div>
             <NuxtLink
               to="/projects"
               class="text-orange-500 underline underline-offset-8"
               >Projects</NuxtLink
             >
-          </div>
+          </div> -->
           <div>
             <NuxtLink
               to="/blog"
