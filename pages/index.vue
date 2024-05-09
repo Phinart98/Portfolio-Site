@@ -19,8 +19,8 @@
           I'm a lifelong learner interested in Distributed Systems, large-scale system design, and Blockchain Technology
         </p>
         <p class="flex justify-center my-1 dark:text-white">
-          Domain Experience so far:&nbsp;<span class="text-orange-500 font-semibold"
-            >Health tech</span
+          Domain Experience so far: <span class="text-orange-500 font-semibold"
+            >Health Tech</span
           >
         </p>
         <p class="flex justify-center mt-8 mb-1 dark:text-white">
