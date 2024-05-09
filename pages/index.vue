@@ -16,14 +16,14 @@
         </h1>
         <h2 class="flex justify-center text-2xl my-2 dark:text-white">A Software Engineer</h2>
         <p class="flex justify-center text-center my-1 dark:text-white">
-          I'm a lifelong learner interested in Distributed Systems, large-scale system design, and Blockchain Technology
+          I'm interested in Distributed Systems, large-scale system design, and Blockchain Technology
         </p>
-        <p class="flex justify-center my-1 dark:text-white">
+        <p class="flex justify-center text-center my-1 dark:text-white">
           Domain Experience so far:&nbsp;<span class="text-orange-500 font-semibold"
             >Health Tech</span
           >
         </p>
-        <p class="flex justify-center mt-8 mb-1 dark:text-white">
+        <p class="flex justify-center text-center mt-8 mb-1 dark:text-white">
           I've worked with these technologies
         </p>
         <div class="flex justify-between mx-4">
