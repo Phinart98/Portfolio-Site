@@ -19,13 +19,20 @@
         <p class="flex justify-center text-center mt-3 dark:text-white">
           Previously, I have...
         </p>
-        <ul class="text-center list-disc">
-          <li>Coontributed to building a referral and pharmacy management system at <a href="https://www.rigelis.co/"
-              class="text-orange-500">
-              Rigelis</a>, a nascent health-tech startup.</li>
-          <li class="mt-1">Obtained a BSc. Computer Engineering at <a href="https://www.ashesi.edu.gh/" class="text-orange-500">
-            Ashesi University</a>.</li>
-        </ul>
+        <div class="flex justify-center p-1">
+          <ul class="list-none text-center">
+            <li class="relative pl-6 text-left mb-4">
+              <span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-black rounded-full"></span>
+              Contributed to building a referral and pharmacy management system at <a href="https://www.rigelis.co/"
+                class="text-orange-500">Rigelis</a>, a nascent health-tech startup.
+            </li>
+            <li class="relative pl-6 text-left">
+              <span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-black rounded-full"></span>
+              Obtained a BSc. Computer Engineering at <a href="https://www.ashesi.edu.gh/"
+                class="text-orange-500">Ashesi University</a>.
+            </li>
+          </ul>
+        </div>
 
         <p class="flex justify-center mt-3 mb-1 dark:text-white">You can also find me here:</p>
         <div class="flex justify-center">
