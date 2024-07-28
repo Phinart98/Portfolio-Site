@@ -1,12 +1,9 @@
 <template>
   <div class="flex justify-center">
     <div class="w-full sm:w-3/5">
-      <h2 class="flex justify-center text-3xl mt-8 dark:text-white">
-        My Writings
+      <h2 class="flex justify-center text-3xl italic mt-8 mb-4 dark:text-white">
+        Thoughts...
       </h2>
-      <p class="flex justify-center text-sm mt-2 mb-4 dark:text-white">
-        Welcome to the world of my thoughts
-      </p>
 
       <div
         v-for="(post, index) in blogPosts['0'].children"
