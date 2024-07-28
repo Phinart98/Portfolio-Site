@@ -11,30 +11,30 @@
           Hello, I'm&nbsp;<span class="text-orange-500"> Philip</span>!
         </h1>
         <h2 class="flex justify-center text-2xl my-2 dark:text-white">A Software Engineer</h2>
-        <p class="flex justify-center text-center italic my-1 dark:text-white">
+        <p class="flex justify-center text-center italic my-1 mx-3 dark:text-white">
           I'm fascinated by how technology can be leveraged to create positive impact across different fields.
           Currently, I'm exploring how to contribute to such impactful projects and relishing every moment of the
           experience - taking it one step at a time!
         </p>
-        <p class="flex justify-center text-center mt-3 dark:text-white">
+        <p class="text-center mt-4 dark:text-white">
           Previously, I have...
         </p>
-        <div class="flex justify-center p-1">
+        <div class="flex justify-center my-1 mx-3">
           <ul class="list-none text-center">
             <li class="relative pl-6 text-left mb-4">
-              <span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-black rounded-full"></span>
+              <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black rounded-full"></span>
               Contributed to building a referral and pharmacy management system at <a href="https://www.rigelis.co/"
-                class="text-orange-500">Rigelis</a>, a nascent health-tech startup.
+                class="text-orange-500 underline underline-offset-4">Rigelis</a>, a nascent health-tech startup.
             </li>
             <li class="relative pl-6 text-left">
-              <span class="absolute left-0 top-1.5 w-1.5 h-1.5 bg-black rounded-full"></span>
+              <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black rounded-full"></span>
               Obtained a BSc. Computer Engineering at <a href="https://www.ashesi.edu.gh/"
-                class="text-orange-500">Ashesi University</a>.
+                class="text-orange-500 underline underline-offset-4">Ashesi University</a>.
             </li>
           </ul>
         </div>
 
-        <p class="flex justify-center mt-3 mb-1 dark:text-white">You can also find me here:</p>
+        <p class="text-center mt-4 mb-1 dark:text-white">You can also find me here:</p>
         <div class="flex justify-center">
           <div class="flex justify-between mx-4 mb-8 w-3/5">
             <NuxtLink to="https://github.com/Phinart98" target="_blank">
