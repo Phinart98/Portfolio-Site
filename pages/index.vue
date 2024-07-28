@@ -21,12 +21,12 @@
         </p>
         <div class="flex justify-center my-1 mx-3">
           <ul class="list-none text-center">
-            <li class="relative pl-6 text-left mb-4">
+            <li class="relative pl-6 text-left mb-4 dark:text-white">
               <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black rounded-full"></span>
               Contributed to building a referral and pharmacy management system at <a href="https://www.rigelis.co/"
                 class="text-orange-500 underline underline-offset-4">Rigelis</a>, a nascent health-tech startup.
             </li>
-            <li class="relative pl-6 text-left">
+            <li class="relative pl-6 text-left dark:text-white">
               <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black rounded-full"></span>
               Obtained a BSc. Computer Engineering at <a href="https://www.ashesi.edu.gh/"
                 class="text-orange-500 underline underline-offset-4">Ashesi University</a>.
