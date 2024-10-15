@@ -34,7 +34,7 @@
             </li>
             <li class="relative pl-6 text-left dark:text-white">
               <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black dark:bg-white rounded-full"></span>
-              obtained a BSc. Computer Engineering at <a href="https://www.ashesi.edu.gh/"
+              obtained a BSc. Computer Engineering from <a href="https://www.ashesi.edu.gh/"
                 class="text-orange-500 underline underline-offset-4">Ashesi University</a>.
             </li>
           </ul>
