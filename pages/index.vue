@@ -29,7 +29,7 @@
             </li>
             <li class="relative pl-6 text-left mb-4 dark:text-white">
               <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black dark:bg-white rounded-full"></span>
-              contributed to building a referral and pharmacy management system at <a href="https://www.rigelis.co/"
+              contributed to building a referral and pharmacy management system at <a href="https://rigelis.co/"
                 class="text-orange-500 underline underline-offset-4">Rigelis</a>, a nascent health-tech startup.
             </li>
             <li class="relative pl-6 text-left dark:text-white">
