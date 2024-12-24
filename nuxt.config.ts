@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-gtag"],
 
   content: {
     markdown: {
@@ -36,4 +36,8 @@ export default defineNuxtConfig({
       plugins: [require("@tailwindcss/typography")],
     },
   },
+
+  gtag: {
+    id: 'G-BCZF1LTT3V'
+  }
 });
