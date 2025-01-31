@@ -60,7 +60,7 @@
         </div> -->
         <div class="flex justify-center">
           <div class="flex justify-between mx-4 mb-8 w-4/5">
-            <NuxtLink to="https://github.com/Phinart98" target="_blank">
+            <NuxtLink to="https://www.github.com/Phinart98" target="_blank">
               <i class="bi bi-github text-2xl text-orange-500 pt-1"></i>
             </NuxtLink>
             <NuxtLink to="https://www.linkedin.com/in/philipnarteh/" target="_blank">
@@ -81,7 +81,7 @@
             <NuxtLink to="mailto:phinart98@gmail.com" target="_blank">
               <i class="bi bi-envelope-at-fill text-2xl text-orange-500 pt-1"></i>
             </NuxtLink>
-            <NuxtLink to="https://twitter.com/NiiOtuNarteh" target="_blank">
+            <NuxtLink to="https://www.x.com/NiiOtuNarteh" target="_blank">
               <i class="bi bi-twitter-x text-2xl text-orange-500 pt-1"></i>
             </NuxtLink>
             <NuxtLink to="https://www.instagram.com/niiotunarteh/" target="_blank">
