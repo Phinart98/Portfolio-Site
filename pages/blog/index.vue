@@ -1,12 +1,12 @@
 <template>
   <div class="flex justify-center">
     <div class="w-full sm:w-3/5">
-      <h2 class="flex justify-center text-3xl italic mt-8 mb-4 dark:text-white">
-        Thoughts...
+      <h2 class="flex justify-center text-2xl italic mt-8 mb-4 dark:text-white">
+        Debugging Life & Code - Logging Thoughts, One Entry at a Time
       </h2>
 
       <div
-        v-for="(post, index) in blogPosts['0'].children"
+        v-for="(post, index) in reversedBlogPosts"
         :key="index"
         class="h-40 sm:h-32 bg-white dark:bg-slate-800 mb-4 mx-4 border rounded-lg drop-shadow-lg dark:shadow-black dark:border-black"
       >
@@ -26,38 +26,10 @@ const { data: blogPosts } = await useAsyncData("navigation", () => {
   return fetchContentNavigation(queryContent("blog"));
 });
 
-// export default {
-//   data() {
-//     return {
-//       // blogPosts: [
-//       //   {
-//       //     date: "March 2, 2023",
-//       //     title:
-//       //       "How Feature Flags Can Complement and Enhance Git Branching Strategies",
-//       //   },
-//       // ],
-//       blogPosts: useAsyncData("navigation", () => {
-//          return fetchContentNavigation(queryContent("blog"));
-//        })
-//     };
-//   },
-
-//   methods: {
-//     // async loadBlogPosts() {
-//     //   let res = await useAsyncData("navigation", () => {
-//     //     return fetchContentNavigation(queryContent("blog"));
-//     //   })
-//     //   this.blogPosts = res.data
-//     //   console.log(typeof this.blogPosts)
-//     //   console.log(this.blogPosts);
-//     //   return this.blogPosts;
-//     // },
-//   },
-
-//   mounted() {
-//     // this.loadBlogPosts();
-//   },
-// };
+// Reverse the blog posts array to show the most recent first
+const reversedBlogPosts = computed(() => {
+  return [...blogPosts.value[0].children].reverse();
+});
 </script>
 
 <style scoped></style>

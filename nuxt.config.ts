@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     },
   },
 
+  css: [
+    "bootstrap-icons/font/bootstrap-icons.css"
+  ],
+
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-gtag"],
 
   content: {
