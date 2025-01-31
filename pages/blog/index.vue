@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-center">
     <div class="w-full sm:w-3/5">
-      <h2 class="flex justify-center text-2xl italic mt-8 mb-4 dark:text-white">
+      <!-- <h2 class="flex justify-center text-2xl italic mt-8 mb-4 dark:text-white">
         Debugging Life & Code - Logging Thoughts, One Entry at a Time
-      </h2>
+      </h2> -->
 
       <div
         v-for="(post, index) in reversedBlogPosts"
