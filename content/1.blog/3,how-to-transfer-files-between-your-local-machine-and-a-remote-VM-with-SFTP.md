@@ -23,7 +23,7 @@ In this guide, I’ll walk through how to use SFTP to move files between your lo
 - ✅ A remote VM with SSH access
 - ✅ Windows Subsystem for Linux (**WSL**) installed and configured. [Read here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment)
 - ✅ An SSH client (included by default in WSL)
-- ✅ The private key for your VM. Check out [this guide](./how-to-SSH-into-a-Remote-VM-from-WSL) for more info on generating one.
+- ✅ The private key for your VM. Check out [this guide](https://www.philipnarteh.me/blog/how-to-ssh-into-a-remote-vm-from-wsl) for more info on generating one.
 
 ## Step 1: Understanding SFTP
 
@@ -37,9 +37,9 @@ With SFTP, you can:
 
 ## Step 2: Establish an SFTP Connection
 
-First, connect to your VM using SFTP. If you have an SSH config file set up (as explained in [this guide](./how-to-ssh-into-a-remote-vm)), simply run:
+First, connect to your VM using SFTP. If you have an SSH config file set up (as explained in [this guide](https://www.philipnarteh.me/blog/how-to-ssh-into-a-remote-vm-from-wsl), simply run:
 
-```sh
+```bash
 sftp [Your VM's Alias or whatever  you named it in the config file]
 ```
 
@@ -50,7 +50,7 @@ Once connected, you'll see an `sftp>` prompt, indicating that you're inside the 
 Here are some essential commands to navigate and transfer files:
 
 ### Listing files in the remote VM
-```sh
+```bash
 ls
 ```
 
@@ -60,22 +60,22 @@ cd /path/to/remote/directory
 ```
 
 ### Uploading a file from your local machine to the VM
-```sh
+```bash
 put localfile.txt /remote/path/
 ```
 
 ### Downloading a file from the VM to your local machine
-```sh
+```bash
 get /remote/path/file.txt localfile.txt
 ```
 
 ### Uploading an entire directory
-```sh
+```bash
 put -r my_local_folder /remote/path/
 ```
 
 ### Downloading an entire directory
-```sh
+```bash
 get -r /remote/path/my_folder ./
 ```
 

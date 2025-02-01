@@ -15,15 +15,16 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    "bootstrap-icons/font/bootstrap-icons.css"
-  ],
+  css: ["bootstrap-icons/font/bootstrap-icons.css", "~/assets/css/main.css"],
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-gtag"],
 
   content: {
     markdown: {
       anchorLinks: false,
+    },
+    highlight: {
+      theme: "github-dark", // or 'dracula', 'nord', 'material-palenight'
     },
   },
 
@@ -35,13 +36,13 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",
-    configPath: 'tailwind.config',
+    configPath: "tailwind.config",
     config: {
       plugins: [require("@tailwindcss/typography")],
     },
   },
 
   gtag: {
-    id: 'G-BCZF1LTT3V'
-  }
+    id: "G-BCZF1LTT3V",
+  },
 });

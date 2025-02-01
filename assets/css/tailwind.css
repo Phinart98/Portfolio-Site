@@ -5,3 +5,22 @@
 body {
     @apply bg-slate-100 dark:bg-slate-900;
 }
+
+/* Ensure proper font size for code */
+pre, code {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Make sure pre tags have proper spacing */
+  pre {
+    @apply bg-gray-900 text-white p-4 rounded-md overflow-x-auto;
+  }
+  
+  /* Ensure inline code looks distinct */
+  code {
+    @apply bg-gray-800 text-green-300 px-1 rounded;
+  }
+  
+  ul, ol {
+    @apply text-lg; /* Apply slightly larger font size */
+  }

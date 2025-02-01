@@ -1,0 +1,29 @@
+:root {
+    --shiki-color-text: #e5e9f0;
+    --shiki-color-background: #1e1e1e; /* Dark background */
+    --shiki-token-keyword: #c678dd;
+    --shiki-token-string: #98c379;
+    --shiki-token-function: #61afef;
+    --shiki-token-comment: #5c6370;
+  }
+
+  pre, code {
+    font-size: 1.05em !important;  /* Adjust as needed */
+    line-height: 0.4 !important;
+  }
+
+  ul {
+    list-style-type: disc; /* or 'circle', 'square' */
+    padding-left: 20px;
+  }
+  
+  ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+
+  
