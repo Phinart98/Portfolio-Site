@@ -16,7 +16,6 @@ export default defineNuxtConfig({
   },
 
   css: ["bootstrap-icons/font/bootstrap-icons.css", "~/assets/css/main.css"],
-
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-gtag"],
 
   content: {
@@ -25,6 +24,19 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: "github-dark", // or 'dracula', 'nord', 'material-palenight'
+      langs: [
+        "json",
+        "js",
+        "ts",
+        "html",
+        "css",
+        "vue",
+        "sh",
+        "mdc",
+        "md",
+        "yaml",
+        "python",
+      ],
     },
   },
 
@@ -45,4 +57,6 @@ export default defineNuxtConfig({
   gtag: {
     id: "G-BCZF1LTT3V",
   },
+
+  compatibilityDate: "2025-02-09",
 });
