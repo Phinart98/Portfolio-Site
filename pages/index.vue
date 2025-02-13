@@ -22,7 +22,6 @@
         <div class="flex justify-center my-1 mx-3">
           <ul class="list-none text-center">
             <li class="relative pl-6 text-left mb-4 dark:text-white">
-              <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black dark:bg-white rounded-full"></span>
               learned to leverage technology and data to tackle the most pressing issues of our time through the <a
                 href="https://www.equitechfutures.com/program/adi"
                 class="text-orange-500 underline underline-offset-4">Applied Data Institute</a> fellowship program
@@ -30,12 +29,10 @@
                 class="text-orange-500 underline underline-offset-4"> Equitech Futures</a>.
             </li>
             <li class="relative pl-6 text-left mb-4 dark:text-white">
-              <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black dark:bg-white rounded-full"></span>
               contributed to building a referral and pharmacy management system at <a href="https://rigelis.co/"
                 class="text-orange-500 underline underline-offset-4">Rigelis</a>, a nascent health-tech startup.
             </li>
             <li class="relative pl-6 text-left dark:text-white">
-              <span class="absolute left-0 top-2.5 w-1.5 h-1.5 bg-black dark:bg-white rounded-full"></span>
               obtained a BSc. Computer Engineering from <a href="https://www.ashesi.edu.gh/"
                 class="text-orange-500 underline underline-offset-4">Ashesi University</a>.
             </li>
@@ -59,7 +56,7 @@
           </div>
         </div> -->
         <div class="flex justify-center">
-          <div class="flex justify-between mx-4 mb-8 w-4/5">
+          <div class="flex justify-between mx-4 mb-8 w-3/5">
             <NuxtLink to="https://www.github.com/Phinart98" target="_blank">
               <i class="bi bi-github text-2xl text-orange-500 pt-1"></i>
             </NuxtLink>
@@ -104,4 +101,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Override list styling for the About page */
+ul, ol {
+  /* Remove the blog-specific text size and list styling;
+     adjust these rules as needed to restore your desired appearance */
+  font-size: inherit;
+  list-style: initial; /* or set a different marker style */
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+</style>
+

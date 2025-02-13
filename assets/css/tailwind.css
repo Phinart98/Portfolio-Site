@@ -24,3 +24,12 @@ pre, code {
   ul, ol {
     @apply text-lg; /* Apply slightly larger font size */
   }
+
+  /* Add table styles with Tailwind classes */
+.prose table {
+  @apply text-xl;  /* This will make the table text larger */
+}
+
+.prose th, .prose td {
+  @apply border border-gray-200 dark:border-gray-700 p-3;
+}
