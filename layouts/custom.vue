@@ -18,7 +18,7 @@
               <span>Back to Blog Posts</span>
             </NuxtLink>
           </div>
-          <div class="ml-4">
+          <div class="ml-2">
             <ThemeToggle />
           </div>
         </div>
@@ -48,7 +48,7 @@ export default {
   transform: none;
 }
 .nav-link {
-  @apply px-4 py-2 rounded-full transition-all duration-300 ease-in-out;
+  @apply px-1 py-1 rounded-full transition-all duration-300 ease-in-out;
 }
 .nav-link:not(.router-link-active):hover {
   @apply bg-orange-100 dark:bg-orange-900/30;

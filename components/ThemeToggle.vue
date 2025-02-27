@@ -15,7 +15,7 @@ const toggleColorMode = () => {
 
 <style scoped>
 .toggle-btn {
-  @apply p-1 rounded-lg transition-all duration-300;
+  @apply p-0.5 sm:p-1 rounded-lg transition-all duration-300;
   @apply bg-orange-100/40 dark:bg-orange-900/40;
   @apply border border-orange-500/40 hover:border-orange-500;
 }
@@ -24,3 +24,4 @@ const toggleColorMode = () => {
   @apply text-lg sm:text-xl text-orange-500;
 }
 </style>
+
