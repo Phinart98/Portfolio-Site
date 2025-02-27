@@ -16,7 +16,12 @@ export default defineNuxtConfig({
   },
 
   css: ["bootstrap-icons/font/bootstrap-icons.css", "~/assets/css/main.css"],
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "nuxt-gtag"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/content",
+    "nuxt-gtag",
+    "@nuxtjs/color-mode",
+  ],
 
   content: {
     markdown: {
@@ -36,7 +41,7 @@ export default defineNuxtConfig({
         "md",
         "yaml",
         "python",
-        "sql"
+        "sql",
       ],
     },
   },
@@ -57,6 +62,12 @@ export default defineNuxtConfig({
 
   gtag: {
     id: "G-BCZF1LTT3V",
+  },
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classSuffix: ''
   },
 
   compatibilityDate: "2025-02-09",
