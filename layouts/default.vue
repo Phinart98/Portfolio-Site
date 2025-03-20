@@ -5,7 +5,7 @@
         <div class="text-xl sm:text-2xl">
           <NuxtLink to="/" class="logo-link">
             <span class="text-black dark:text-white">philipnarteh.</span>
-            <span class="text-orange-500">me</span>
+            <span class="text-orange-600">me</span>
           </NuxtLink>
         </div>
 
@@ -51,7 +51,7 @@
 /* Active state styling with animation */
 .router-link-active,
 .router-link-exact-active {
-  @apply bg-orange-500 text-white scale-105;
+  @apply bg-orange-700 text-white scale-105;
   animation: fadeIn 0.3s ease-in-out;
   @media (prefers-color-scheme: dark) {
     color: white;

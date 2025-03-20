@@ -5,7 +5,7 @@
         <!-- Home icon for blog page -->
         <div class="text-lg sm:text-xl">
           <NuxtLink to="/" class="logo-link">
-            <i class="bi bi-house-door text-orange-500"></i>
+            <i class="bi bi-house-door text-orange-600"></i>
             <span class="dark:text-white"> Home</span>
           </NuxtLink>
         </div>

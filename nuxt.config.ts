@@ -12,6 +12,9 @@ export default defineNuxtConfig({
       link: [
         // {rel:"stylesheet" href:"get font and icons link from Google fonts"}
       ],
+      htmlAttrs: {
+        lang: 'en'
+      }
     },
   },
 
