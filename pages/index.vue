@@ -8,7 +8,7 @@
       </div>
       <div>
         <h1 class="flex justify-center text-5xl mt-4 dark:text-white">
-          Hello, I'm&nbsp;<span class="text-orange-600"> Philip</span>!
+          Hello, I'm&nbsp;<span class="text-orange-700 dark:text-orange-500"> Philip</span>!
         </h1>
         <h2 class="flex justify-center text-2xl my-2 dark:text-white">A Software Engineer</h2>
         <p class="flex justify-center text-center italic my-1 mx-3 dark:text-white">
@@ -58,14 +58,14 @@
         <div class="flex justify-center">
           <div class="flex justify-between mx-4 mb-8 w-3/5">
             <NuxtLink to="https://www.github.com/Phinart98" target="_blank" aria-label="Visit my GitHub profile">
-              <i class="bi bi-github text-2xl text-orange-600 pt-1"></i>
+              <i class="bi bi-github text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
             </NuxtLink>
             <NuxtLink to="https://www.linkedin.com/in/philipnarteh/" target="_blank" aria-label="Visit my LinkedIn profile">
-              <i class="bi bi-linkedin text-2xl text-orange-600 pt-1"></i>
+              <i class="bi bi-linkedin text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
             </NuxtLink>
             <NuxtLink to="https://www.credly.com/users/philip-narteh" target="_blank" aria-label="View my certifications and badges on Credly">
               <div class="mt-1">
-                <i class="text-3xl text-orange-600 pt-1">
+                <i class="text-3xl text-orange-700 dark:text-orange-500 pt-1">
                   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     id="Credly--Streamline-Simple-Icons" height="1em" width="1em" fill="currentcolor">
                     <title>Credly logo</title>
@@ -77,13 +77,13 @@
               </div>
             </NuxtLink>
             <NuxtLink to="mailto:phinart98@gmail.com" target="_blank" aria-label="Send me an email">
-              <i class="bi bi-envelope-at-fill text-2xl text-orange-600 pt-1"></i>
+              <i class="bi bi-envelope-at-fill text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
             </NuxtLink>
             <NuxtLink to="https://www.x.com/NiiOtuNarteh" target="_blank" aria-label="Follow me on X (formally Twitter)">
-              <i class="bi bi-twitter-x text-2xl text-orange-600 pt-1"></i>
+              <i class="bi bi-twitter-x text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
             </NuxtLink>
             <NuxtLink to="https://www.instagram.com/niiotunarteh/" target="_blank" aria-label="Follow me on Instagram">
-              <i class="bi bi-instagram text-2xl text-orange-600 pt-1"></i>
+              <i class="bi bi-instagram text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
             </NuxtLink>
           </div>
         </div>

@@ -21,7 +21,7 @@ const toggleColorMode = () => {
 }
 
 .toggle-btn i {
-  @apply text-lg sm:text-xl text-orange-700;
+  @apply text-lg sm:text-xl text-orange-700 dark:text-orange-600;
 }
 </style>
 

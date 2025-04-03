@@ -5,7 +5,7 @@
         <div class="text-xl sm:text-2xl">
           <NuxtLink to="/" class="logo-link">
             <span class="text-black dark:text-white">philipnarteh.</span>
-            <span class="text-orange-600">me</span>
+            <span class="text-orange-700 dark:text-orange-500">me</span>
           </NuxtLink>
         </div>
 
