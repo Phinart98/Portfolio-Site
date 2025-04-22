@@ -22,6 +22,14 @@
         <div class="flex justify-center my-1 mx-3">
           <ul class="list-none text-center">
             <li class="relative pl-6 text-left mb-4 dark:text-white">
+              contributed to <a href="https://www.djangoproject.com/"
+                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Django</a> Accessibility by
+              participating in <a href="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/"
+                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Session 4</a> of the <a
+                href="https://djangonaut.space/"
+                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Djangonaut Space Program</a>.
+            </li>
+            <li class="relative pl-6 text-left mb-4 dark:text-white">
               learned to leverage technology and data to tackle the most pressing issues of our time through the <a
                 href="https://www.equitechfutures.com/program/adi"
                 class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Applied Data Institute</a> fellowship program

@@ -19,11 +19,11 @@ definePageMeta({
 </script>
 
 <style>
-p{
+.prose-sm p{
   @apply text-lg
 }
 
-h6 p {
+.prose-sm h6 p {
   @apply text-center text-sm;
 }
 </style>
