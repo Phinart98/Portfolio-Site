@@ -147,6 +147,31 @@ onMounted(() => {
   @apply p-2 rounded-lg text-dark-700 dark:text-dark-200;
   @apply hover:bg-orange-100 dark:hover:bg-orange-900/30;
   @apply transition-all duration-300;
+  /* Remove focus and active state effects */
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.mobile-menu-btn:focus {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+.mobile-menu-btn:active {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+.mobile-menu-btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  border: none;
 }
 
 /* Mobile navigation links */
