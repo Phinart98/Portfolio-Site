@@ -5,9 +5,6 @@
       <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl mb-6 animate-float">
         <i class="bi bi-journal-text text-3xl text-white"></i>
       </div>
-      <h1 class="text-4xl sm:text-5xl font-bold text-dark-900 dark:text-white mb-4">
-        Blog & Thoughts
-      </h1>
       <p class="text-xl text-dark-600 dark:text-dark-300 max-w-3xl mx-auto italic">
         Debugging Life & Code - Logging Thoughts, One Entry at a Time
       </p>
@@ -18,7 +15,9 @@
       <article 
         v-for="(post, index) in reversedBlogPosts" 
         :key="index"
-        class="group bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-orange-300/60 dark:border-dark-700/60 overflow-hidden hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-2 animate-slide-up"
+        class="group bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-orange-300/60 dark:border-dark-700/60 overflow-hidden cursor-pointer transition-all duration-300 animate-slide-up"
+        @click="toggleBlogCard(index)"
+        :class="{ 'shadow-xl shadow-orange-500/10 -translate-y-2': clickedBlogCards[index] }"
         :style="`animation-delay: ${0.1 * index}s`"
       >
         <NuxtLink :to="`${post._path}`" class="block h-full">
@@ -85,6 +84,38 @@ const reversedBlogPosts = computed(() => {
   if (!blogPosts.value || !blogPosts.value[0]?.children) return [];
   return [...blogPosts.value[0].children].reverse();
 });
+
+// Blog card click behavior
+const clickedBlogCards = ref([])
+let blogCardTimeouts = []
+
+const toggleBlogCard = (index) => {
+  // Initialize array if needed
+  if (!clickedBlogCards.value[index]) {
+    clickedBlogCards.value[index] = false
+  }
+  
+  clickedBlogCards.value[index] = !clickedBlogCards.value[index]
+  
+  // Clear any existing timeout for this card
+  if (blogCardTimeouts[index]) {
+    clearTimeout(blogCardTimeouts[index])
+  }
+  
+  // Auto-revert after 2 seconds if clicked
+  if (clickedBlogCards.value[index]) {
+    blogCardTimeouts[index] = setTimeout(() => {
+      clickedBlogCards.value[index] = false
+    }, 2000)
+  }
+}
+
+// Cleanup timeouts on unmount
+onBeforeUnmount(() => {
+  blogCardTimeouts.forEach(timeout => {
+    if (timeout) clearTimeout(timeout)
+  })
+})
 </script>
 
 <style scoped>

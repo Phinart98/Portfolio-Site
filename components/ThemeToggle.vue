@@ -6,11 +6,11 @@
     type="button"
   >
     <i 
-      v-show="!isDark" 
+      v-show="isDark" 
       class="bi bi-sun-fill icon"
     ></i>
     <i 
-      v-show="isDark" 
+      v-show="!isDark" 
       class="bi bi-moon-fill icon"
     ></i>
   </button>
@@ -35,13 +35,11 @@ const handleToggle = () => {
 <style scoped>
 .toggle-btn {
   @apply relative p-3 rounded-xl transition-all duration-300;
-  @apply bg-gradient-to-br from-orange-100 to-orange-200/80;
-  @apply dark:from-orange-900/40 dark:to-orange-800/60;
-  @apply border border-orange-300/50 dark:border-orange-700/50;
-  @apply hover:border-orange-500 dark:hover:border-orange-500;
   @apply hover:shadow-lg hover:shadow-orange-500/25;
   @apply hover:-translate-y-1 active:translate-y-0;
   @apply group-hover:scale-110;
+  background: transparent;
+  border: none;
 }
 
 .toggle-btn:hover {
@@ -68,4 +66,3 @@ const handleToggle = () => {
   animation: spin 0.3s ease-in-out;
 }
 </style>
-

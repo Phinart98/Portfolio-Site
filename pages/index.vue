@@ -4,12 +4,23 @@
     <div class="text-center animate-fade-in">
       <!-- Your profile image -->
       <div class="mb-8">
-        <img src="~/assets/img/Philip_headshot3.jpeg" alt="A headshot of Philip" 
-             class="grayscale rounded-full w-40 h-40 sm:w-48 sm:h-48 mx-auto object-cover border-4 border-orange-300 dark:border-orange-700 hover:grayscale-0 transition-all duration-300 hover:scale-105" />
+        <img 
+          src="~/assets/img/Philip_headshot3.jpeg" 
+          alt="A headshot of Philip" 
+          @click="toggleImageColor"
+          @mouseenter="handleImageHover(true)"
+          @mouseleave="handleImageHover(false)"
+          @touchstart="handleImageHover(true)"
+          @touchend="handleImageHover(false)"
+          :class="[
+            'grayscale rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto object-cover cursor-pointer transition-all duration-300',
+            (imageClicked || imageHovered) ? 'grayscale-0 border-0 scale-105' : 'border-4 border-orange-300 dark:border-orange-700 hover:scale-105'
+          ]"
+        />
       </div>
       
-      <h1 class="text-5xl sm:text-6xl font-bold mt-4 mb-4 dark:text-white transition-colors">
-        Hello, I'm&nbsp;<span class="text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"> Philip</span>!
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-4 dark:text-white transition-colors whitespace-nowrap">
+        Hello, I'm&nbsp;<span class="text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Philip</span>!
       </h1>
       
       <h2 class="text-2xl sm:text-3xl my-4 dark:text-white transition-colors font-medium">
@@ -29,7 +40,13 @@
       </p>
       
       <div class="space-y-6 max-w-4xl mx-auto">
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+        <div 
+          @click="toggleCard(0)"
+          :class="[
+            'bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300',
+            clickedCards[0] ? 'shadow-lg shadow-orange-500/10 -translate-y-1' : ''
+          ]"
+        >
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
@@ -45,7 +62,7 @@
           </div>
         </div>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
@@ -59,7 +76,7 @@
           </div>
         </div>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
@@ -72,7 +89,7 @@
           </div>
         </div>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
@@ -114,7 +131,7 @@
                     class="hover:scale-110 transition-transform duration-300">
             <i class="bi bi-linkedin text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
           </NuxtLink>
-          <NuxtLink to="https://www.credly.com/users/philip-narteh" target="_blank" aria-label="View my certifications and badges on Credly"
+          <NuxtLink to="https://www.credly.com/users/philip-narteh" target="_blank" aria-label="Visit my certifications and badges on Credly"
                     class="hover:scale-110 transition-transform duration-300">
             <i class="bi bi-award text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
           </NuxtLink>
@@ -143,6 +160,62 @@ useHead({
   meta: [
     { name: 'description', content: 'Software Engineer passionate about accessibility, Django development, and inclusive web experiences.' }
   ]
+})
+
+// Image click and hover behavior
+const imageClicked = ref(false)
+const imageHovered = ref(false)
+let imageTimeout = null
+
+const toggleImageColor = () => {
+  imageClicked.value = true
+  
+  // Clear any existing timeout
+  if (imageTimeout) {
+    clearTimeout(imageTimeout)
+  }
+  
+  // Auto-revert after 1.5 seconds (reduced from 3 seconds)
+  imageTimeout = setTimeout(() => {
+    imageClicked.value = false
+  }, 1500)
+}
+
+const handleImageHover = (isHovering) => {
+  // Only enable hover on non-touch devices (desktop)
+  if (!('ontouchstart' in window)) {
+    imageHovered.value = isHovering
+  }
+}
+
+// Card click behavior
+const clickedCards = ref([false, false, false, false])
+let cardTimeouts = []
+
+const toggleCard = (index) => {
+  clickedCards.value[index] = !clickedCards.value[index]
+  
+  // Clear any existing timeout for this card
+  if (cardTimeouts[index]) {
+    clearTimeout(cardTimeouts[index])
+  }
+  
+  // Auto-revert after 2 seconds if clicked
+  if (clickedCards.value[index]) {
+    cardTimeouts[index] = setTimeout(() => {
+      clickedCards.value[index] = false
+    }, 2000)
+  }
+}
+
+// Cleanup timeouts on unmount
+onBeforeUnmount(() => {
+  if (imageTimeout) {
+    clearTimeout(imageTimeout)
+  }
+  cardTimeouts.forEach(timeout => {
+    if (timeout) clearTimeout(timeout)
+  })
 })
 </script>
 
