@@ -44,32 +44,60 @@
             </button>
           </div>
         </div>
-
-        <!-- Mobile menu -->
-        <transition
-          enter-active-class="transition ease-out duration-300"
-          enter-from-class="opacity-0 transform -translate-y-2"
-          enter-to-class="opacity-100 transform translate-y-0"
-          leave-active-class="transition ease-in duration-200"
-          leave-from-class="opacity-100 transform translate-y-0"
-          leave-to-class="opacity-0 transform -translate-y-2"
-        >
-          <div v-show="mobileMenuOpen" class="md:hidden py-4 border-t border-orange-300/70 dark:border-dark-700/70">
-            <div class="flex flex-col space-y-2 items-end">
-              <NuxtLink to="/" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
-                <i class="bi bi-person mr-3"></i>About
-              </NuxtLink>
-              <NuxtLink to="/blog" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
-                <i class="bi bi-journal-text mr-3"></i>Blog
-              </NuxtLink>
-              <!-- <NuxtLink to="/projects" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
-                <i class="bi bi-code-square mr-3"></i>Projects
-              </NuxtLink> -->
-            </div>
-          </div>
-        </transition>
       </div>
     </nav>
+
+    <!-- Mobile menu overlay -->
+    <transition
+      enter-active-class="transition ease-out duration-300"
+      enter-from-class="opacity-0 transform -translate-y-4"
+      enter-to-class="opacity-100 transform translate-y-0"
+      leave-active-class="transition ease-in duration-200"
+      leave-from-class="opacity-100 transform translate-y-0"
+      leave-to-class="opacity-0 transform -translate-y-4"
+    >
+      <div 
+        v-show="mobileMenuOpen" 
+        class="md:hidden fixed top-16 left-0 right-0 z-40 mobile-menu-overlay"
+      >
+        <div class="mobile-menu-content">
+          <div class="flex flex-col space-y-2 items-end p-4">
+            <NuxtLink to="/" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+              <i class="bi bi-person mr-3"></i>About
+            </NuxtLink>
+            <NuxtLink to="/blog" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+              <i class="bi bi-journal-text mr-3"></i>Blog
+            </NuxtLink>
+            <!-- Add more menu items here as needed -->
+            <!-- <NuxtLink to="/projects" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+              <i class="bi bi-code-square mr-3"></i>Projects
+            </NuxtLink> -->
+            <!-- <NuxtLink to="/talks" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+              <i class="bi bi-mic mr-3"></i>Talks
+            </NuxtLink> -->
+            <!-- <NuxtLink to="/certifications" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+              <i class="bi bi-award mr-3"></i>Certifications
+            </NuxtLink> -->
+          </div>
+        </div>
+      </div>
+    </transition>
+
+    <!-- Backdrop overlay -->
+    <transition
+      enter-active-class="transition ease-out duration-300"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition ease-in duration-200"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div 
+        v-show="mobileMenuOpen" 
+        class="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
+        @click="mobileMenuOpen = false"
+      ></div>
+    </transition>
 
     <main class="animate-fade-in">
       <slot />
@@ -172,6 +200,40 @@ onMounted(() => {
   box-shadow: none;
   background: transparent;
   border: none;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  max-height: 50vh;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.mobile-menu-content {
+  @apply backdrop-blur-md bg-white/95 dark:bg-dark-800/95;
+  @apply border-b border-orange-300/70 dark:border-dark-600/70;
+  max-height: 50vh;
+  overflow-y: auto;
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(249, 115, 22, 0.5) transparent;
+}
+
+/* Webkit scrollbar styling for Chrome/Safari */
+.mobile-menu-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-menu-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-menu-content::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.5);
+  border-radius: 2px;
+}
+
+.mobile-menu-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.7);
 }
 
 /* Mobile navigation links */
