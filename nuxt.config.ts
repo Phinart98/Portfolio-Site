@@ -10,7 +10,9 @@ export default defineNuxtConfig({
         // {}
       ],
       link: [
-        // {rel:"stylesheet" href:"get font and icons link from Google fonts"}
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap' }
       ],
       htmlAttrs: {
         lang: 'en'

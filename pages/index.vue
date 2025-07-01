@@ -1,124 +1,180 @@
 <template>
-  <div class="flex justify-center">
-    <div class="w-full sm:w-2/5">
-      <div class="flex justify-center">
-        <div class="w-64">
-          <img src="~/assets/img/Philip_headshot3.jpeg" alt="A headshot of Philip" class="grayscale rounded-full" />
-        </div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Your original welcome section with enhanced styling -->
+    <div class="text-center animate-fade-in">
+      <!-- Your profile image -->
+      <div class="mb-8">
+        <img src="~/assets/img/Philip_headshot3.jpeg" alt="A headshot of Philip" 
+             class="grayscale rounded-full w-40 h-40 sm:w-48 sm:h-48 mx-auto object-cover border-4 border-orange-300 dark:border-orange-700 hover:grayscale-0 transition-all duration-300 hover:scale-105" />
       </div>
-      <div>
-        <h1 class="flex justify-center text-5xl mt-4 dark:text-white">
-          Hello, I'm&nbsp;<span class="text-orange-700 dark:text-orange-500"> Philip</span>!
-        </h1>
-        <h2 class="flex justify-center text-2xl my-2 dark:text-white">A Software Engineer</h2>
-        <p class="flex justify-center text-center italic my-1 mx-3 dark:text-white">
-          I'm fascinated by how technology can be leveraged to create positive impact across different fields.
-          Currently, I'm exploring how to contribute to such impactful projects and relishing every moment of the
-          experience - taking it one step at a time!
-        </p>
-        <p class="text-center mt-4 dark:text-white">
-          Previously, I have...
-        </p>
-        <div class="flex justify-center my-1 mx-3">
-          <ul class="list-none text-center">
-            <li class="relative pl-6 text-left mb-4 dark:text-white">
-              contributed to <a href="https://www.djangoproject.com/"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Django</a> Accessibility by
-              participating in <a href="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Session 4</a> of the <a
-                href="https://djangonaut.space/"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Djangonaut Space Program</a>.
-            </li>
-            <li class="relative pl-6 text-left mb-4 dark:text-white">
-              learned to leverage technology and data to tackle the most pressing issues of our time through the <a
-                href="https://www.equitechfutures.com/program/adi"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Applied Data Institute</a> fellowship program
-              organized by <a href="https://www.equitechfutures.com/"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4"> Equitech Futures</a>.
-            </li>
-            <li class="relative pl-6 text-left mb-4 dark:text-white">
-              contributed to building a referral and pharmacy management system at <a href="https://rigelis.co/"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Rigelis</a>, a nascent health-tech startup.
-            </li>
-            <li class="relative pl-6 text-left dark:text-white">
-              obtained a BSc. Computer Engineering from <a href="https://www.ashesi.edu.gh/"
-                class="text-orange-700 dark:text-orange-500 underline underline-offset-4">Ashesi University</a>.
-            </li>
-          </ul>
+      
+      <h1 class="text-5xl sm:text-6xl font-bold mt-4 mb-4 dark:text-white transition-colors">
+        Hello, I'm&nbsp;<span class="text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"> Philip</span>!
+      </h1>
+      
+      <h2 class="text-2xl sm:text-3xl my-4 dark:text-white transition-colors font-medium">
+        A Software Engineer
+      </h2>
+      
+      <!-- Blended description -->
+      <p class="flex justify-center text-center italic my-4 mx-3 dark:text-white transition-colors animate-slide-up" style="animation-delay: 0.2s;">
+        I'm fascinated by how technology can be harnessed to create meaningful impact across diverse fields. I care deeply about building inclusive and accessible web experiences, particularly within the Open-Source space. At the moment, I'm exploring ways to contribute to such impactful projects - relishing every moment and taking it one step at a time.
+      </p>
+    </div>
+
+    <!-- Enhanced highlights section with your original content -->
+    <div class="mt-16 animate-slide-up" style="animation-delay: 0.4s;">
+      <p class="text-center mb-8 dark:text-white text-xl font-medium">
+        Previously, I have...
+      </p>
+      
+      <div class="space-y-6 max-w-4xl mx-auto">
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start space-x-4">
+            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
+            <div class="text-left">
+              <p class="dark:text-white leading-relaxed text-lg">
+                contributed to 
+                <a href="https://www.djangoproject.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Django</a> 
+                Accessibility by participating in 
+                <a href="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Session 4</a> 
+                of the 
+                <a href="https://djangonaut.space/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Djangonaut Space Program</a>.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <p class="text-center mt-4 mb-1 dark:text-white">You can also find me here:</p>
-        <!-- <div class="flex justify-center">
-          <div class="flex justify-between mx-4 mb-8 w-3/5">
-            <NuxtLink to="https://github.com/Phinart98" target="_blank">
-              <i type="fontisto-17607" class="cIcon cIcon-fontisto-17607 text-2xl text-orange-500 pt-1"
-                title="custicon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentcolor"
-                  viewBox="0 0 1024 1024">
-                  <path
-                    d="M503.8 0h3.9c91.8 0 177.8 25.1 251.3 68.8l-2.2-1.3a505.9 505.9 0 0 1 182.2 181.2l1.3 2.3a499 499 0 0 1 67.7 252.6c0 221.4-142.7 409.6-341 477.5l-3.6 1.1a29.7 29.7 0 0 1-26.3-4.6l0.1 0a25.6 25.6 0 0 1-8.5-19.1v-0.6 0.1l0.3-50.2q0.3-48.3 0.3-88.3a116.5 116.5 0 0 0-34.1-93.1 447.2 447.2 0 0 0 70.4-12.5l-3.2 0.7a266.6 266.6 0 0 0 63-26.3l-1.3 0.7a185.1 185.1 0 0 0 53-43.3l0.2-0.3a200.7 200.7 0 0 0 34.4-67.4l0.4-1.4a323.1 323.1 0 0 0 13.4-93.5l0-5.5v0.2l0-2.9a193.7 193.7 0 0 0-51.9-132.3l0.1 0.1c6.9-18 10.9-38.8 10.8-60.6a174.1 174.1 0 0 0-16.5-74.3l0.5 1.1a85.8 85.8 0 0 0-53.7 7.4l0.5-0.2a353.2 353.2 0 0 0-61.9 29.7l1.5-0.9-24.9 15.8c-37.8-10.8-81.1-17-126-17.1s-88.2 6.2-129.3 17.9l3.3-0.8q-10.5-7.2-27.9-17.8a372.9 372.9 0 0 0-52.1-24.3l-2.7-0.9A89 89 0 0 0 239.1 208.9l0.5-0.1a172 172 0 0 0-16.1 73.3c0 21.7 4 42.6 11.3 61.8l-0.4-1.2a193.5 193.5 0 0 0-51.8 135.3v-0.2l-0.1 5.3c0 33.1 4.9 65.2 14.1 95.3l-0.6-2.3c7.7 26.3 19.5 49.2 34.8 69.3l-0.4-0.5a178.2 178.2 0 0 0 51.9 43.5l0.9 0.5c17.7 10.3 38.2 19 59.8 25.1l1.9 0.5c19.1 5.1 41.9 9.3 65.4 11.6l1.8 0.2c-17.7 17.5-29.4 41-32.1 67.1l0 0.4a125.2 125.2 0 0 1-28.6 9.7l-0.9 0.2c-10.5 2.1-22.5 3.3-34.8 3.3h-2.7 0.1a77.1 77.1 0 0 1-43.2-14.3l0.2 0.2a116.3 116.3 0 0 1-36.1-40.4l-0.2-0.6a106.6 106.6 0 0 0-31.5-33.9l-0.4-0.3a95.5 95.5 0 0 0-31.8-15.5l-0.6-0.2-13.1-2a42.9 42.9 0 0 0-19.3 3.1l0.3-0.1q-5.2 2.9-3.3 7.5c1.6 3.5 3.6 6.6 5.9 9.2l0 0c2.5 2.9 5.3 5.5 8.4 7.7l0.1 0.1 4.6 3.3c11.6 6.1 21.1 14.5 28.4 24.7l0.2 0.3c7.8 9.7 14.7 20.7 20.2 32.4l0.4 1 6.6 15c5.5 16.5 15.6 30.2 28.6 40.2l0.2 0.2c12.3 9.6 27.1 16.5 43.3 19.6l0.7 0.1c13.5 2.6 29.2 4.3 45.3 4.5h0.3c1.8 0.1 4 0.1 6.1 0.1 10.7 0 21.2-0.9 31.4-2.5l-1.1 0.1 15.1-2.6q0 24.9 0.3 58.1t0.4 35.8v0.5c0 7.6-3.3 14.4-8.6 19.1h0a29.4 29.4 0 0 1-26.4 4.6l0.2 0C142.8 912.8 0.2 724.7 0.2 503.2c0-92.9 25.1-179.9 68.9-254.7l-1.3 2.3a505.9 505.9 0 0 1 181.1-182.2l2.4-1.3a487.3 487.3 0 0 1 248.7-67.3h4.1-0.3z m-312.9 723.6q2-4.6-4.6-7.9-6.6-2-8.5 1.3-2 4.6 4.6 7.9 5.9 3.9 8.5-1.3z m20.4 22.3q4.6-3.3-1.3-10.5-6.6-5.9-10.5-1.9-4.6 3.3 1.3 10.5 6.5 6.4 10.5 1.9z m19.6 29.5q5.9-4.6 0-12.4-5.2-8.5-11.1-4-5.9 3.3 0 11.8t11.1 4.6z m27.6 27.6q5.2-5.2-2.7-12.5-7.9-7.9-13.1-1.9-5.9 5.2 2.7 12.4 7.9 7.9 13.1 1.8z m37.4 16.4q2-7.2-8.6-10.5-9.8-2.6-12.4 4.6t8.5 9.8q9.8 4 12.5-3.9z m41.3 3.2q0-8.5-11.2-7.2-10.5 0-10.4 7.2 0 8.5 11.1 7.2 10.5 0 10.5-7.1z m38-6.5q-1.3-7.2-11.8-5.9-10.5 2-9.1 9.8t11.8 5.3 9.2-9.2z">
-                  </path>
-                </svg>
-              </i>
-            </NuxtLink>
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start space-x-4">
+            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
+            <div class="text-left">
+              <p class="dark:text-white leading-relaxed text-lg">
+                selected as an Equitech Scholar for the 
+                <a href="https://www.equitechfutures.com/programs/adi" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Applied Data Institute</a> 
+                program at 
+                <a href="https://www.equitechfutures.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Equitech Futures</a>.
+              </p>
+            </div>
           </div>
-        </div> -->
-        <div class="flex justify-center">
-          <div class="flex justify-between mx-4 mb-8 w-3/5">
-            <NuxtLink to="https://www.github.com/Phinart98" target="_blank" aria-label="Visit my GitHub profile">
-              <i class="bi bi-github text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
-            </NuxtLink>
-            <NuxtLink to="https://www.linkedin.com/in/philipnarteh/" target="_blank" aria-label="Visit my LinkedIn profile">
-              <i class="bi bi-linkedin text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
-            </NuxtLink>
-            <NuxtLink to="https://www.credly.com/users/philip-narteh" target="_blank" aria-label="View my certifications and badges on Credly">
-              <div class="mt-1">
-                <i class="text-3xl text-orange-700 dark:text-orange-500 pt-1">
-                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                    id="Credly--Streamline-Simple-Icons" height="1em" width="1em" fill="currentcolor">
-                    <title>Credly logo</title>
-                    <path
-                      d="M23.8 13.154a0.299 0.299 0 0 0 -0.101 -0.024 0.407 0.407 0 0 0 -0.202 0.048c-0.06 0.028 -0.092 0.08 -0.127 0.136 -0.087 0.128 -0.15 0.268 -0.226 0.4 -0.107 0.187 -0.246 0.351 -0.38 0.515 -0.135 0.156 -0.286 0.291 -0.424 0.44 -0.028 0.027 -0.072 0.043 -0.107 0.027 -0.028 -0.016 -0.036 -0.056 -0.032 -0.088 0.04 -0.38 0.075 -0.763 0.123 -1.138 0.02 -0.172 0.043 -0.336 0.063 -0.512 0.028 -0.247 0.056 -0.487 0.087 -0.735l0.234 -1.824c0.02 -0.128 0.032 -0.372 -0.135 -0.52a0.446 0.446 0 0 0 -0.233 -0.116 0.46 0.46 0 0 0 -0.254 0.06c-0.226 0.16 -0.297 0.504 -0.365 0.76 -0.142 0.603 -0.178 1.241 -0.471 1.804a1.772 1.772 0 0 1 -0.202 0.316 0.668 0.668 0 0 1 -0.186 0.18 0.332 0.332 0 0 1 -0.246 0.051 0.365 0.365 0 0 1 -0.238 -0.207 0.871 0.87 0 0 1 -0.063 -0.324 4.499 4.499 0 0 1 0.24 -1.585c0.045 -0.132 0.089 -0.252 0.104 -0.383 0.028 -0.156 0.028 -0.38 -0.114 -0.516 -0.131 -0.128 -0.337 -0.18 -0.504 -0.128 -0.194 0.056 -0.31 0.244 -0.372 0.392 -0.198 0.463 -0.25 0.95 -0.317 1.446 -0.044 0.327 -0.127 0.64 -0.293 0.926a2.717 2.717 0 0 1 -0.603 0.72c-0.118 0.087 -0.222 0.123 -0.328 0.107a0.376 0.376 0 0 1 -0.278 -0.208 0.875 0.875 0 0 1 -0.095 -0.315 3.361 3.36 0 0 1 -0.036 -0.616c0.004 -0.223 0 -0.44 0.044 -0.658 0.075 -0.39 0.678 -1.937 0.808 -2.345 0.135 -0.407 0.262 -0.823 0.353 -1.246 0.08 -0.38 0.123 -0.767 0.11 -1.15 -0.007 -0.277 -0.07 -0.576 -0.288 -0.736a0.611 0.61 0 0 0 -0.603 -0.048 0.968 0.968 0 0 0 -0.455 0.428 2.53 2.53 0 0 0 -0.226 0.59 12.01 12.01 0 0 0 -0.266 1.29c-0.071 0.429 -0.138 0.848 -0.206 1.268 -0.06 0.355 -0.206 1.614 -0.261 1.88 -0.06 0.272 -0.175 0.54 -0.301 0.787 -0.131 0.268 -0.258 0.536 -0.408 0.791a0.694 0.694 0 0 1 -0.175 0.224c-0.08 0.06 -0.182 0.088 -0.27 0.048 -0.102 -0.048 -0.146 -0.176 -0.166 -0.292 -0.075 -0.435 -0.012 -0.875 0.072 -1.302 0.083 -0.431 0.44 -2.4 0.519 -2.851 0.099 -0.532 0.24 -1.05 0.285 -1.59 0.028 -0.388 0.09 -0.88 -0.202 -1.187 -0.115 -0.136 -0.31 -0.16 -0.44 -0.136 -0.174 0.036 -0.31 0.176 -0.388 0.296 -0.1 0.128 -0.186 0.28 -0.258 0.467 -0.115 0.284 -0.186 0.615 -0.261 0.91l-0.032 0.129c-0.083 0.383 -0.143 0.77 -0.186 1.162a16.95 16.948 0 0 0 -0.06 0.632c-0.008 0.1 -0.016 0.203 -0.027 0.307 0 0.08 0.007 0.168 -0.028 0.244a0.304 0.304 0 0 1 -0.052 0.068c-0.08 0.072 -0.202 0.06 -0.31 0.056 -0.557 -0.016 -1.045 0.3 -1.35 0.755 -0.18 0.252 -0.281 0.542 -0.39 0.834 -0.01 0.048 -0.034 0.1 -0.054 0.152 -0.051 0.143 -0.13 0.327 -0.222 0.511a3.037 3.037 0 0 1 -0.317 0.46 3.285 3.285 0 0 1 -0.384 0.41 1.123 1.123 0 0 1 -0.515 0.26c-0.174 0.04 -0.384 -0.043 -0.543 -0.203a0.916 0.916 0 0 1 -0.206 -0.54c-0.004 -0.055 -0.004 -0.115 0.028 -0.163 0.05 -0.068 0.146 -0.072 0.23 -0.076a1.623 1.623 0 0 0 1.375 -1.015c0.138 -0.34 0.178 -0.698 0.122 -1.046a1.193 1.193 0 0 0 -0.19 -0.48 0.9 0.9 0 0 0 -0.396 -0.323c-0.293 -0.14 -0.658 -0.127 -1.01 0.004 -0.575 0.232 -0.951 0.74 -1.134 1.562l-0.02 0.088c-0.114 0.487 -0.23 1 -0.582 1.354 -0.127 0.12 -0.261 0.163 -0.368 0.143 -0.044 -0.004 -0.08 -0.04 -0.103 -0.075 -0.096 -0.16 0.003 -0.532 0.15 -1a4.1 4.1 0 0 0 0.1 -0.366 0.925 0.925 0 0 0 -0.108 -0.495 0.783 0.783 0 0 0 -0.372 -0.324c-0.143 -0.064 -0.31 -0.06 -0.468 -0.06h-0.047c-0.044 0 -0.103 0 -0.151 -0.012a0.215 0.215 0 0 1 -0.147 -0.127 0.485 0.485 0 0 1 0.016 -0.232c0.004 -0.02 0.012 -0.048 0.016 -0.072a0.368 0.368 0 0 0 -0.162 -0.412 0.509 0.509 0 0 0 -0.468 -0.036 0.768 0.768 0 0 0 -0.364 0.348 0.769 0.769 0 0 0 -0.103 0.48c0.04 0.13 0.07 0.32 0.043 0.475 -0.055 0.28 -0.222 0.51 -0.384 0.74 -0.04 0.05 -0.072 0.106 -0.107 0.16a4.96 4.96 0 0 1 -0.706 0.825c-0.372 0.335 -0.804 0.575 -1.232 0.67 -0.745 0.165 -1.506 -0.06 -1.91 -0.734 -0.222 -0.38 -0.32 -0.827 -0.348 -1.266a5.425 5.425 0 0 1 0.424 -2.516c0.328 -0.76 0.816 -1.52 1.715 -1.614 0.353 -0.04 0.753 0.083 0.912 0.4 0.115 0.23 0.075 0.506 0 0.75 -0.072 0.244 -0.175 0.49 -0.18 0.75 -0.003 0.26 0.124 0.54 0.37 0.616 0.238 0.072 0.495 -0.08 0.634 -0.29 0.138 -0.21 0.186 -0.46 0.245 -0.704a6.282 6.281 0 0 1 0.662 -1.634c0.139 -0.236 0.297 -0.488 0.254 -0.76a0.543 0.543 0 0 0 -0.373 -0.415 0.543 0.543 0 0 0 -0.535 0.144c-0.134 0.148 -0.206 0.371 -0.387 0.43 -0.17 0.06 -0.35 -0.055 -0.507 -0.134 -0.6 -0.32 -1.336 -0.312 -1.963 -0.048 -0.634 0.25 -1.146 0.735 -1.526 1.294C0.462 8.53 0.098 9.508 0.022 10.48c-0.027 0.34 -0.031 0.695 0 1.038 0.036 0.46 0.1 0.854 0.214 1.206 0.139 0.423 0.317 0.79 0.547 1.094 0.266 0.34 0.587 0.6 0.94 0.747 0.372 0.148 0.784 0.22 1.192 0.208a3.172 3.172 0 0 0 1.177 -0.283 4.29 4.29 0 0 0 1.026 -0.68c0.309 -0.26 0.594 -0.559 0.84 -0.89 0.162 -0.224 0.309 -0.46 0.44 -0.708a4.83 4.83 0 0 0 0.178 -0.383c0.044 -0.104 0.087 -0.215 0.202 -0.26 0.056 -0.043 0.15 -0.02 0.202 0.013 0.064 0.04 0.115 0.075 0.135 0.135 0.048 0.116 0.02 0.232 -0.004 0.332v0.012c-0.028 0.1 -0.055 0.203 -0.091 0.303 -0.14 0.424 -0.238 0.811 -0.16 1.195 0.045 0.207 0.128 0.387 0.25 0.527a0.84 0.84 0 0 0 0.504 0.264c0.246 0.04 0.51 -0.028 0.725 -0.132 0.143 -0.068 0.278 -0.156 0.397 -0.26 0.06 -0.06 0.122 -0.12 0.174 -0.184 0.044 -0.06 0.087 -0.147 0.178 -0.143a0.15 0.15 0 0 1 0.107 0.064c0.028 0.031 0.04 0.071 0.06 0.115 0.23 0.52 0.776 0.84 1.335 0.84h0.07c0.27 0 0.556 -0.093 0.79 -0.22 0.27 -0.14 0.48 -0.348 0.7 -0.552 0.02 -0.016 0.045 -0.04 0.073 -0.044 0.035 -0.008 0.07 0.012 0.099 0.044a0.26 0.26 0 0 1 0.047 0.1c0.135 0.34 0.46 0.6 0.824 0.66a1.1 1.1 0 0 0 0.99 -0.356c0.056 -0.06 0.104 -0.128 0.167 -0.176 0.064 -0.044 0.15 -0.076 0.222 -0.044 0.107 0.04 0.135 0.164 0.182 0.268 0.107 0.235 0.357 0.371 0.615 0.375 0.289 0 0.554 -0.148 0.764 -0.34 0.195 -0.183 0.353 -0.399 0.516 -0.61a0.328 0.328 0 0 1 0.106 -0.096c0.04 -0.024 0.096 -0.028 0.13 0 0.033 0.024 0.045 0.06 0.06 0.091 0.163 0.4 0.587 0.652 1.01 0.648 0.417 -0.004 0.809 -0.224 1.103 -0.516 0.095 -0.092 0.194 -0.2 0.32 -0.21 0.14 -0.017 0.207 0.114 0.254 0.22 0.072 0.142 0.115 0.238 0.25 0.338 0.158 0.116 0.36 0.152 0.547 0.1 0.17 -0.04 0.34 -0.156 0.47 -0.316 0.072 -0.088 0.112 -0.204 0.19 -0.284 0.092 -0.087 0.132 0.028 0.136 0.1 0.016 0.116 0.016 0.236 0.008 0.352 -0.016 0.236 -0.052 0.471 -0.08 0.703 -0.011 0.068 -0.02 0.136 -0.063 0.188 -0.06 0.068 -0.166 0.08 -0.253 0.064a2.898 2.898 0 0 0 -0.321 -0.028l-0.14 -0.016c-0.201 -0.012 -0.4 -0.036 -0.61 -0.044h-0.185c-0.404 0 -0.733 0.048 -1.03 0.16 -0.48 0.187 -0.852 0.57 -1.003 1.018a1.305 1.305 0 0 0 -0.052 0.64c0.04 0.203 0.13 0.403 0.282 0.587 0.265 0.315 0.68 0.515 1.149 0.543 0.408 0.02 0.852 -0.064 1.292 -0.26 0.848 -0.367 1.482 -1.094 1.696 -1.95 0 -0.02 0.01 -0.039 0.023 -0.043 0.298 -0.104 0.57 -0.248 0.813 -0.428 0.245 -0.187 0.467 -0.399 0.65 -0.643 0.09 -0.12 0.174 -0.243 0.253 -0.37 0.07 -0.125 0.13 -0.257 0.202 -0.38a0.906 0.906 0 0 0 0.13 -0.316 0.411 0.411 0 0 0 -0.05 -0.328 0.257 0.257 0 0 0 -0.135 -0.124m-13.68 -1.63c0.017 -0.071 0.045 -0.14 0.06 -0.206a1.9 1.9 0 0 1 0.262 -0.504c0.04 -0.048 0.08 -0.1 0.135 -0.136a0.246 0.246 0 0 1 0.186 -0.048c0.107 0.02 0.183 0.128 0.202 0.236 0.032 0.18 -0.04 0.396 -0.114 0.555a1.097 1.097 0 0 1 -0.31 0.415c-0.06 0.044 -0.114 0.088 -0.178 0.116 -0.028 0.008 -0.063 0.028 -0.115 0.028h-0.016c-0.055 0 -0.114 -0.028 -0.126 -0.088a0.827 0.827 0 0 1 0.015 -0.367m4.308 -0.184c-0.004 0.072 -0.024 0.148 -0.028 0.223a4.91 4.91 0 0 0 0 0.779c0.012 0.152 0.047 0.3 -0.016 0.444a1.069 1.069 0 0 1 -0.567 0.643 0.555 0.555 0 0 1 -0.245 0.056c-0.02 0 -0.04 -0.004 -0.06 -0.004 -0.12 0 -0.214 -0.092 -0.265 -0.18a0.871 0.87 0 0 1 -0.1 -0.272 2.129 2.129 0 0 1 0.072 -1.122c0.08 -0.22 0.202 -0.435 0.38 -0.594a0.874 0.874 0 0 1 0.563 -0.24 0.31 0.31 0 0 1 0.206 0.064c0.04 0.044 0.06 0.104 0.056 0.164a0.05 0.05 0 0 1 0.004 0.04m6.43 4.653c-0.015 0.044 -0.06 0.104 -0.08 0.14 -0.042 0.08 -0.102 0.163 -0.161 0.235a2.562 2.562 0 0 1 -0.317 0.304c-0.238 0.18 -0.503 0.311 -0.777 0.387a2.025 2.025 0 0 1 -0.487 0.072h-0.04a0.795 0.795 0 0 1 -0.515 -0.18 0.433 0.433 0 0 1 -0.158 -0.25 0.537 0.537 0 0 1 0.047 -0.305 0.776 0.776 0 0 1 0.38 -0.383c0.326 -0.16 0.682 -0.176 1.019 -0.16 0.139 0.004 0.265 0.012 0.4 0.02 0.107 0.004 0.218 0.012 0.325 0.024 0.056 0 0.115 0.004 0.17 0.012 0.044 0.004 0.092 -0.004 0.135 0.008 0.06 0.004 0.068 0.036 0.06 0.076">
-                    </path>
-                  </svg>
-                </i>
-              </div>
-            </NuxtLink>
-            <NuxtLink to="mailto:phinart98@gmail.com" target="_blank" aria-label="Send me an email">
-              <i class="bi bi-envelope-at-fill text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
-            </NuxtLink>
-            <NuxtLink to="https://www.x.com/NiiOtuNarteh" target="_blank" aria-label="Follow me on X (formally Twitter)">
-              <i class="bi bi-twitter-x text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
-            </NuxtLink>
-            <NuxtLink to="https://www.instagram.com/niiotunarteh/" target="_blank" aria-label="Follow me on Instagram">
-              <i class="bi bi-instagram text-2xl text-orange-700 dark:text-orange-500 pt-1"></i>
-            </NuxtLink>
+        </div>
+
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start space-x-4">
+            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
+            <div class="text-left">
+              <p class="dark:text-white leading-relaxed text-lg">
+                contributed to building referral and pharmacy management systems at 
+                <a href="https://rigelis.co/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Rigelis</a>, 
+                a nascent health-tech startup.
+              </p>
+            </div>
           </div>
+        </div>
+
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start space-x-4">
+            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
+            <div class="text-left">
+              <p class="dark:text-white leading-relaxed text-lg">
+                Obtained a BSc. Computer Engineering from 
+                <a href="https://www.ashesi.edu.gh/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Ashesi University</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action button -->
+    <div class="text-center mt-16 animate-slide-up" style="animation-delay: 0.6s;">
+      <NuxtLink 
+        to="/blog" 
+        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-500 dark:to-orange-600 text-white text-lg font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1 group"
+      >
+        <i class="bi bi-journal-text mr-2 group-hover:scale-110 transition-transform"></i>
+        Read My Blog
+      </NuxtLink>
+    </div>
+
+    <!-- All Links Section (like original - single row) -->
+    <div class="mt-20 animate-slide-up" style="animation-delay: 0.8s;">
+      <p class="text-center mb-8 dark:text-white text-xl font-medium">
+        You can also find me here:
+      </p>
+      
+      <!-- Single Row: All links -->
+      <div class="flex justify-center my-6 mx-3">
+        <div class="flex flex-wrap justify-center space-x-6 gap-y-4">
+          <NuxtLink to="https://www.github.com/Phinart98" target="_blank" aria-label="Visit my GitHub profile"
+                    class="hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-github text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
+          </NuxtLink>
+          <NuxtLink to="https://www.linkedin.com/in/philipnarteh/" target="_blank" aria-label="Visit my LinkedIn profile"
+                    class="hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-linkedin text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
+          </NuxtLink>
+          <NuxtLink to="https://www.credly.com/users/philip-narteh" target="_blank" aria-label="View my certifications and badges on Credly"
+                    class="hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-award text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
+          </NuxtLink>
+          <NuxtLink to="mailto:phinart98@gmail.com" target="_blank" aria-label="Send me an email"
+                    class="hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-envelope-at-fill text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
+          </NuxtLink>
+          <NuxtLink to="https://www.x.com/NiiOtuNarteh" target="_blank" aria-label="Follow me on X (formally Twitter)"
+                    class="hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-twitter-x text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
+          </NuxtLink>
+          <NuxtLink to="https://www.instagram.com/niiotunarteh/" target="_blank" aria-label="Follow me on Instagram"
+                    class="hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-instagram text-2xl text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"></i>
+          </NuxtLink>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-
-    };
-  },
-};
+<script setup>
+// SEO
+useHead({
+  title: 'Philip Narteh - Software Engineer',
+  meta: [
+    { name: 'description', content: 'Software Engineer passionate about accessibility, Django development, and inclusive web experiences.' }
+  ]
+})
 </script>
 
 <style scoped>
-/* Override list styling for the About page */
-ul, ol {
-  /* Remove the blog-specific text size and list styling;
-     adjust these rules as needed to restore your desired appearance */
-  font-size: inherit;
-  list-style: initial; /* or set a different marker style */
-  padding-left: 1rem;
-  margin-bottom: 0.5rem;
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out both;
 }
 </style>
-

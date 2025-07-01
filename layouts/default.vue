@@ -1,71 +1,180 @@
 <template>
-  <div>
-    <nav class="flex justify-center">
-      <div class="flex justify-between mx-4 my-4 w-full sm:w-3/5 items-center">
-        <div class="text-xl sm:text-2xl">
-          <NuxtLink to="/" class="logo-link">
-            <span class="text-black dark:text-white">philipnarteh.</span>
-            <span class="text-orange-700 dark:text-orange-500">me</span>
-          </NuxtLink>
-        </div>
+  <div class="min-h-screen bg-gradient-to-br from-white via-orange-50/30 to-orange-100/50 dark:from-dark-950 dark:via-dark-900 dark:to-dark-800 transition-all duration-300">
+    <nav class="backdrop-blur-md bg-white/80 dark:bg-dark-800/90 border-b border-orange-300/70 dark:border-dark-600/70 sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 sm:h-18">
+          <div class="flex-shrink-0">
+            <NuxtLink to="/" class="logo-link">
+              <span class="text-2xl sm:text-3xl font-bold">
+                <span class="text-dark-900 dark:text-white">philipnarteh.</span>
+                <span class="text-orange-600 dark:text-orange-400">me</span>
+              </span>
+            </NuxtLink>
+          </div>
 
-        <div class="flex items-center gap-2 text-xs sm:text-base">
-          <NuxtLink to="/" class="nav-link text-black dark:text-white">
-            <i class="bi bi-person me-1"></i>About
-          </NuxtLink>
-          <NuxtLink to="/blog" class="nav-link text-black dark:text-white">
-            <i class="bi bi-journal-text me-1"></i>Blog
-          </NuxtLink>
-          <!-- Theme Toggle placed at the very end with a left margin -->
-          <div class="ml-2">
+          <div class="hidden md:flex items-center space-x-1">
+            <NuxtLink to="/" class="nav-link">
+              <i class="bi bi-person mr-2"></i>About
+            </NuxtLink>
+            <NuxtLink to="/blog" class="nav-link">
+              <i class="bi bi-journal-text mr-2"></i>Blog
+            </NuxtLink>
+            <!-- <NuxtLink to="/projects" class="nav-link">
+              <i class="bi bi-code-square mr-2"></i>Projects
+            </NuxtLink> -->
+            <!-- <NuxtLink to="/talks" class="nav-link">
+              <i class="bi bi-mic mr-2"></i>Talks
+            </NuxtLink> -->
+            <!-- <NuxtLink to="/certifications" class="nav-link">
+              <i class="bi bi-award mr-2"></i>Certifications
+            </NuxtLink> -->
+
             <ThemeToggle />
           </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button 
+              @click="toggleMobileMenu" 
+              class="mobile-menu-btn"
+              type="button"
+            >
+              <i :class="mobileMenuOpen ? 'bi bi-x-lg' : 'bi bi-list'" class="text-xl"></i>
+            </button>
+          </div>
         </div>
+
+        <!-- Mobile menu -->
+        <transition
+          enter-active-class="transition ease-out duration-300"
+          enter-from-class="opacity-0 transform -translate-y-2"
+          enter-to-class="opacity-100 transform translate-y-0"
+          leave-active-class="transition ease-in duration-200"
+          leave-from-class="opacity-100 transform translate-y-0"
+          leave-to-class="opacity-0 transform -translate-y-2"
+        >
+          <div v-show="mobileMenuOpen" class="md:hidden py-4 border-t border-orange-300/70 dark:border-dark-700/70">
+            <div class="flex flex-col space-y-2 items-end">
+              <NuxtLink to="/" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+                <i class="bi bi-person mr-3"></i>About
+              </NuxtLink>
+              <NuxtLink to="/blog" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+                <i class="bi bi-journal-text mr-3"></i>Blog
+              </NuxtLink>
+              <!-- <NuxtLink to="/projects" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+                <i class="bi bi-code-square mr-3"></i>Projects
+              </NuxtLink> -->
+            </div>
+          </div>
+        </transition>
       </div>
     </nav>
-    <slot />
+
+    <main class="animate-fade-in">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-8 border-t border-orange-300/60 dark:border-dark-700/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-dark-600 dark:text-dark-300 text-sm">
+          © 2025 Philip Narteh
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
 
-<style scoped>
-/* Logo styling - ensure no active background */
-.logo-link {
-  @apply hover:no-underline;
+<script setup>
+const mobileMenuOpen = ref(false)
+const route = useRoute()
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+  console.log('Mobile menu toggled:', mobileMenuOpen.value) // Debug log
 }
+
+// Close mobile menu when route changes
+watch(() => route.path, () => {
+  mobileMenuOpen.value = false
+})
+
+// Ensure mobile menu closes on outside click or escape
+onMounted(() => {
+  if (process.client) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileMenuOpen.value = false
+      }
+    })
+  }
+})
+</script>
+
+<style scoped>
+/* Logo styling */
+.logo-link {
+  @apply hover:no-underline transition-all duration-300;
+}
+
+.logo-link:hover {
+  transform: translateY(-2px);
+}
+
 .logo-link.router-link-active {
   @apply bg-transparent;
-  animation: none;
-  transform: none;
 }
 
-/* Navigation link styling */
+/* Desktop navigation links */
 .nav-link {
-  @apply px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-300 ease-in-out;
+  @apply px-4 py-2 rounded-xl text-dark-700 dark:text-dark-200 transition-all duration-300 ease-in-out;
+  @apply hover:bg-orange-100/80 dark:hover:bg-orange-900/30;
+  @apply hover:text-orange-700 dark:hover:text-orange-400;
+  @apply hover:shadow-sm hover:-translate-y-0.5;
 }
 
-.nav-link:not(.router-link-active):hover {
-  @apply bg-orange-100 dark:bg-orange-900/30;
+.nav-link.router-link-active,
+.nav-link.router-link-exact-active {
+  @apply bg-gradient-to-r from-orange-500 to-orange-600;
+  @apply text-white shadow-lg transform scale-105;
+  @apply shadow-orange-500/25;
 }
 
-/* Active state styling with animation */
-.router-link-active,
-.router-link-exact-active {
-  @apply bg-orange-700 text-white scale-105;
-  animation: fadeIn 0.3s ease-in-out;
-  @media (prefers-color-scheme: dark) {
-    color: white;
-  }
+/* Mobile menu button */
+.mobile-menu-btn {
+  @apply p-2 rounded-lg text-dark-700 dark:text-dark-200;
+  @apply hover:bg-orange-100 dark:hover:bg-orange-900/30;
+  @apply transition-all duration-300;
 }
 
+/* Mobile navigation links */
+.mobile-nav-link {
+  @apply flex items-center justify-end px-4 py-3 text-dark-700 dark:text-dark-200;
+  @apply hover:bg-orange-100/80 dark:hover:bg-orange-900/30;
+  @apply hover:text-orange-700 dark:hover:text-orange-400;
+  @apply transition-all duration-300 rounded-lg mx-2;
+}
+
+.mobile-nav-link.router-link-active,
+.mobile-nav-link.router-link-exact-active {
+  @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white;
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
-    opacity: 0.6;
-    transform: scale(0.95);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: scale(1.05);
+    transform: translateY(0);
   }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
 }
 </style>

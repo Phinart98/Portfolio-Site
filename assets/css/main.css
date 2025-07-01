@@ -1,15 +1,42 @@
 :root {
     --shiki-color-text: #e5e9f0;
-    --shiki-color-background: #1e1e1e; /* Dark background */
-    --shiki-token-keyword: #c678dd;
-    --shiki-token-string: #98c379;
-    --shiki-token-function: #61afef;
-    --shiki-token-comment: #5c6370;
+    --shiki-color-background: #1e293b; /* Better dark background */
+    --shiki-token-keyword: #f97316;
+    --shiki-token-string: #22c55e;
+    --shiki-token-function: #3b82f6;
+    --shiki-token-comment: #64748b;
   }
 
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styling */
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  .dark body {
+    background-color: #171923;
+  }
+
+  /* Improved code styling */
   pre, code {
-    font-size: 1.05em !important;  /* Adjust as needed */
-    line-height: 0.4 !important;
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.9em !important;
+    line-height: 1.5 !important;
+  }
+
+  pre {
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .dark pre {
+    border-color: #334155;
   }
 
   ul {
