@@ -19,8 +19,8 @@
         class="bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-2xl p-6 border border-orange-300/60 dark:border-dark-700/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1 block w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)]"
       >
         <div class="flex flex-col items-center text-center">
-          <div class="w-full mb-4 rounded-lg overflow-hidden">
-            <img src="/img/talks/djangocon-presenting.jpg" alt="Speaker at event" class="w-full h-48 object-cover" />
+          <div v-if="talk.navigation.headerImage" class="w-full mb-4 rounded-lg overflow-hidden">
+            <img :src="talk.navigation.headerImage" :alt="talk.navigation.title" class="w-full h-48 object-cover" />
           </div>
           <div class="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400 mb-2">
             <i class="bi bi-calendar3"></i>
