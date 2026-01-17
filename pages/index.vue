@@ -51,13 +51,13 @@
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
-                interned at
-                <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>.
-                I worked with the
+                worked with the
                 <AccentLink to="https://www.pyopensci.org/" :external="true">PyOpenSci community</AccentLink>
+                as an Open Source Infrastructure Intern at
+                <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>
                 to
                 <AccentLink to="https://labs.quansight.org/blog/migrating-pyopensci-to-django" :external="true">migrate our website</AccentLink>
-                to Django with Wagtail CMS.
+                from static site tools to Django with Wagtail CMS.
               </p>
             </div>
           </div>
@@ -68,7 +68,7 @@
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
-                delivered a talk on accessibility at
+                given a talk on Accessibility and Open Source at
                 <AccentLink to="/talks/djangocon-africa-2025" :external="false">DjangoCon Africa 2025</AccentLink>.
               </p>
             </div>
