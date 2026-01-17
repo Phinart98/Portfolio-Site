@@ -9,7 +9,7 @@ module.exports = {
         colors: {
           'dark': {
             '50': '#f8fafc',
-            '100': '#f1f5f9', 
+            '100': '#f1f5f9',
             '200': '#e2e8f0',
             '300': '#cbd5e1',
             '400': '#94a3b8',
@@ -32,7 +32,15 @@ module.exports = {
             '800': '#9a3412',
             '900': '#7c2d12',
             '950': '#431407',
+          },
+          'brand': {
+            'primary': '#ea580c',
+            'primary-hover': '#c2410c',
+            'dark': '#fb923c',
           }
+        },
+        backgroundImage: {
+          'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         },
         animation: {
           'fade-in': 'fadeIn 0.6s ease-out',

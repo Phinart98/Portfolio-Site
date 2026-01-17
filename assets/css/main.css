@@ -1,59 +1,64 @@
+/* ===================================
+   Syntax Highlighting (Shiki)
+   =================================== */
 :root {
-    --shiki-color-text: #e5e9f0;
-    --shiki-color-background: #1e293b; /* Better dark background */
-    --shiki-token-keyword: #f97316;
-    --shiki-token-string: #22c55e;
-    --shiki-token-function: #3b82f6;
-    --shiki-token-comment: #64748b;
-  }
+  --shiki-color-text: #e5e9f0;
+  --shiki-color-background: #1e293b;
+  --shiki-token-keyword: #f97316;
+  --shiki-token-string: #22c55e;
+  --shiki-token-function: #3b82f6;
+  --shiki-token-comment: #64748b;
+}
 
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
+/* ===================================
+   Base Styles
+   =================================== */
+html {
+  scroll-behavior: smooth;
+}
 
-  /* Base body styling */
-  body {
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: white;
-    transition: background-color 0.3s ease;
-  }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
 
-  .dark body {
-    background-color: #171923;
-  }
+/* ===================================
+   Typography
+   =================================== */
+pre, code {
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+  line-height: 1.5 !important;
+}
 
-  /* Improved code styling */
-  pre, code {
-    font-family: 'Fira Code', monospace !important;
-    font-size: 0.9em !important;
-    line-height: 1.5 !important;
-  }
+pre {
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
 
-  pre {
-    border-radius: 0.75rem;
-    border: 1px solid #e2e8f0;
-  }
+.dark pre {
+  border-color: #334155;
+}
 
-  .dark pre {
-    border-color: #334155;
-  }
+/* ===================================
+   Lists
+   =================================== */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
 
-  ul {
-    list-style-type: disc; /* or 'circle', 'square' */
-    padding-left: 20px;
-  }
-  
-  ol {
-    list-style-type: decimal;
-    padding-left: 20px;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
+ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
 
-/* Add these table styles */
+li {
+  margin-bottom: 5px;
+}
+
+/* ===================================
+   Tables
+   =================================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -71,12 +76,10 @@ th {
   background-color: #f8f9fa;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  th, td {
-    border-color: #374151;
-  }
-  th {
-    background-color: #1f2937;
-  }
+.dark th, .dark td {
+  border-color: #374151;
+}
+
+.dark th {
+  background-color: #1f2937;
 }

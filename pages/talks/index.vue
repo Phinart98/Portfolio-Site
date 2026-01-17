@@ -1,23 +1,21 @@
 <template>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <PageContainer>
     <!-- Header Section -->
-    <div class="text-center mb-16 animate-fade-in">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl mb-6 animate-float">
-        <i class="bi bi-mic text-3xl text-white"></i>
-      </div>
-      <p class="text-xl text-dark-600 dark:text-dark-300 max-w-3xl mx-auto italic">
-        Sharing knowledge and insights about software engineering, accessibility, and my work in Open Source.
-      </p>
-    </div>
+    <PageHeader
+      icon="mic"
+      subtitle="Sharing knowledge and insights about software engineering, accessibility, and my work in Open Source."
+    />
 
     <!-- Talks Grid -->
     <div class="flex flex-wrap gap-8 justify-center">
       <NuxtLink
-        v-for="talk in talks"
+        v-for="(talk, index) in talks"
         :key="talk._path"
         :to="talk._path"
-        class="bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-2xl p-6 border border-orange-300/60 dark:border-dark-700/60 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-1 block w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)]"
+        class="block w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)] animate-slide-up"
+        :style="`animation-delay: ${0.1 * index}s`"
       >
+        <BaseCard :interactive="true">
         <div class="flex flex-col items-center text-center">
           <div v-if="talk.navigation.headerImage" class="w-full mb-4 rounded-lg overflow-hidden">
             <img :src="talk.navigation.headerImage" :alt="talk.navigation.title" class="w-full h-48 object-cover" />
@@ -50,9 +48,10 @@
             </span>
           </div>
         </div>
+        </BaseCard>
       </NuxtLink>
     </div>
-  </div>
+  </PageContainer>
 </template>
 
 <script setup>
@@ -60,11 +59,6 @@
 const { data: talks } = await useAsyncData('talks', () =>
   queryContent('talks').find()
 )
-
-// Debug: Log the talks data to see _path values
-if (process.client) {
-  console.log('Talks data:', talks.value)
-}
 
 // SEO
 useHead({

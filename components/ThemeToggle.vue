@@ -22,13 +22,7 @@ const colorMode = useColorMode()
 const isDark = computed(() => colorMode.value === 'dark')
 
 const handleToggle = () => {
-  console.log('Toggle clicked, current mode:', colorMode.value)
-  try {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-    console.log('New preference set to:', colorMode.preference)
-  } catch (error) {
-    console.error('Error toggling theme:', error)
-  }
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 }
 </script>
 
@@ -54,15 +48,5 @@ const handleToggle = () => {
 
 .toggle-btn:hover .icon {
   @apply text-orange-800 dark:text-orange-300;
-}
-
-/* Spin animation for toggling state */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.animate-spin {
-  animation: spin 0.3s ease-in-out;
 }
 </style>

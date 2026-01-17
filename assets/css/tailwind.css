@@ -1,35 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-    @apply bg-slate-100 dark:bg-slate-900;
-}
-
-/* Ensure proper font size for code */
-pre, code {
-    @apply text-base leading-relaxed;
-  }
-  
-  /* Make sure pre tags have proper spacing */
-  pre {
-    @apply bg-gray-900 text-white p-4 rounded-md overflow-x-auto;
-  }
-  
-  /* Ensure inline code looks distinct */
-  code {
-    @apply bg-gray-800 text-green-300 px-1 rounded;
-  }
-  
-  ul, ol {
-    @apply text-lg; /* Apply slightly larger font size */
-  }
-
-  /* Add table styles with Tailwind classes */
-.prose table {
-  @apply text-xl;  /* This will make the table text larger */
-}
-
-.prose th, .prose td {
-  @apply border border-gray-200 dark:border-gray-700 p-3;
-}

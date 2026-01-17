@@ -19,9 +19,6 @@
             <NuxtLink to="/blog" class="nav-link">
               <i class="bi bi-journal-text mr-2"></i>Blog
             </NuxtLink>
-            <!-- <NuxtLink to="/projects" class="nav-link">
-              <i class="bi bi-code-square mr-2"></i>Projects
-            </NuxtLink> -->
             <NuxtLink to="/talks" class="nav-link">
               <i class="bi bi-mic mr-2"></i>Talks
             </NuxtLink>
@@ -68,10 +65,6 @@
             <NuxtLink to="/blog" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
               <i class="bi bi-journal-text mr-3"></i>Blog
             </NuxtLink>
-            <!-- Add more menu items here as needed -->
-            <!-- <NuxtLink to="/projects" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
-              <i class="bi bi-code-square mr-3"></i>Projects
-            </NuxtLink> -->
             <NuxtLink to="/talks" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
               <i class="bi bi-mic mr-3"></i>Talks
             </NuxtLink>
@@ -121,7 +114,6 @@ const route = useRoute()
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
-  console.log('Mobile menu toggled:', mobileMenuOpen.value) // Debug log
 }
 
 // Close mobile menu when route changes
@@ -247,21 +239,5 @@ onMounted(() => {
 .mobile-nav-link.router-link-active,
 .mobile-nav-link.router-link-exact-active {
   @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
 }
 </style>

@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["bootstrap-icons/font/bootstrap-icons.css", "~/assets/css/main.css"],
+  css: ["bootstrap-icons/font/bootstrap-icons.css", "~/assets/css/animations.css", "~/assets/css/main.css"],
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/content",

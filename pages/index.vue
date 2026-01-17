@@ -1,20 +1,26 @@
 <template>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Your original welcome section with enhanced styling -->
-    <div class="text-center animate-fade-in">
-      <!-- Your profile image -->
-      <div class="mb-8">
-        <img 
-          src="~/assets/img/Philip_headshot3.jpeg" 
-          alt="A headshot of Philip" 
+  <PageContainer>
+    <!-- Welcome section with enhanced styling -->
+    <div class="text-center animate-fade-in relative">
+      <!-- Subtle radial gradient background glow -->
+      <div class="absolute inset-0 -z-10 bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent blur-3xl"></div>
+
+      <!-- Profile image with decorative dashed ring -->
+      <div class="mb-8 relative inline-block">
+        <!-- Decorative dashed ring with slow rotation -->
+        <div class="profile-ring"></div>
+
+        <img
+          src="~/assets/img/Philip_headshot3.jpeg"
+          alt="A headshot of Philip"
           @click="toggleImageColor"
           @mouseenter="handleImageHover(true)"
           @mouseleave="handleImageHover(false)"
           @touchstart="handleImageHover(true)"
           @touchend="handleImageHover(false)"
           :class="[
-            'grayscale rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto object-cover cursor-pointer transition-all duration-300',
-            (imageClicked || imageHovered) ? 'grayscale-0 border-0 scale-105' : 'border-4 border-orange-300 dark:border-orange-700 hover:scale-105'
+            'grayscale rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover cursor-pointer transition-all duration-300 relative z-10',
+            (imageClicked || imageHovered) ? 'grayscale-0 scale-105' : 'border-4 border-orange-300 dark:border-orange-700 hover:scale-105'
           ]"
         />
       </div>
@@ -40,106 +46,105 @@
       </p>
       
       <div class="space-y-6 max-w-4xl mx-auto">
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+        <BaseCard :interactive="true">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
                 interned at
-                <a href="https://quansight.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Quansight</a>.
+                <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>.
                 I worked with the
-                <a href="https://www.pyopensci.org/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">PyOpenSci community</a>
+                <AccentLink to="https://www.pyopensci.org/" :external="true">PyOpenSci community</AccentLink>
                 to
-                <a href="https://labs.quansight.org/blog/migrating-pyopensci-to-django" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">migrate our website</a>
+                <AccentLink to="https://labs.quansight.org/blog/migrating-pyopensci-to-django" :external="true">migrate our website</AccentLink>
                 to Django with Wagtail CMS.
               </p>
             </div>
           </div>
-        </div>
+        </BaseCard>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+        <BaseCard :interactive="true">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
                 delivered a talk on accessibility at
-                <NuxtLink to="/talks/djangocon-africa-2025" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">DjangoCon Africa 2025</NuxtLink>.
+                <AccentLink to="/talks/djangocon-africa-2025" :external="false">DjangoCon Africa 2025</AccentLink>.
               </p>
             </div>
           </div>
-        </div>
+        </BaseCard>
 
-        <div
+        <BaseCard
+          :interactive="true"
+          :elevated="isCardClicked(0)"
           @click="toggleCard(0)"
-          :class="[
-            'bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300',
-            clickedCards[0] ? 'shadow-lg shadow-orange-500/10 -translate-y-1' : ''
-          ]"
         >
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
                 contributed to
-                <a href="https://www.djangoproject.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Django</a>
+                <AccentLink to="https://www.djangoproject.com/" :external="true">Django</AccentLink>
                 Accessibility by participating in
-                <a href="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Session 4</a>
+                <AccentLink to="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" :external="true">Session 4</AccentLink>
                 of the
-                <a href="https://djangonaut.space/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Djangonaut Space Program</a>.
+                <AccentLink to="https://djangonaut.space/" :external="true">Djangonaut Space Program</AccentLink>.
               </p>
             </div>
           </div>
-        </div>
+        </BaseCard>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+        <BaseCard :interactive="true">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
-                selected as an Equitech Scholar for the 
-                <a href="https://www.equitechfutures.com/programs/adi" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Applied Data Institute</a> 
-                program at 
-                <a href="https://www.equitechfutures.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Equitech Futures</a>.
+                selected as an Equitech Scholar for the
+                <AccentLink to="https://www.equitechfutures.com/programs/adi" :external="true">Applied Data Institute</AccentLink>
+                program at
+                <AccentLink to="https://www.equitechfutures.com/" :external="true">Equitech Futures</AccentLink>.
               </p>
             </div>
           </div>
-        </div>
+        </BaseCard>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+        <BaseCard :interactive="true">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
-                contributed to building referral and pharmacy management systems at 
-                <a href="https://rigelis.co/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Rigelis</a>, 
+                contributed to building referral and pharmacy management systems at
+                <AccentLink to="https://rigelis.co/" :external="true">Rigelis</AccentLink>,
                 a nascent health-tech startup.
               </p>
             </div>
           </div>
-        </div>
+        </BaseCard>
 
-        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+        <BaseCard :interactive="true">
           <div class="flex items-start space-x-4">
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
-                Obtained a BSc. Computer Engineering from 
-                <a href="https://www.ashesi.edu.gh/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Ashesi University</a>.
+                Obtained a BSc. Computer Engineering from
+                <AccentLink to="https://www.ashesi.edu.gh/" :external="true">Ashesi University</AccentLink>.
               </p>
             </div>
           </div>
-        </div>
+        </BaseCard>
       </div>
     </div>
 
     <!-- Action button -->
     <div class="text-center mt-16 animate-slide-up" style="animation-delay: 0.6s;">
-      <NuxtLink 
-        to="/blog" 
-        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-500 dark:to-orange-600 text-white text-lg font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1 group"
+      <NuxtLink
+        to="/blog"
+        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-500 dark:to-orange-600 text-white text-lg font-semibold rounded-xl hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 hover:-translate-y-2 hover:scale-105 group relative overflow-hidden"
       >
-        <i class="bi bi-journal-text mr-2 group-hover:scale-110 transition-transform"></i>
-        Read My Blog
+        <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <i class="bi bi-journal-text mr-2 group-hover:scale-110 transition-transform relative z-10"></i>
+        <span class="relative z-10">Read My Blog</span>
       </NuxtLink>
     </div>
 
@@ -179,7 +184,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </PageContainer>
 </template>
 
 <script setup>
@@ -217,66 +222,34 @@ const handleImageHover = (isHovering) => {
   }
 }
 
-// Card click behavior
-const clickedCards = ref([false, false, false, false])
-let cardTimeouts = []
+// Use card click composable
+const { toggleCard, isCardClicked } = useCardClick()
 
-const toggleCard = (index) => {
-  clickedCards.value[index] = !clickedCards.value[index]
-  
-  // Clear any existing timeout for this card
-  if (cardTimeouts[index]) {
-    clearTimeout(cardTimeouts[index])
-  }
-  
-  // Auto-revert after 2 seconds if clicked
-  if (clickedCards.value[index]) {
-    cardTimeouts[index] = setTimeout(() => {
-      clickedCards.value[index] = false
-    }, 2000)
-  }
-}
-
-// Cleanup timeouts on unmount
+// Cleanup image timeout on unmount
 onBeforeUnmount(() => {
   if (imageTimeout) {
     clearTimeout(imageTimeout)
   }
-  cardTimeouts.forEach(timeout => {
-    if (timeout) clearTimeout(timeout)
-  })
 })
 </script>
 
 <style scoped>
-/* Custom animations */
-@keyframes fadeIn {
+/* Decorative dashed ring around profile image */
+.profile-ring {
+  @apply absolute inset-0;
+  @apply w-[calc(100%+2rem)] h-[calc(100%+2rem)];
+  @apply -left-4 -top-4;
+  @apply border-2 border-dashed border-orange-400/30 dark:border-orange-500/20;
+  @apply rounded-full;
+  animation: rotate-slow 30s linear infinite;
+}
+
+@keyframes rotate-slow {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    transform: rotate(0deg);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.8s ease-out both;
 }
 </style>
