@@ -24,7 +24,7 @@
       </h1>
       
       <h2 class="text-2xl sm:text-3xl my-4 dark:text-white transition-colors font-medium">
-        A Software Engineer
+        Software Engineer @ <a href="https://paicore.tech/" target="_blank" rel="noopener noreferrer" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors">PAiCore Technologies</a>
       </h2>
       
       <!-- Blended description -->
@@ -40,7 +40,36 @@
       </p>
       
       <div class="space-y-6 max-w-4xl mx-auto">
-        <div 
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+          <div class="flex items-start space-x-4">
+            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
+            <div class="text-left">
+              <p class="dark:text-white leading-relaxed text-lg">
+                interned at
+                <a href="https://quansight.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Quansight</a>.
+                I worked with the
+                <a href="https://www.pyopensci.org/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">PyOpenSci community</a>
+                to
+                <a href="https://labs.quansight.org/blog/migrating-pyopensci-to-django" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">migrate our website</a>
+                to Django with Wagtail CMS.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300">
+          <div class="flex items-start space-x-4">
+            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
+            <div class="text-left">
+              <p class="dark:text-white leading-relaxed text-lg">
+                delivered a talk on accessibility at
+                <NuxtLink to="/talks/djangocon-africa-2025" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">DjangoCon Africa 2025</NuxtLink>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
           @click="toggleCard(0)"
           :class="[
             'bg-white/60 dark:bg-dark-800/60 backdrop-blur-sm rounded-xl p-6 border border-orange-300/60 dark:border-dark-600/60 cursor-pointer transition-all duration-300',
@@ -51,11 +80,11 @@
             <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
             <div class="text-left">
               <p class="dark:text-white leading-relaxed text-lg">
-                contributed to 
-                <a href="https://www.djangoproject.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Django</a> 
-                Accessibility by participating in 
-                <a href="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Session 4</a> 
-                of the 
+                contributed to
+                <a href="https://www.djangoproject.com/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Django</a>
+                Accessibility by participating in
+                <a href="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Session 4</a>
+                of the
                 <a href="https://djangonaut.space/" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors font-medium">Djangonaut Space Program</a>.
               </p>
             </div>

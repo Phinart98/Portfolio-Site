@@ -22,12 +22,12 @@
             <!-- <NuxtLink to="/projects" class="nav-link">
               <i class="bi bi-code-square mr-2"></i>Projects
             </NuxtLink> -->
-            <!-- <NuxtLink to="/talks" class="nav-link">
+            <NuxtLink to="/talks" class="nav-link">
               <i class="bi bi-mic mr-2"></i>Talks
-            </NuxtLink> -->
-            <!-- <NuxtLink to="/certifications" class="nav-link">
+            </NuxtLink>
+            <NuxtLink to="/certifications" class="nav-link">
               <i class="bi bi-award mr-2"></i>Certifications
-            </NuxtLink> -->
+            </NuxtLink>
 
             <ThemeToggle />
           </div>
@@ -72,12 +72,12 @@
             <!-- <NuxtLink to="/projects" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
               <i class="bi bi-code-square mr-3"></i>Projects
             </NuxtLink> -->
-            <!-- <NuxtLink to="/talks" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+            <NuxtLink to="/talks" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
               <i class="bi bi-mic mr-3"></i>Talks
-            </NuxtLink> -->
-            <!-- <NuxtLink to="/certifications" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
+            </NuxtLink>
+            <NuxtLink to="/certifications" class="mobile-nav-link text-right" @click="mobileMenuOpen = false">
               <i class="bi bi-award mr-3"></i>Certifications
-            </NuxtLink> -->
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@
     <footer class="mt-20 py-8 border-t border-orange-300/60 dark:border-dark-700/60">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p class="text-dark-600 dark:text-dark-300 text-sm">
-          © 2025 Philip Narteh
+          © {{ new Date().getFullYear() }} Philip Narteh
         </p>
       </div>
     </footer>

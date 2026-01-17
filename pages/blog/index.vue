@@ -11,11 +11,11 @@
     </div>
 
     <!-- Blog Posts -->
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <article 
-        v-for="(post, index) in reversedBlogPosts" 
+    <div class="flex flex-wrap gap-8 justify-center">
+      <article
+        v-for="(post, index) in reversedBlogPosts"
         :key="index"
-        class="group bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-orange-300/60 dark:border-dark-700/60 overflow-hidden cursor-pointer transition-all duration-300 animate-slide-up"
+        class="group bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-2xl border border-orange-300/60 dark:border-dark-700/60 overflow-hidden cursor-pointer transition-all duration-300 animate-slide-up w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)]"
         @click="toggleBlogCard(index)"
         :class="{ 'shadow-xl shadow-orange-500/10 -translate-y-2': clickedBlogCards[index] }"
         :style="`animation-delay: ${0.1 * index}s`"
