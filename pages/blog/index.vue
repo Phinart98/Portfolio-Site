@@ -25,7 +25,7 @@
             <!-- Post Meta -->
             <div class="flex items-center gap-2 text-xs text-orange-600 dark:text-orange-400 mb-3">
               <i class="bi bi-calendar3"></i>
-              <span>{{ post.date }}</span>
+              <span>{{ post.navigation.date }}</span>
               <span class="text-dark-400 dark:text-dark-500">•</span>
               <i class="bi bi-clock"></i>
               <span>{{ post.readingTime }}</span>
@@ -33,12 +33,12 @@
 
             <!-- Post Title -->
             <h2 class="text-lg sm:text-xl font-bold text-dark-900 dark:text-white mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
-              {{ post.title }}
+              {{ post.navigation.title }}
             </h2>
 
             <!-- Post Description/Excerpt -->
-            <p v-if="post.description" class="text-dark-600 dark:text-dark-300 text-sm leading-relaxed flex-1 line-clamp-3 mb-4">
-              {{ post.description }}
+            <p v-if="post.navigation.description" class="text-dark-600 dark:text-dark-300 text-sm leading-relaxed flex-1 line-clamp-3 mb-4">
+              {{ post.navigation.description }}
             </p>
 
             <!-- Border separator -->
@@ -80,13 +80,13 @@ useHead({
   ]
 })
 
-const { data: blogPosts } = await useAsyncData("navigation", () => {
-  return fetchContentNavigation(queryContent("blog"));
+const { data: blogPosts } = await useAsyncData("blog-posts", () => {
+  return queryContent("blog").find();
 });
 
 const reversedBlogPosts = computed(() => {
-  if (!blogPosts.value || !blogPosts.value[0]?.children) return [];
-  return [...blogPosts.value[0].children].reverse();
+  if (!blogPosts.value) return [];
+  return [...blogPosts.value].reverse();
 });
 
 // Use card click composable
