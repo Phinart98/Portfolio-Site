@@ -83,3 +83,53 @@ th {
 .dark th {
   background-color: #1f2937;
 }
+
+/* ===================================
+   Accessibility - Focus States
+   =================================== */
+/* Enhanced focus-visible for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #ea580c;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #ea580c;
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+  font-weight: 600;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Accessibility - Reduced Motion
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

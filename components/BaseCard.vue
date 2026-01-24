@@ -25,36 +25,80 @@ const props = defineProps({
   padded: {
     type: Boolean,
     default: true
+  },
+  variant: {
+    type: String,
+    default: 'default',
+    validator: (value) => ['default', 'featured', 'bento', 'glass'].includes(value)
+  },
+  glow: {
+    type: Boolean,
+    default: false
   }
 })
 
 const cardClasses = computed(() => {
-  return [
-    // Base card styling
-    'bg-white/50 dark:bg-dark-800/50',
-    'backdrop-blur-sm',
+  const baseClasses = [
     'rounded-2xl',
-    'border border-orange-300/60 dark:border-dark-700/60',
     'transition-all duration-300',
+    props.padded && 'p-6'
+  ]
 
-    // Padding
-    props.padded && 'p-6',
-
-    // Interactive states
-    props.interactive && [
-      'cursor-pointer',
-      'hover:shadow-lg hover:shadow-orange-500/10',
-      'hover:-translate-y-1',
-      'hover:border-orange-400/70 dark:hover:border-orange-500/40',
-      'hover:ring-2 hover:ring-orange-400/20 dark:hover:ring-orange-500/20'
+  // Variant-specific base styling
+  const variantClasses = {
+    default: [
+      'bg-white/50 dark:bg-dark-800/50',
+      'backdrop-blur-sm',
+      'border border-orange-300/60 dark:border-dark-700/60'
     ],
-
-    // Elevated state
-    props.elevated && [
-      'shadow-xl shadow-orange-500/10',
-      '-translate-y-2',
-      'border-orange-400/70 dark:border-orange-500/40'
+    featured: [
+      'bg-gradient-to-br from-white/60 via-orange-50/40 to-white/60',
+      'dark:from-dark-800/60 dark:via-dark-800/60 dark:to-dark-800/60',
+      'backdrop-blur-md',
+      'border border-orange-400/70 dark:border-dark-700/60',
+      'shadow-lg shadow-orange-500/10 dark:shadow-dark-900/20'
+    ],
+    bento: [
+      'bg-white/70 dark:bg-dark-800/70',
+      'backdrop-blur-lg',
+      'border-2 border-orange-300/50 dark:border-dark-700/50'
+    ],
+    glass: [
+      'bg-white/30 dark:bg-dark-800/30',
+      'backdrop-blur-xl',
+      'border border-white/40 dark:border-dark-700/40',
+      'shadow-2xl shadow-orange-500/5 dark:shadow-dark-900/10'
     ]
+  }
+
+  // Interactive states
+  const interactiveClasses = props.interactive ? [
+    'cursor-pointer',
+    'hover:shadow-lg hover:shadow-orange-500/10',
+    'hover:-translate-y-1',
+    'hover:border-orange-400/70 dark:hover:border-orange-500/40',
+    'hover:ring-2 hover:ring-orange-400/20 dark:hover:ring-orange-500/20'
+  ] : []
+
+  // Elevated state
+  const elevatedClasses = props.elevated ? [
+    'shadow-xl shadow-orange-500/10',
+    '-translate-y-2',
+    'border-orange-400/70 dark:border-orange-500/40'
+  ] : []
+
+  // Glow effect
+  const glowClasses = props.glow ? [
+    'hover:shadow-2xl hover:shadow-orange-500/20',
+    'hover:border-orange-400 dark:hover:border-orange-400'
+  ] : []
+
+  return [
+    ...baseClasses,
+    ...variantClasses[props.variant],
+    ...interactiveClasses,
+    ...elevatedClasses,
+    ...glowClasses
   ]
 })
 </script>

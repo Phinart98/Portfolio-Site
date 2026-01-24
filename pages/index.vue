@@ -1,15 +1,12 @@
 <template>
   <PageContainer>
+    <!-- Gradient mesh background -->
+    <GradientMesh :animated="true" :include-center="true" />
+
     <!-- Welcome section with enhanced styling -->
     <div class="text-center animate-fade-in relative">
-      <!-- Subtle radial gradient background glow -->
-      <div class="absolute inset-0 -z-10 bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent blur-3xl"></div>
-
-      <!-- Profile image with decorative dashed ring -->
+      <!-- Profile image -->
       <div class="mb-8 relative inline-block">
-        <!-- Decorative dashed ring with slow rotation -->
-        <div class="profile-ring"></div>
-
         <img
           src="~/assets/img/Philip_headshot3.jpeg"
           alt="A headshot of Philip"
@@ -19,140 +16,138 @@
           @touchstart="handleImageHover(true)"
           @touchend="handleImageHover(false)"
           :class="[
-            'grayscale rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover cursor-pointer transition-all duration-300 relative z-10',
-            (imageClicked || imageHovered) ? 'grayscale-0 scale-105' : 'border-4 border-orange-300 dark:border-orange-700 hover:scale-105'
+            'grayscale rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover cursor-pointer transition-all duration-500 relative shadow-xl hover:shadow-2xl hover:shadow-orange-500/20',
+            (imageClicked || imageHovered) ? 'grayscale-0 scale-105 animate-gentle-bounce' : 'border-4 border-orange-300 dark:border-orange-700 hover:scale-105'
           ]"
         />
       </div>
-      
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-4 dark:text-white transition-colors whitespace-nowrap">
-        Hello, I'm&nbsp;<span class="text-orange-700 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Philip</span>!
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 mb-4 dark:text-white transition-colors">
+        Hello, I'm&nbsp;<span class="bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent animate-gradient-flow bg-[length:200%_auto]">Philip</span>!
       </h1>
-      
-      <h2 class="text-2xl sm:text-3xl my-4 dark:text-white transition-colors font-medium">
+
+      <h2 class="text-xl sm:text-2xl my-4 dark:text-white transition-colors font-medium max-w-2xl mx-auto">
         Software Engineer @ <a href="https://paicore.tech/" target="_blank" rel="noopener noreferrer" class="text-orange-700 dark:text-orange-400 underline underline-offset-4 hover:text-orange-600 dark:hover:text-orange-300 transition-colors">PAiCore Technologies</a>
       </h2>
-      
+
       <!-- Blended description -->
-      <p class="flex justify-center text-center italic my-4 mx-3 dark:text-white transition-colors animate-slide-up" style="animation-delay: 0.2s;">
-        I'm fascinated by how technology can be harnessed to create meaningful impact across diverse fields. I care deeply about building inclusive and accessible web experiences, particularly within the Open-Source space. At the moment, I'm exploring ways to contribute to such impactful projects - relishing every moment and taking it one step at a time.
+      <p class="text-center italic my-6 mx-auto max-w-3xl px-4 dark:text-dark-200 text-dark-700 transition-colors animate-slide-up leading-relaxed" style="animation-delay: 0.2s;">
+        I'm fascinated by how technology can be harnessed to create meaningful impact across diverse fields. I care deeply about building inclusive and accessible web experiences, particularly within the Open-Source space.
       </p>
     </div>
 
-    <!-- Enhanced highlights section with your original content -->
-    <div class="mt-16 animate-slide-up" style="animation-delay: 0.4s;">
-      <p class="text-center mb-8 dark:text-white text-xl font-medium">
-        Previously, I have...
-      </p>
-      
-      <div class="space-y-6 max-w-4xl mx-auto">
-        <BaseCard :interactive="true">
-          <div class="flex items-start space-x-4">
-            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
-            <div class="text-left">
-              <p class="dark:text-white leading-relaxed text-lg">
-                worked with the
-                <AccentLink to="https://www.pyopensci.org/" :external="true">PyOpenSci community</AccentLink>
-                as an Open Source Infrastructure Intern at
-                <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>
-                to
-                <AccentLink to="https://labs.quansight.org/blog/migrating-pyopensci-to-django" :external="true">migrate our website</AccentLink>
-                from static site tools to Django with Wagtail CMS.
-              </p>
-            </div>
+    <!-- Bento grid highlights section -->
+    <div class="mt-20 animate-slide-up" style="animation-delay: 0.5s;">
+      <h3 class="text-center mb-12 dark:text-white text-2xl sm:text-3xl font-bold">
+        Highlights
+      </h3>
+
+      <!-- Bento grid layout - center aligned -->
+      <div class="flex flex-wrap gap-6 justify-center max-w-6xl mx-auto">
+        <!-- PyOpenSci & Quansight -->
+        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <div class="flex flex-col h-full">
+            <i class="bi bi-star-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+            <h4 class="text-lg font-bold dark:text-white mb-2">PyOpenSci & Quansight</h4>
+            <p class="text-sm text-orange-600 dark:text-orange-400 font-medium mb-3">Open Source Infrastructure Intern</p>
+            <p class="dark:text-dark-100 leading-relaxed text-sm">
+              Worked with the
+              <AccentLink to="https://www.pyopensci.org/" :external="true">PyOpenSci community</AccentLink>
+              at
+              <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>
+              to
+              <AccentLink to="https://labs.quansight.org/blog/migrating-pyopensci-to-django" :external="true">migrate the website</AccentLink>
+              from static site tools to Django with Wagtail CMS.
+            </p>
           </div>
         </BaseCard>
 
-        <BaseCard :interactive="true">
-          <div class="flex items-start space-x-4">
-            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
-            <div class="text-left">
-              <p class="dark:text-white leading-relaxed text-lg">
-                given a talk on Accessibility and Open Source at
-                <AccentLink to="/talks/djangocon-africa-2025" :external="false">DjangoCon Africa 2025</AccentLink>.
-              </p>
-            </div>
+        <!-- DjangoCon Talk -->
+        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <div class="flex flex-col h-full">
+            <i class="bi bi-mic-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+            <h4 class="text-lg font-bold dark:text-white mb-2">DjangoCon Africa 2025</h4>
+            <p class="dark:text-dark-100 leading-relaxed text-sm">
+              Presented on Accessibility and Open Source at
+              <AccentLink to="/talks/djangocon-africa-2025" :external="false">DjangoCon Africa</AccentLink>.
+            </p>
           </div>
         </BaseCard>
 
-        <BaseCard
-          :interactive="true"
-          :elevated="isCardClicked(0)"
-          @click="toggleCard(0)"
-        >
-          <div class="flex items-start space-x-4">
-            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
-            <div class="text-left">
-              <p class="dark:text-white leading-relaxed text-lg">
-                contributed to
-                <AccentLink to="https://www.djangoproject.com/" :external="true">Django</AccentLink>
-                Accessibility by participating in
-                <AccentLink to="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" :external="true">Session 4</AccentLink>
-                of the
-                <AccentLink to="https://djangonaut.space/" :external="true">Djangonaut Space Program</AccentLink>.
-              </p>
-            </div>
+        <!-- Djangonaut Space -->
+        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <div class="flex flex-col h-full">
+            <i class="bi bi-rocket-takeoff-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+            <h4 class="text-lg font-bold dark:text-white mb-2">Django Contributor</h4>
+            <p class="dark:text-dark-100 leading-relaxed text-sm">
+              Contributed to
+              <AccentLink to="https://www.djangoproject.com/" :external="true">Django</AccentLink>
+              Accessibility by participating in
+              <AccentLink to="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" :external="true">Session 4</AccentLink>
+              of the
+              <AccentLink to="https://djangonaut.space/" :external="true">Djangonaut Space Program</AccentLink>.
+            </p>
           </div>
         </BaseCard>
 
-        <BaseCard :interactive="true">
-          <div class="flex items-start space-x-4">
-            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
-            <div class="text-left">
-              <p class="dark:text-white leading-relaxed text-lg">
-                selected as an Equitech Scholar for the
-                <AccentLink to="https://www.equitechfutures.com/programs/adi" :external="true">Applied Data Institute</AccentLink>
-                program at
-                <AccentLink to="https://www.equitechfutures.com/" :external="true">Equitech Futures</AccentLink>.
-              </p>
-            </div>
+        <!-- Equitech Scholar -->
+        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <div class="flex flex-col h-full">
+            <i class="bi bi-mortarboard-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+            <h4 class="text-lg font-bold dark:text-white mb-2">Equitech Scholar</h4>
+            <p class="dark:text-dark-100 leading-relaxed text-sm">
+              1 of 18 scholars selected for the
+              <AccentLink to="https://www.equitechfutures.com/programs/adi" :external="true">Applied Data Institute</AccentLink>
+              program at
+              <AccentLink to="https://www.equitechfutures.com/" :external="true">Equitech Futures</AccentLink>.
+            </p>
           </div>
         </BaseCard>
 
-        <BaseCard :interactive="true">
-          <div class="flex items-start space-x-4">
-            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
-            <div class="text-left">
-              <p class="dark:text-white leading-relaxed text-lg">
-                contributed to building referral and pharmacy management systems at
-                <AccentLink to="https://rigelis.co/" :external="true">Rigelis</AccentLink>,
-                a nascent health-tech startup.
-              </p>
-            </div>
+        <!-- Rigelis -->
+        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <div class="flex flex-col h-full">
+            <i class="bi bi-heart-pulse-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+            <h4 class="text-lg font-bold dark:text-white mb-2">Health-tech Startup</h4>
+            <p class="dark:text-dark-100 leading-relaxed text-sm">
+              Helped build referral and pharmacy management systems at
+              <AccentLink to="https://www.rigelisinc.com/" :external="true">Rigelis</AccentLink>.
+            </p>
           </div>
         </BaseCard>
 
-        <BaseCard :interactive="true">
-          <div class="flex items-start space-x-4">
-            <div class="w-2 h-2 bg-orange-600 dark:bg-orange-400 rounded-full mt-3 flex-shrink-0"></div>
-            <div class="text-left">
-              <p class="dark:text-white leading-relaxed text-lg">
-                Obtained a BSc. Computer Engineering from
-                <AccentLink to="https://www.ashesi.edu.gh/" :external="true">Ashesi University</AccentLink>.
-              </p>
-            </div>
+        <!-- Education -->
+        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <div class="flex flex-col h-full">
+            <i class="bi bi-bank text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+            <h4 class="text-lg font-bold dark:text-white mb-2">Education</h4>
+            <p class="dark:text-dark-100 leading-relaxed text-sm">
+              BSc. Computer Engineering from
+              <AccentLink to="https://www.ashesi.edu.gh/" :external="true">Ashesi University</AccentLink>.
+            </p>
           </div>
         </BaseCard>
       </div>
     </div>
 
     <!-- Action button -->
-    <div class="text-center mt-16 animate-slide-up" style="animation-delay: 0.6s;">
-      <NuxtLink
+    <div class="text-center mt-16 animate-slide-up" style="animation-delay: 0.7s;">
+      <BaseButton
         to="/blog"
-        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-500 dark:to-orange-600 text-white text-lg font-semibold rounded-xl hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 hover:-translate-y-2 hover:scale-105 group relative overflow-hidden"
+        variant="primary"
+        size="lg"
+        icon="journal-text"
+        icon-position="left"
       >
-        <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-        <i class="bi bi-journal-text mr-2 group-hover:scale-110 transition-transform relative z-10"></i>
-        <span class="relative z-10">Read My Blog</span>
-      </NuxtLink>
+        Read My Blog
+      </BaseButton>
     </div>
 
     <!-- All Links Section (like original - single row) -->
-    <div class="mt-20 animate-slide-up" style="animation-delay: 0.8s;">
-      <p class="text-center mb-8 dark:text-white text-xl font-medium">
-        You can also find me here:
-      </p>
+    <div class="mt-20 animate-slide-up" style="animation-delay: 0.9s;">
+      <h3 class="text-center mb-8 dark:text-white text-2xl font-bold">
+        Connect With Me
+      </h3>
       
       <!-- Single Row: All links -->
       <div class="flex justify-center my-6 mx-3">
@@ -234,22 +229,17 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-/* Decorative dashed ring around profile image */
-.profile-ring {
-  @apply absolute inset-0;
-  @apply w-[calc(100%+2rem)] h-[calc(100%+2rem)];
-  @apply -left-4 -top-4;
-  @apply border-2 border-dashed border-orange-400/30 dark:border-orange-500/20;
-  @apply rounded-full;
-  animation: rotate-slow 30s linear infinite;
+/* Gentle bounce animation for profile image */
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: scale(1.05) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
 }
 
-@keyframes rotate-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.animate-gentle-bounce {
+  animation: gentle-bounce 0.6s ease-out;
 }
 </style>

@@ -1,5 +1,10 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-white via-orange-50/30 to-orange-100/50 dark:from-dark-950 dark:via-dark-900 dark:to-dark-800 transition-all duration-300">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">
+      Skip to main content
+    </a>
+
     <nav class="backdrop-blur-md bg-white/80 dark:bg-dark-800/90 border-b border-orange-300/70 dark:border-dark-600/70 sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 sm:h-18">
@@ -13,16 +18,16 @@
           </div>
 
           <div class="hidden md:flex items-center space-x-1">
-            <NuxtLink to="/" class="nav-link">
+            <NuxtLink to="/" class="nav-link" :aria-current="route.path === '/' ? 'page' : undefined">
               <i class="bi bi-person mr-2"></i>About
             </NuxtLink>
-            <NuxtLink to="/blog" class="nav-link">
+            <NuxtLink to="/blog" class="nav-link" :aria-current="route.path.startsWith('/blog') ? 'page' : undefined">
               <i class="bi bi-journal-text mr-2"></i>Blog
             </NuxtLink>
-            <NuxtLink to="/talks" class="nav-link">
+            <NuxtLink to="/talks" class="nav-link" :aria-current="route.path.startsWith('/talks') ? 'page' : undefined">
               <i class="bi bi-mic mr-2"></i>Talks
             </NuxtLink>
-            <NuxtLink to="/certifications" class="nav-link">
+            <NuxtLink to="/certifications" class="nav-link" :aria-current="route.path === '/certifications' ? 'page' : undefined">
               <i class="bi bi-award mr-2"></i>Certifications
             </NuxtLink>
 
@@ -32,10 +37,12 @@
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center space-x-2">
             <ThemeToggle />
-            <button 
-              @click="toggleMobileMenu" 
+            <button
+              @click="toggleMobileMenu"
               class="mobile-menu-btn"
               type="button"
+              :aria-expanded="mobileMenuOpen"
+              aria-label="Toggle navigation menu"
             >
               <i :class="mobileMenuOpen ? 'bi bi-x-lg' : 'bi bi-list'" class="text-xl"></i>
             </button>
@@ -92,7 +99,7 @@
       ></div>
     </transition>
 
-    <main class="animate-fade-in">
+    <main id="main-content" class="animate-fade-in">
       <slot />
     </main>
 
@@ -167,31 +174,15 @@ onMounted(() => {
   @apply p-2 rounded-lg text-dark-700 dark:text-dark-200;
   @apply hover:bg-orange-100 dark:hover:bg-orange-900/30;
   @apply transition-all duration-300;
-  /* Remove focus and active state effects */
-  background: transparent;
-  border: none;
-  outline: none;
-}
-
-.mobile-menu-btn:focus {
-  outline: none;
-  box-shadow: none;
   background: transparent;
   border: none;
 }
 
-.mobile-menu-btn:active {
-  outline: none;
-  box-shadow: none;
-  background: transparent;
-  border: none;
-}
-
+/* Accessible focus state for mobile menu button */
 .mobile-menu-btn:focus-visible {
-  outline: none;
-  box-shadow: none;
-  background: transparent;
-  border: none;
+  outline: 2px solid #ea580c;
+  outline-offset: 2px;
+  background: rgba(249, 115, 22, 0.1);
 }
 
 /* Mobile menu overlay */
