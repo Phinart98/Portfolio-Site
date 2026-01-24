@@ -45,7 +45,7 @@
 
                 <!-- Read More -->
                 <div class="inline-flex items-center text-orange-600 dark:text-orange-400 font-medium group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
-                  <span>Read Full Article</span>
+                  <span>Read Full Blog Post</span>
                   <i class="bi bi-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
                 </div>
               </div>
