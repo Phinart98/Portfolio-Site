@@ -1,0 +1,20 @@
+/* ===================================
+   Theme Tokens - Single Source of Truth
+   Change ONE line below to switch themes
+   =================================== */
+
+/* Import your chosen accent color palette */
+@import './palettes/orange.css';  /* <-- CHANGE THIS LINE TO SWITCH THEMES */
+
+/* Available palettes (7 distinct colors):
+   - orange.css   (warm, energetic - DEFAULT)
+   - yellow.css   (bright, cheerful)
+   - green.css    (growth, open source)
+   - teal.css     (tech-forward, modern)
+   - blue.css     (professional, stable)
+   - purple.css   (creative, luxurious)
+   - rose.css     (elegant, design-forward)
+*/
+
+/* Import shared surface/background colors */
+@import './surfaces.css';

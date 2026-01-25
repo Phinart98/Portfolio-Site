@@ -1,0 +1,31 @@
+/* Purple Theme
+   Creative, luxurious, artistic premium */
+
+:root {
+  /* Raw color scale */
+  --color-accent-50: 250 245 255;
+  --color-accent-100: 243 232 255;
+  --color-accent-200: 233 213 255;
+  --color-accent-300: 216 180 254;
+  --color-accent-400: 192 132 252;
+  --color-accent-500: 168 85 247;
+  --color-accent-600: 147 51 234;
+  --color-accent-700: 126 34 206;
+  --color-accent-800: 107 33 168;
+  --color-accent-900: 88 28 135;
+  --color-accent-950: 59 7 100;
+
+  /* Semantic tokens - LIGHT MODE */
+  --color-primary: var(--color-accent-600);
+  --color-primary-hover: var(--color-accent-700);
+  --color-primary-subtle: var(--color-accent-100);
+  --color-primary-muted: var(--color-accent-300);
+}
+
+/* DARK MODE - Purple can handle 400 */
+.dark {
+  --color-primary: var(--color-accent-400);
+  --color-primary-hover: var(--color-accent-500);
+  --color-primary-subtle: var(--color-accent-900);
+  --color-primary-muted: var(--color-accent-700);
+}

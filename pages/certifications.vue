@@ -19,17 +19,17 @@
               <img src="~/assets/img/certs/kcna-badge.png" alt="KCNA Badge" class="w-full h-full object-contain" />
             </div>
             <div class="flex-1">
-              <h3 class="text-lg font-bold text-dark-900 dark:text-white mb-2 group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+              <h3 class="text-lg font-bold text-surface-900 dark:text-white mb-2 group-hover:bg-gradient-to-r group-hover:from-accent-600 group-hover:to-accent-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                 KCNA: Kubernetes and Cloud Native Associate
               </h3>
-              <p class="text-dark-600 dark:text-dark-300 text-sm mb-3">
+              <p class="text-surface-600 dark:text-surface-300 text-sm mb-3">
                 Linux Foundation
               </p>
               <div class="flex items-center justify-center gap-2 text-xs mb-3">
-                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">Kubernetes</span>
-                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">Cloud Native</span>
+                <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded">Kubernetes</span>
+                <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded">Cloud Native</span>
               </div>
-              <p class="text-dark-600 dark:text-dark-400 text-sm mb-4">
+              <p class="text-surface-600 dark:text-surface-400 text-sm mb-4">
                 <i class="bi bi-calendar3"></i> September 2025
               </p>
 
@@ -57,17 +57,17 @@
               <img src="~/assets/img/certs/aws-ccp-badge.png" alt="AWS CCP Badge" class="w-full h-full object-contain" />
             </div>
             <div class="flex-1">
-              <h3 class="text-lg font-bold text-dark-900 dark:text-white mb-2 group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+              <h3 class="text-lg font-bold text-surface-900 dark:text-white mb-2 group-hover:bg-gradient-to-r group-hover:from-accent-600 group-hover:to-accent-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                 AWS Certified Cloud Practitioner
               </h3>
-              <p class="text-dark-600 dark:text-dark-300 text-sm mb-3">
+              <p class="text-surface-600 dark:text-surface-300 text-sm mb-3">
                 Amazon Web Services
               </p>
               <div class="flex items-center justify-center gap-2 text-xs mb-3">
-                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">AWS</span>
-                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">Cloud</span>
+                <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded">AWS</span>
+                <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded">Cloud</span>
               </div>
-              <p class="text-dark-600 dark:text-dark-400 text-sm mb-4">
+              <p class="text-surface-600 dark:text-surface-400 text-sm mb-4">
                 <i class="bi bi-calendar3"></i> August 2025
               </p>
 
@@ -95,17 +95,17 @@
               <img src="~/assets/img/certs/gcp-ace-badge.png" alt="GCP ACE Badge" class="w-full h-full object-contain" />
             </div>
             <div class="flex-1">
-              <h3 class="text-lg font-bold text-dark-900 dark:text-white mb-2 group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+              <h3 class="text-lg font-bold text-surface-900 dark:text-white mb-2 group-hover:bg-gradient-to-r group-hover:from-accent-600 group-hover:to-accent-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                 Google Cloud Certified Associate Cloud Engineer
               </h3>
-              <p class="text-dark-600 dark:text-dark-300 text-sm mb-3">
+              <p class="text-surface-600 dark:text-surface-300 text-sm mb-3">
                 Google Cloud
               </p>
               <div class="flex items-center justify-center gap-2 text-xs mb-3">
-                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">GCP</span>
-                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">Cloud</span>
+                <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded">GCP</span>
+                <span class="px-2 py-1 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded">Cloud</span>
               </div>
-              <p class="text-dark-600 dark:text-dark-400 text-sm mb-4">
+              <p class="text-surface-600 dark:text-surface-400 text-sm mb-4">
                 <i class="bi bi-calendar3"></i> December 2024
               </p>
 

@@ -1,0 +1,31 @@
+/* Teal Theme
+   Tech-forward, clean, data engineering */
+
+:root {
+  /* Raw color scale */
+  --color-accent-50: 240 253 250;
+  --color-accent-100: 204 251 241;
+  --color-accent-200: 153 246 228;
+  --color-accent-300: 94 234 212;
+  --color-accent-400: 45 212 191;
+  --color-accent-500: 20 184 166;
+  --color-accent-600: 13 148 136;
+  --color-accent-700: 15 118 110;
+  --color-accent-800: 17 94 89;
+  --color-accent-900: 19 78 74;
+  --color-accent-950: 4 47 46;
+
+  /* Semantic tokens - LIGHT MODE */
+  --color-primary: var(--color-accent-600);
+  --color-primary-hover: var(--color-accent-700);
+  --color-primary-subtle: var(--color-accent-100);
+  --color-primary-muted: var(--color-accent-300);
+}
+
+/* DARK MODE - Teal at 400 */
+.dark {
+  --color-primary: var(--color-accent-400);
+  --color-primary-hover: var(--color-accent-500);
+  --color-primary-subtle: var(--color-accent-900);
+  --color-primary-muted: var(--color-accent-700);
+}

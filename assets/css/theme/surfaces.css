@@ -1,0 +1,25 @@
+/* ===================================
+   Surface/Background Colors
+   Shared across all color themes
+   =================================== */
+
+:root {
+  /* Surface colors (slate-based) */
+  --color-surface-50: 248 250 252;    /* #f8fafc */
+  --color-surface-100: 241 245 249;   /* #f1f5f9 */
+  --color-surface-200: 226 232 240;   /* #e2e8f0 */
+  --color-surface-300: 203 213 225;   /* #cbd5e1 */
+  --color-surface-400: 148 163 184;   /* #94a3b8 */
+  --color-surface-500: 100 116 139;   /* #64748b */
+  --color-surface-600: 71 85 105;     /* #475569 */
+  --color-surface-700: 45 55 72;      /* #2d3748 */
+  --color-surface-800: 26 32 44;      /* #1a202c */
+  --color-surface-900: 23 25 35;      /* #171923 */
+  --color-surface-950: 13 17 23;      /* #0d1117 */
+
+  /* Syntax highlighting colors */
+  --color-syntax-text: 229 233 240;   /* #e5e9f0 */
+  --color-syntax-bg: 30 41 59;        /* #1e293b */
+  --color-syntax-string: 34 197 94;   /* #22c55e - green */
+  --color-syntax-function: 59 130 246; /* #3b82f6 - blue */
+}

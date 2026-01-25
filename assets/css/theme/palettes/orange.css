@@ -1,0 +1,31 @@
+/* Orange Theme - Current default
+   Warm, energetic, creative */
+
+:root {
+  /* Raw color scale */
+  --color-accent-50: 255 247 237;
+  --color-accent-100: 255 237 213;
+  --color-accent-200: 254 215 170;
+  --color-accent-300: 253 186 116;
+  --color-accent-400: 251 146 60;
+  --color-accent-500: 249 115 22;
+  --color-accent-600: 234 88 12;
+  --color-accent-700: 194 65 12;
+  --color-accent-800: 154 52 18;
+  --color-accent-900: 124 45 18;
+  --color-accent-950: 67 20 7;
+
+  /* Semantic tokens - LIGHT MODE */
+  --color-primary: var(--color-accent-600);        /* Main actions, links */
+  --color-primary-hover: var(--color-accent-700);  /* Hover states */
+  --color-primary-subtle: var(--color-accent-100); /* Light backgrounds */
+  --color-primary-muted: var(--color-accent-300);  /* Borders, dividers */
+}
+
+/* DARK MODE - Orange works well at 400 */
+.dark {
+  --color-primary: var(--color-accent-400);
+  --color-primary-hover: var(--color-accent-500);
+  --color-primary-subtle: var(--color-accent-900);
+  --color-primary-muted: var(--color-accent-700);
+}

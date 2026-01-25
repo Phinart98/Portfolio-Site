@@ -47,50 +47,50 @@ const cardClasses = computed(() => {
   // Variant-specific base styling
   const variantClasses = {
     default: [
-      'bg-white/50 dark:bg-dark-800/50',
+      'bg-white/50 dark:bg-surface-800/50',
       'backdrop-blur-sm',
-      'border border-orange-300/60 dark:border-dark-700/60'
+      'border border-accent-300/60 dark:border-surface-700/60'
     ],
     featured: [
-      'bg-gradient-to-br from-white/60 via-orange-50/40 to-white/60',
-      'dark:from-dark-800/60 dark:via-dark-800/60 dark:to-dark-800/60',
+      'bg-gradient-to-br from-white/60 via-accent-50/40 to-white/60',
+      'dark:from-surface-800/60 dark:via-surface-800/60 dark:to-surface-800/60',
       'backdrop-blur-md',
-      'border border-orange-400/70 dark:border-dark-700/60',
-      'shadow-lg shadow-orange-500/10 dark:shadow-dark-900/20'
+      'border border-accent-400/70 dark:border-surface-700/60',
+      'shadow-lg shadow-accent-500/10 dark:shadow-surface-900/20'
     ],
     bento: [
-      'bg-white/70 dark:bg-dark-800/70',
+      'bg-white/70 dark:bg-surface-800/70',
       'backdrop-blur-lg',
-      'border-2 border-orange-300/50 dark:border-dark-700/50'
+      'border-2 border-accent-300/50 dark:border-surface-700/50'
     ],
     glass: [
-      'bg-white/30 dark:bg-dark-800/30',
+      'bg-white/30 dark:bg-surface-800/30',
       'backdrop-blur-xl',
-      'border border-white/40 dark:border-dark-700/40',
-      'shadow-2xl shadow-orange-500/5 dark:shadow-dark-900/10'
+      'border border-white/40 dark:border-surface-700/40',
+      'shadow-2xl shadow-accent-500/5 dark:shadow-surface-900/10'
     ]
   }
 
   // Interactive states
   const interactiveClasses = props.interactive ? [
     'cursor-pointer',
-    'hover:shadow-lg hover:shadow-orange-500/10',
+    'hover:shadow-lg hover:shadow-accent-500/10',
     'hover:-translate-y-1',
-    'hover:border-orange-400/70 dark:hover:border-orange-500/40',
-    'hover:ring-2 hover:ring-orange-400/20 dark:hover:ring-orange-500/20'
+    'hover:border-accent-400/70 dark:hover:border-accent-500/40',
+    'hover:ring-2 hover:ring-accent-400/20 dark:hover:ring-accent-500/20'
   ] : []
 
   // Elevated state
   const elevatedClasses = props.elevated ? [
-    'shadow-xl shadow-orange-500/10',
+    'shadow-xl shadow-accent-500/10',
     '-translate-y-2',
-    'border-orange-400/70 dark:border-orange-500/40'
+    'border-accent-400/70 dark:border-accent-500/40'
   ] : []
 
   // Glow effect
   const glowClasses = props.glow ? [
-    'hover:shadow-2xl hover:shadow-orange-500/20',
-    'hover:border-orange-400 dark:hover:border-orange-400'
+    'hover:shadow-2xl hover:shadow-accent-500/20',
+    'hover:border-accent-400 dark:hover:border-accent-400'
   ] : []
 
   return [

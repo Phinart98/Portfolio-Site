@@ -1,0 +1,31 @@
+/* Rose Theme
+   Warm, elegant, refined design-forward */
+
+:root {
+  /* Raw color scale */
+  --color-accent-50: 255 241 242;
+  --color-accent-100: 255 228 230;
+  --color-accent-200: 254 205 211;
+  --color-accent-300: 253 164 175;
+  --color-accent-400: 251 113 133;
+  --color-accent-500: 244 63 94;
+  --color-accent-600: 225 29 72;
+  --color-accent-700: 190 18 60;
+  --color-accent-800: 159 18 57;
+  --color-accent-900: 136 19 55;
+  --color-accent-950: 76 5 25;
+
+  /* Semantic tokens - LIGHT MODE */
+  --color-primary: var(--color-accent-600);
+  --color-primary-hover: var(--color-accent-700);
+  --color-primary-subtle: var(--color-accent-100);
+  --color-primary-muted: var(--color-accent-300);
+}
+
+/* DARK MODE - Rose at 400 */
+.dark {
+  --color-primary: var(--color-accent-400);
+  --color-primary-hover: var(--color-accent-500);
+  --color-primary-subtle: var(--color-accent-900);
+  --color-primary-muted: var(--color-accent-700);
+}

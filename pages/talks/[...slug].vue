@@ -1,18 +1,18 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-white via-orange-50/30 to-orange-100/50 dark:from-dark-950 dark:via-dark-900 dark:to-dark-800">
+  <div class="min-h-screen bg-gradient-to-br from-white via-accent-50/30 to-accent-100/50 dark:from-surface-950 dark:via-surface-900 dark:to-surface-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
       <!-- Back to Talks Link -->
       <NuxtLink
         to="/talks"
-        class="inline-flex items-center text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors mb-8"
+        class="inline-flex items-center text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors mb-8"
       >
         <i class="bi bi-arrow-left mr-2"></i>
         Back to Talks
       </NuxtLink>
 
       <!-- Talk Container -->
-      <article class="bg-white/80 dark:bg-dark-800/80 backdrop-blur-sm rounded-3xl border border-orange-300/60 dark:border-dark-700/60 shadow-xl shadow-orange-500/5 overflow-hidden animate-slide-up">
+      <article class="bg-white/80 dark:bg-surface-800/80 backdrop-blur-sm rounded-3xl border border-accent-300/60 dark:border-surface-700/60 shadow-xl shadow-accent-500/5 overflow-hidden animate-slide-up">
         <div class="px-8 sm:px-12 py-12">
           <!-- Content with Enhanced Typography -->
           <div class="prose prose-lg dark:prose-invert max-w-none">
@@ -32,7 +32,7 @@
                   :href="doc.navigation.externalLink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1"
+                  class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-xl hover:shadow-lg hover:shadow-accent-500/25 transition-all duration-300 hover:-translate-y-1"
                 >
                   <i class="bi bi-box-arrow-up-right mr-2"></i>
                   View Official Talk Page
@@ -42,7 +42,7 @@
                   :href="doc.navigation.eventLink"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center px-6 py-3 border border-orange-500 text-orange-600 dark:text-orange-400 rounded-xl hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300 hover:-translate-y-1"
+                  class="inline-flex items-center px-6 py-3 border border-accent-500 text-accent-600 dark:text-accent-400 rounded-xl hover:bg-accent-50 dark:hover:bg-accent-900/20 transition-all duration-300 hover:-translate-y-1"
                 >
                   <i class="bi bi-globe mr-2"></i>
                   Visit DjangoCon Africa
@@ -57,7 +57,7 @@
       <div class="mt-12 flex justify-between items-center animate-slide-up" style="animation-delay: 0.2s;">
         <NuxtLink
           to="/talks"
-          class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1"
+          class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-xl hover:shadow-lg hover:shadow-accent-500/25 transition-all duration-300 hover:-translate-y-1"
         >
           <i class="bi bi-mic mr-2"></i>
           More Talks
@@ -65,7 +65,7 @@
 
         <NuxtLink
           to="/"
-          class="inline-flex items-center px-6 py-3 border border-orange-500 text-orange-600 dark:text-orange-400 rounded-xl hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300 hover:-translate-y-1"
+          class="inline-flex items-center px-6 py-3 border border-accent-500 text-accent-600 dark:text-accent-400 rounded-xl hover:bg-accent-50 dark:hover:bg-accent-900/20 transition-all duration-300 hover:-translate-y-1"
         >
           <i class="bi bi-house mr-2"></i>
           Home
@@ -95,19 +95,19 @@ useHead({
 <style>
 /* Enhanced prose styling for talks */
 .prose {
-  @apply text-dark-700 dark:text-dark-200;
+  @apply text-surface-700 dark:text-surface-200;
 }
 
 .prose h1 {
-  @apply text-center text-4xl sm:text-5xl font-bold mb-8 text-dark-900 dark:text-white;
+  @apply text-center text-4xl sm:text-5xl font-bold mb-8 text-surface-900 dark:text-white;
 }
 
 .prose h2 {
-  @apply text-2xl sm:text-3xl font-semibold mt-12 mb-6 text-dark-900 dark:text-white;
+  @apply text-2xl sm:text-3xl font-semibold mt-12 mb-6 text-surface-900 dark:text-white;
 }
 
 .prose h3 {
-  @apply text-xl sm:text-2xl font-semibold mt-8 mb-4 text-dark-900 dark:text-white;
+  @apply text-xl sm:text-2xl font-semibold mt-8 mb-4 text-surface-900 dark:text-white;
 }
 
 .prose p {
@@ -115,7 +115,7 @@ useHead({
 }
 
 .prose a {
-  @apply text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 underline underline-offset-4 decoration-orange-500/30 hover:decoration-orange-500/60 transition-all;
+  @apply text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 underline underline-offset-4 decoration-accent-500/30 hover:decoration-accent-500/60 transition-all;
 }
 
 .prose .not-prose a {
@@ -124,19 +124,19 @@ useHead({
 }
 
 .prose blockquote {
-  @apply border-l-4 border-orange-500 pl-6 italic bg-orange-50/50 dark:bg-orange-900/20 py-4 rounded-r-lg;
+  @apply border-l-4 border-accent-500 pl-6 italic bg-accent-50/50 dark:bg-accent-900/20 py-4 rounded-r-lg;
 }
 
 .prose code {
-  @apply bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 px-2 py-1 rounded text-sm font-mono;
+  @apply bg-accent-100 dark:bg-accent-900/30 text-accent-800 dark:text-accent-200 px-2 py-1 rounded text-sm font-mono;
 }
 
 .prose pre {
-  @apply bg-dark-800 dark:bg-dark-900 border border-orange-200/30 dark:border-dark-700/30 rounded-xl p-6 overflow-x-auto;
+  @apply bg-surface-800 dark:bg-surface-900 border border-accent-200/30 dark:border-surface-700/30 rounded-xl p-6 overflow-x-auto;
 }
 
 .prose pre code {
-  @apply bg-transparent text-dark-100 p-0;
+  @apply bg-transparent text-surface-100 p-0;
 }
 
 .prose ul, .prose ol {

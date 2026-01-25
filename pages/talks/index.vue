@@ -29,29 +29,29 @@
           <div v-if="talk.navigation.headerImage" class="w-full mb-4 rounded-lg overflow-hidden">
             <img :src="talk.navigation.headerImage" :alt="talk.navigation.title" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
           </div>
-          <div class="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400 mb-2">
+          <div class="flex items-center gap-2 text-sm text-accent-600 dark:text-accent-400 mb-2">
             <i class="bi bi-calendar3"></i>
             <span>{{ talk.navigation.date }}</span>
-            <span v-if="talk.navigation.time" class="text-dark-400 dark:text-dark-500">•</span>
+            <span v-if="talk.navigation.time" class="text-surface-400 dark:text-surface-500">•</span>
             <span v-if="talk.navigation.time">{{ talk.navigation.time }}</span>
           </div>
-          <div v-if="talk.navigation.venue || talk.navigation.event" class="flex items-center gap-2 text-sm text-dark-600 dark:text-dark-400 mb-4">
+          <div v-if="talk.navigation.venue || talk.navigation.event" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 mb-4">
             <i v-if="talk.navigation.venue" class="bi bi-geo-alt"></i>
             <span v-if="talk.navigation.venue">{{ talk.navigation.venue }}</span>
-            <span v-if="talk.navigation.venue && talk.navigation.event" class="text-dark-400 dark:text-dark-500">•</span>
+            <span v-if="talk.navigation.venue && talk.navigation.event" class="text-surface-400 dark:text-surface-500">•</span>
             <span v-if="talk.navigation.event">{{ talk.navigation.event }}</span>
           </div>
-          <h3 class="text-xl font-bold text-dark-900 dark:text-white mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+          <h3 class="text-xl font-bold text-surface-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
             {{ talk.navigation.title }}
           </h3>
-          <p class="text-dark-600 dark:text-dark-300 leading-relaxed mb-4 flex-grow">
+          <p class="text-surface-600 dark:text-surface-300 leading-relaxed mb-4 flex-grow">
             {{ talk.navigation.description }}
           </p>
           <div v-if="talk.navigation.tags" class="flex items-center gap-2 flex-wrap mt-auto">
             <span
               v-for="tag in talk.navigation.tags"
               :key="tag"
-              class="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs rounded-full font-medium"
+              class="px-3 py-1.5 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 text-xs rounded-full font-medium"
             >
               {{ tag }}
             </span>

@@ -29,7 +29,7 @@ const handleToggle = () => {
 <style scoped>
 .toggle-btn {
   @apply relative p-3 rounded-xl transition-all duration-300;
-  @apply hover:shadow-lg hover:shadow-orange-500/25;
+  @apply hover:shadow-lg hover:shadow-accent-500/25;
   @apply hover:-translate-y-1 active:translate-y-0;
   @apply group-hover:scale-110;
   background: transparent;
@@ -37,16 +37,16 @@ const handleToggle = () => {
 }
 
 .toggle-btn:hover {
-  box-shadow: 0 8px 25px -8px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 8px 25px -8px rgb(var(--color-accent-500) / 0.4);
 }
 
 .icon {
-  @apply text-lg text-orange-700 dark:text-orange-400;
+  @apply text-lg text-accent-700 dark:text-accent-400;
   @apply transition-all duration-300;
   @apply group-hover:scale-110;
 }
 
 .toggle-btn:hover .icon {
-  @apply text-orange-800 dark:text-orange-300;
+  @apply text-accent-800 dark:text-accent-300;
 }
 </style>

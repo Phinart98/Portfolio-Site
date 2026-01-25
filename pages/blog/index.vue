@@ -16,7 +16,7 @@
         <NuxtLink :to="`${featuredPost._path}`" class="block group">
           <BaseCard variant="featured" :interactive="true" :glow="true" class="relative overflow-hidden">
             <!-- Latest badge -->
-            <div class="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-bold rounded-full flex items-center gap-1.5 z-10">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-accent-500 to-accent-600 text-white text-xs font-bold rounded-full flex items-center gap-1.5 z-10">
               <i class="bi bi-star-fill"></i>
               Latest
             </div>
@@ -25,26 +25,26 @@
               <!-- Content - spans 3 columns -->
               <div class="md:col-span-3">
                 <!-- Post Meta -->
-                <div class="flex items-center gap-2 text-xs text-orange-600 dark:text-orange-400 mb-4">
+                <div class="flex items-center gap-2 text-xs text-accent-600 dark:text-accent-400 mb-4">
                   <i class="bi bi-calendar3"></i>
                   <span>{{ featuredPost.navigation.date }}</span>
-                  <span class="text-dark-400 dark:text-dark-500">•</span>
+                  <span class="text-surface-400 dark:text-surface-500">•</span>
                   <i class="bi bi-clock"></i>
                   <span>{{ featuredPost.readingTime }}</span>
                 </div>
 
                 <!-- Post Title -->
-                <h2 class="text-2xl md:text-3xl font-bold text-dark-900 dark:text-white mb-4 group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                <h2 class="text-2xl md:text-3xl font-bold text-surface-900 dark:text-white mb-4 group-hover:bg-gradient-to-r group-hover:from-accent-600 group-hover:to-accent-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   {{ getCardTitle(featuredPost.navigation.title) }}
                 </h2>
 
                 <!-- Post Description -->
-                <p v-if="featuredPost.navigation.description" class="text-base md:text-lg text-dark-700 dark:text-dark-200 leading-relaxed mb-6">
+                <p v-if="featuredPost.navigation.description" class="text-base md:text-lg text-surface-700 dark:text-surface-200 leading-relaxed mb-6">
                   {{ featuredPost.navigation.description }}
                 </p>
 
                 <!-- Read More -->
-                <div class="inline-flex items-center text-orange-600 dark:text-orange-400 font-medium group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
+                <div class="inline-flex items-center text-accent-600 dark:text-accent-400 font-medium group-hover:text-accent-700 dark:group-hover:text-accent-300 transition-colors">
                   <span>Read Full Blog Post</span>
                   <i class="bi bi-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
                 </div>
@@ -52,8 +52,8 @@
 
               <!-- Visual accent - spans 2 columns -->
               <div class="md:col-span-2 flex items-center justify-center">
-                <div class="w-full h-full min-h-[200px] bg-gradient-to-br from-orange-100 to-orange-50 dark:from-orange-900/20 dark:to-dark-800/50 rounded-xl flex items-center justify-center">
-                  <i class="bi bi-journal-text text-8xl text-orange-400/30 dark:text-orange-600/30"></i>
+                <div class="w-full h-full min-h-[200px] bg-gradient-to-br from-accent-100 to-accent-50 dark:from-accent-900/20 dark:to-surface-800/50 rounded-xl flex items-center justify-center">
+                  <i class="bi bi-journal-text text-8xl text-accent-400/30 dark:text-accent-600/30"></i>
                 </div>
               </div>
             </div>
@@ -85,29 +85,29 @@
             <NuxtLink :to="`${post._path}`" class="block h-full">
               <div class="p-6 h-full flex flex-col">
                 <!-- Post Meta -->
-                <div class="flex items-center gap-2 text-xs text-orange-600 dark:text-orange-400 mb-3">
+                <div class="flex items-center gap-2 text-xs text-accent-600 dark:text-accent-400 mb-3">
                   <i class="bi bi-calendar3"></i>
                   <span>{{ post.navigation.date }}</span>
-                  <span class="text-dark-400 dark:text-dark-500">•</span>
+                  <span class="text-surface-400 dark:text-surface-500">•</span>
                   <i class="bi bi-clock"></i>
                   <span>{{ post.readingTime }}</span>
                 </div>
 
                 <!-- Post Title -->
-                <h2 class="text-lg sm:text-xl font-bold text-dark-900 dark:text-white mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
+                <h2 class="text-lg sm:text-xl font-bold text-surface-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors line-clamp-2">
                   {{ getCardTitle(post.navigation.title) }}
                 </h2>
 
                 <!-- Post Description/Excerpt -->
-                <p v-if="post.navigation.description" class="text-dark-600 dark:text-dark-300 text-base leading-relaxed flex-1 line-clamp-3 mb-4">
+                <p v-if="post.navigation.description" class="text-surface-600 dark:text-surface-300 text-base leading-relaxed flex-1 line-clamp-3 mb-4">
                   {{ post.navigation.description }}
                 </p>
 
                 <!-- Border separator -->
-                <div class="w-full h-px bg-gradient-to-r from-transparent via-orange-300 dark:via-orange-700 to-transparent mb-4 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-accent-300 dark:via-accent-700 to-transparent mb-4 opacity-50 group-hover:opacity-100 transition-opacity"></div>
 
                 <!-- Read More with enhanced arrow -->
-                <div class="flex items-center text-orange-600 dark:text-orange-400 text-sm font-medium group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
+                <div class="flex items-center text-accent-600 dark:text-accent-400 text-sm font-medium group-hover:text-accent-700 dark:group-hover:text-accent-300 transition-colors">
                   <span>Read More</span>
                   <i class="bi bi-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
                 </div>
@@ -122,11 +122,11 @@
     <!-- Empty State -->
     <div v-if="!reversedBlogPosts || reversedBlogPosts.length === 0" class="text-center py-20">
       <BaseCard class="p-12">
-        <i class="bi bi-journal-plus text-6xl text-orange-500 mb-6 block"></i>
-        <h3 class="text-2xl font-bold text-dark-900 dark:text-white mb-4">
+        <i class="bi bi-journal-plus text-6xl text-accent-500 mb-6 block"></i>
+        <h3 class="text-2xl font-bold text-surface-900 dark:text-white mb-4">
           No Posts Yet
         </h3>
-        <p class="text-lg text-dark-600 dark:text-dark-300 max-w-md mx-auto">
+        <p class="text-lg text-surface-600 dark:text-surface-300 max-w-md mx-auto">
           I'm working on some exciting content. Check back soon for insights about 
           software engineering, accessibility, and tech adventures!
         </p>

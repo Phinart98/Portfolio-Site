@@ -5,7 +5,7 @@
       class="absolute w-96 h-96 rounded-full blur-3xl"
       :class="[
         '-top-48 -right-48',
-        'bg-gradient-radial from-orange-500/20 via-orange-400/10 to-transparent',
+        'bg-gradient-radial from-accent-500/20 via-accent-400/10 to-transparent',
         animated && 'animate-float'
       ]"
       style="animation-delay: 0s;"
@@ -28,7 +28,7 @@
       class="absolute w-64 h-64 rounded-full blur-3xl"
       :class="[
         'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-        'bg-gradient-radial from-orange-400/5 via-pink-400/5 to-transparent',
+        'bg-gradient-radial from-accent-400/5 via-pink-400/5 to-transparent',
         animated && 'animate-pulse-subtle'
       ]"
     ></div>

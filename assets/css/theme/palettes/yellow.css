@@ -1,0 +1,32 @@
+/* Yellow Theme
+   Bright, optimistic, cheerful
+   ACCESSIBILITY: Yellow needs careful handling for contrast */
+
+:root {
+  /* Raw color scale */
+  --color-accent-50: 254 252 232;
+  --color-accent-100: 254 249 195;
+  --color-accent-200: 254 240 138;
+  --color-accent-300: 253 224 71;
+  --color-accent-400: 250 204 21;
+  --color-accent-500: 234 179 8;
+  --color-accent-600: 202 138 4;
+  --color-accent-700: 161 98 7;
+  --color-accent-800: 133 77 14;
+  --color-accent-900: 113 63 18;
+  --color-accent-950: 66 32 6;
+
+  /* Semantic tokens - LIGHT MODE */
+  --color-primary: var(--color-accent-600);        /* Darker for accessibility */
+  --color-primary-hover: var(--color-accent-700);
+  --color-primary-subtle: var(--color-accent-100);
+  --color-primary-muted: var(--color-accent-400);
+}
+
+/* DARK MODE - Yellow needs LIGHTER shade (300) to avoid harshness */
+.dark {
+  --color-primary: var(--color-accent-300);
+  --color-primary-hover: var(--color-accent-400);
+  --color-primary-subtle: var(--color-accent-900);
+  --color-primary-muted: var(--color-accent-700);
+}

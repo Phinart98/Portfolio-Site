@@ -93,7 +93,7 @@ const buttonClasses = computed(() => {
     'focus-visible:outline-none',
     'focus-visible:ring-2',
     'focus-visible:ring-offset-2',
-    'focus-visible:ring-orange-500',
+    'focus-visible:ring-accent-500',
     'disabled:opacity-50',
     'disabled:cursor-not-allowed',
     'disabled:pointer-events-none'
@@ -109,31 +109,31 @@ const buttonClasses = computed(() => {
   // Variant classes
   const variantClasses = {
     primary: [
-      'bg-gradient-to-r from-orange-500 to-orange-600',
+      'bg-gradient-to-r from-accent-500 to-accent-600',
       'text-white',
-      'shadow-md shadow-orange-500/25',
-      'hover:shadow-lg hover:shadow-orange-500/30',
+      'shadow-md shadow-accent-500/25',
+      'hover:shadow-lg hover:shadow-accent-500/30',
       'hover:scale-105',
       'active:scale-95'
     ],
     secondary: [
-      'bg-dark-100 dark:bg-dark-700',
-      'text-dark-900 dark:text-dark-100',
-      'border border-dark-300 dark:border-dark-600',
-      'hover:bg-dark-200 dark:hover:bg-dark-600',
-      'hover:border-orange-400 dark:hover:border-orange-500',
+      'bg-surface-100 dark:bg-surface-700',
+      'text-surface-900 dark:text-surface-100',
+      'border border-surface-300 dark:border-surface-600',
+      'hover:bg-surface-200 dark:hover:bg-surface-600',
+      'hover:border-accent-400 dark:hover:border-accent-500',
       'active:scale-95'
     ],
     ghost: [
-      'text-dark-700 dark:text-dark-300',
-      'hover:bg-orange-50 dark:hover:bg-orange-900/20',
-      'hover:text-orange-600 dark:hover:text-orange-400',
+      'text-surface-700 dark:text-surface-300',
+      'hover:bg-accent-50 dark:hover:bg-accent-900/20',
+      'hover:text-accent-600 dark:hover:text-accent-400',
       'active:scale-95'
     ],
     outline: [
-      'border-2 border-orange-500',
-      'text-orange-600 dark:text-orange-400',
-      'hover:bg-orange-500',
+      'border-2 border-accent-500',
+      'text-accent-600 dark:text-accent-400',
+      'hover:bg-accent-500',
       'hover:text-white',
       'active:scale-95'
     ]

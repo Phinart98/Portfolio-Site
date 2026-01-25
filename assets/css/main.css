@@ -2,12 +2,12 @@
    Syntax Highlighting (Shiki)
    =================================== */
 :root {
-  --shiki-color-text: #e5e9f0;
-  --shiki-color-background: #1e293b;
-  --shiki-token-keyword: #f97316;
-  --shiki-token-string: #22c55e;
-  --shiki-token-function: #3b82f6;
-  --shiki-token-comment: #64748b;
+  --shiki-color-text: rgb(var(--color-syntax-text));
+  --shiki-color-background: rgb(var(--color-syntax-bg));
+  --shiki-token-keyword: rgb(var(--color-accent-500));
+  --shiki-token-string: rgb(var(--color-syntax-string));
+  --shiki-token-function: rgb(var(--color-syntax-function));
+  --shiki-token-comment: rgb(var(--color-surface-500));
 }
 
 /* ===================================
@@ -32,11 +32,11 @@ pre, code {
 
 pre {
   border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgb(var(--color-surface-200));
 }
 
 .dark pre {
-  border-color: #334155;
+  border-color: rgb(var(--color-surface-700));
 }
 
 /* ===================================
@@ -67,21 +67,21 @@ table {
 
 th, td {
   font-size: 1.3em;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(var(--color-surface-300));
   padding: 12px;
   text-align: left;
 }
 
 th {
-  background-color: #f8f9fa;
+  background-color: rgb(var(--color-surface-50));
 }
 
 .dark th, .dark td {
-  border-color: #374151;
+  border-color: rgb(var(--color-surface-700));
 }
 
 .dark th {
-  background-color: #1f2937;
+  background-color: rgb(var(--color-surface-800));
 }
 
 /* ===================================
@@ -94,7 +94,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #ea580c;
+  outline: 2px solid rgb(var(--color-accent-600));
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
@@ -106,7 +106,7 @@ select:focus-visible,
   left: 0;
   z-index: 100;
   padding: 0.5rem 1rem;
-  background: #c74a09;
+  background: rgb(var(--color-accent-700));
   color: white;
   text-decoration: none;
   border-radius: 0 0 0.5rem 0;

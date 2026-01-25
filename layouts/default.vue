@@ -1,18 +1,18 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-white via-orange-50/30 to-orange-100/50 dark:from-dark-950 dark:via-dark-900 dark:to-dark-800 transition-all duration-300">
+  <div class="min-h-screen bg-gradient-to-br from-white via-accent-50/30 to-accent-100/50 dark:from-surface-950 dark:via-surface-900 dark:to-surface-800 transition-all duration-300">
     <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="skip-link">
       Skip to main content
     </a>
 
-    <nav class="backdrop-blur-md bg-white/80 dark:bg-dark-800/90 border-b border-orange-300/70 dark:border-dark-600/70 sticky top-0 z-50">
+    <nav class="backdrop-blur-md bg-white/80 dark:bg-surface-800/90 border-b border-accent-300/70 dark:border-surface-600/70 sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 sm:h-18">
           <div class="flex-shrink-0">
             <NuxtLink to="/" class="logo-link">
               <span class="text-2xl sm:text-3xl font-bold">
-                <span class="text-dark-900 dark:text-white">philipnarteh.</span>
-                <span class="text-orange-600 dark:text-orange-400">me</span>
+                <span class="text-surface-900 dark:text-white">philipnarteh.</span>
+                <span class="text-accent-600 dark:text-accent-400">me</span>
               </span>
             </NuxtLink>
           </div>
@@ -104,9 +104,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-20 py-8 border-t border-orange-300/60 dark:border-dark-700/60">
+    <footer class="mt-20 py-8 border-t border-accent-300/60 dark:border-surface-700/60">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-dark-600 dark:text-dark-300 text-sm">
+        <p class="text-surface-600 dark:text-surface-300 text-sm">
           © {{ new Date().getFullYear() }} Philip Narteh
         </p>
       </div>
@@ -156,23 +156,23 @@ onMounted(() => {
 
 /* Desktop navigation links */
 .nav-link {
-  @apply px-4 py-2 rounded-xl text-dark-700 dark:text-dark-200 transition-all duration-300 ease-in-out;
-  @apply hover:bg-orange-100/80 dark:hover:bg-orange-900/30;
-  @apply hover:text-orange-700 dark:hover:text-orange-400;
+  @apply px-4 py-2 rounded-xl text-surface-700 dark:text-surface-200 transition-all duration-300 ease-in-out;
+  @apply hover:bg-accent-100/80 dark:hover:bg-accent-900/30;
+  @apply hover:text-accent-700 dark:hover:text-accent-400;
   @apply hover:shadow-sm hover:-translate-y-0.5;
 }
 
 .nav-link.router-link-active,
 .nav-link.router-link-exact-active {
-  @apply bg-gradient-to-r from-orange-500 to-orange-600;
+  @apply bg-gradient-to-r from-accent-500 to-accent-600;
   @apply text-white shadow-lg transform scale-105;
-  @apply shadow-orange-500/25;
+  @apply shadow-accent-500/25;
 }
 
 /* Mobile menu button */
 .mobile-menu-btn {
-  @apply p-2 rounded-lg text-dark-700 dark:text-dark-200;
-  @apply hover:bg-orange-100 dark:hover:bg-orange-900/30;
+  @apply p-2 rounded-lg text-surface-700 dark:text-surface-200;
+  @apply hover:bg-accent-100 dark:hover:bg-accent-900/30;
   @apply transition-all duration-300;
   background: transparent;
   border: none;
@@ -180,9 +180,9 @@ onMounted(() => {
 
 /* Accessible focus state for mobile menu button */
 .mobile-menu-btn:focus-visible {
-  outline: 2px solid #ea580c;
+  outline: 2px solid rgb(var(--color-accent-600));
   outline-offset: 2px;
-  background: rgba(249, 115, 22, 0.1);
+  background: rgb(var(--color-accent-500) / 0.1);
 }
 
 /* Mobile menu overlay */
@@ -192,13 +192,13 @@ onMounted(() => {
 }
 
 .mobile-menu-content {
-  @apply backdrop-blur-md bg-white/95 dark:bg-dark-800/95;
-  @apply border-b border-orange-300/70 dark:border-dark-600/70;
+  @apply backdrop-blur-md bg-white/95 dark:bg-surface-800/95;
+  @apply border-b border-accent-300/70 dark:border-surface-600/70;
   max-height: 50vh;
   overflow-y: auto;
   /* Custom scrollbar styling */
   scrollbar-width: thin;
-  scrollbar-color: rgba(249, 115, 22, 0.5) transparent;
+  scrollbar-color: rgb(var(--color-accent-500) / 0.5) transparent;
 }
 
 /* Webkit scrollbar styling for Chrome/Safari */
@@ -211,24 +211,24 @@ onMounted(() => {
 }
 
 .mobile-menu-content::-webkit-scrollbar-thumb {
-  background: rgba(249, 115, 22, 0.5);
+  background: rgb(var(--color-accent-500) / 0.5);
   border-radius: 2px;
 }
 
 .mobile-menu-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(249, 115, 22, 0.7);
+  background: rgb(var(--color-accent-500) / 0.7);
 }
 
 /* Mobile navigation links */
 .mobile-nav-link {
-  @apply flex items-center justify-end px-4 py-3 text-dark-700 dark:text-dark-200;
-  @apply hover:bg-orange-100/80 dark:hover:bg-orange-900/30;
-  @apply hover:text-orange-700 dark:hover:text-orange-400;
+  @apply flex items-center justify-end px-4 py-3 text-surface-700 dark:text-surface-200;
+  @apply hover:bg-accent-100/80 dark:hover:bg-accent-900/30;
+  @apply hover:text-accent-700 dark:hover:text-accent-400;
   @apply transition-all duration-300 rounded-lg mx-2;
 }
 
 .mobile-nav-link.router-link-active,
 .mobile-nav-link.router-link-exact-active {
-  @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white;
+  @apply bg-gradient-to-r from-accent-500 to-accent-600 text-white;
 }
 </style>

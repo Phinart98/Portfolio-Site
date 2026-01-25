@@ -26,7 +26,7 @@ defineProps({
 
 <style scoped>
 .accent-link {
-  @apply text-orange-700 dark:text-orange-400;
+  @apply text-accent-700 dark:text-accent-400;
   @apply transition-colors duration-300;
   @apply relative inline-block;
 }
@@ -35,14 +35,14 @@ defineProps({
   content: '';
   @apply absolute bottom-0 left-0;
   @apply w-full h-0.5;
-  @apply bg-orange-600 dark:bg-orange-400;
+  @apply bg-accent-600 dark:bg-accent-400;
   @apply origin-left;
   @apply transition-transform duration-300;
   @apply scale-x-100;
 }
 
 .accent-link:hover {
-  @apply text-orange-600 dark:text-orange-300;
+  @apply text-accent-600 dark:text-accent-300;
 }
 
 .accent-link:hover::after {
