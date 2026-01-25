@@ -25,7 +25,7 @@
               <!-- Content - spans 3 columns -->
               <div class="md:col-span-3">
                 <!-- Post Meta -->
-                <div class="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400 mb-4">
+                <div class="flex items-center gap-2 text-xs text-orange-600 dark:text-orange-400 mb-4">
                   <i class="bi bi-calendar3"></i>
                   <span>{{ featuredPost.navigation.date }}</span>
                   <span class="text-dark-400 dark:text-dark-500">•</span>
@@ -35,11 +35,11 @@
 
                 <!-- Post Title -->
                 <h2 class="text-2xl md:text-3xl font-bold text-dark-900 dark:text-white mb-4 group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  {{ featuredPost.navigation.title }}
+                  {{ getCardTitle(featuredPost.navigation.title) }}
                 </h2>
 
                 <!-- Post Description -->
-                <p v-if="featuredPost.navigation.description" class="text-dark-700 dark:text-dark-200 leading-relaxed mb-6">
+                <p v-if="featuredPost.navigation.description" class="text-base md:text-lg text-dark-700 dark:text-dark-200 leading-relaxed mb-6">
                   {{ featuredPost.navigation.description }}
                 </p>
 
@@ -95,11 +95,11 @@
 
                 <!-- Post Title -->
                 <h2 class="text-lg sm:text-xl font-bold text-dark-900 dark:text-white mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2">
-                  {{ post.navigation.title }}
+                  {{ getCardTitle(post.navigation.title) }}
                 </h2>
 
                 <!-- Post Description/Excerpt -->
-                <p v-if="post.navigation.description" class="text-dark-600 dark:text-dark-300 text-sm leading-relaxed flex-1 line-clamp-3 mb-4">
+                <p v-if="post.navigation.description" class="text-dark-600 dark:text-dark-300 text-base leading-relaxed flex-1 line-clamp-3 mb-4">
                   {{ post.navigation.description }}
                 </p>
 
@@ -189,6 +189,14 @@ const postsByYear = computed(() => {
 
 // Use card click composable
 const { toggleCard, isCardClicked } = useCardClick()
+
+// Extract descriptive title (text after "–") for card previews
+const getCardTitle = (fullTitle) => {
+  if (!fullTitle) return '';
+  const parts = fullTitle.split('–');
+  // If there's a "–", return the part after it (trimmed), otherwise return full title
+  return parts.length > 1 ? parts[1].trim() : fullTitle;
+}
 </script>
 
 <style scoped>

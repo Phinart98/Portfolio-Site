@@ -46,16 +46,6 @@
   }
 }
 
-/* Shimmer Animation - for skeleton loaders */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 /* Gradient Flow Animation - for gradient text effects */
 @keyframes gradient-flow {
   0%, 100% {
@@ -63,52 +53,6 @@
   }
   50% {
     background-position: 100% 50%;
-  }
-}
-
-/* Border Glow Animation - subtle card border animation */
-@keyframes border-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(249, 115, 22, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-  }
-}
-
-/* Count Up Animation - for animated statistics */
-@keyframes count-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Slide In from Bottom */
-@keyframes slide-in-bottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Scale In Animation */
-@keyframes scale-in {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
   }
 }
 
@@ -129,26 +73,7 @@
   animation: pulse-subtle 3s ease-in-out infinite;
 }
 
-.animate-shimmer {
-  animation: shimmer 2s ease-in-out infinite;
-}
-
 .animate-gradient-flow {
   animation: gradient-flow 6s ease infinite;
 }
 
-.animate-border-glow {
-  animation: border-glow 2s ease-in-out infinite;
-}
-
-.animate-count-up {
-  animation: count-up 0.6s ease-out;
-}
-
-.animate-slide-in-bottom {
-  animation: slide-in-bottom 0.4s ease-out;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.3s ease-out;
-}

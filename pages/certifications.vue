@@ -14,11 +14,6 @@
       <!-- KCNA Certification -->
       <article class="flex w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)] group animate-slide-up" style="animation-delay: 0s">
         <BaseCard :interactive="true" :glow="true" variant="bento" class="relative flex-1">
-          <!-- Verified Badge -->
-          <div class="absolute top-4 right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg z-10 animate-pulse-subtle">
-            <i class="bi bi-check-lg text-white text-sm font-bold"></i>
-          </div>
-
           <div class="flex flex-col items-center text-center h-full">
             <div class="w-32 h-32 mb-4 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
               <img src="~/assets/img/certs/kcna-badge.png" alt="KCNA Badge" class="w-full h-full object-contain" />
@@ -57,11 +52,6 @@
       <!-- AWS CCP Certification -->
       <article class="flex w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)] group animate-slide-up" style="animation-delay: 0.1s">
         <BaseCard :interactive="true" :glow="true" variant="bento" class="relative flex-1">
-          <!-- Verified Badge -->
-          <div class="absolute top-4 right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg z-10 animate-pulse-subtle">
-            <i class="bi bi-check-lg text-white text-sm font-bold"></i>
-          </div>
-
           <div class="flex flex-col items-center text-center h-full">
             <div class="w-32 h-32 mb-4 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
               <img src="~/assets/img/certs/aws-ccp-badge.png" alt="AWS CCP Badge" class="w-full h-full object-contain" />
@@ -100,11 +90,6 @@
       <!-- GCP ACE Certification -->
       <article class="flex w-full md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.333rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.333rem)] group animate-slide-up" style="animation-delay: 0.2s">
         <BaseCard :interactive="true" :glow="true" variant="bento" class="relative flex-1">
-          <!-- Verified Badge -->
-          <div class="absolute top-4 right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg z-10 animate-pulse-subtle">
-            <i class="bi bi-check-lg text-white text-sm font-bold"></i>
-          </div>
-
           <div class="flex flex-col items-center text-center h-full">
             <div class="w-32 h-32 mb-4 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
               <img src="~/assets/img/certs/gcp-ace-badge.png" alt="GCP ACE Badge" class="w-full h-full object-contain" />

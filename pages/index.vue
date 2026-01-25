@@ -45,88 +45,124 @@
       <!-- Bento grid layout - center aligned -->
       <div class="flex flex-wrap gap-6 justify-center max-w-6xl mx-auto">
         <!-- PyOpenSci & Quansight -->
-        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
-          <div class="flex flex-col h-full">
-            <i class="bi bi-star-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
-            <h4 class="text-lg font-bold dark:text-white mb-2">PyOpenSci & Quansight</h4>
-            <p class="text-sm text-orange-600 dark:text-orange-400 font-medium mb-3">Open Source Infrastructure Intern</p>
-            <p class="dark:text-dark-100 leading-relaxed text-sm">
-              Worked with the
-              <AccentLink to="https://www.pyopensci.org/" :external="true">PyOpenSci community</AccentLink>
-              at
-              <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>
-              to
-              <AccentLink to="https://labs.quansight.org/blog/migrating-pyopensci-to-django" :external="true">migrate the website</AccentLink>
-              from static site tools to Django with Wagtail CMS.
-            </p>
-          </div>
-        </BaseCard>
+        <div class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <BaseCard variant="bento" :interactive="true" :glow="true" class="h-full relative" @click="handleCardClick($event, 'https://labs.quansight.org/blog/migrating-pyopensci-to-django')">
+            <div class="flex flex-col h-full">
+              <i class="bi bi-lightning-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+              <h4 class="text-lg font-bold dark:text-white mb-2">
+                <a href="https://labs.quansight.org/blog/migrating-pyopensci-to-django" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  PyOpenSci & Quansight
+                </a>
+              </h4>
+              <p class="text-sm md:text-base text-orange-600 dark:text-orange-400 font-medium mb-3">Open Source Infrastructure Intern</p>
+              <p class="dark:text-dark-100 leading-relaxed text-sm md:text-base">
+                Worked with the
+                <AccentLink to="https://www.pyopensci.org/" :external="true">PyOpenSci community</AccentLink>
+                at
+                <AccentLink to="https://quansight.com/" :external="true">Quansight</AccentLink>
+                to
+                <AccentLink to="https://labs.quansight.org/blog/migrating-pyopensci-to-django" :external="true">migrate the website</AccentLink>
+                from static site tools to Django with Wagtail CMS.
+              </p>
+            </div>
+          </BaseCard>
+        </div>
 
         <!-- DjangoCon Talk -->
-        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
-          <div class="flex flex-col h-full">
-            <i class="bi bi-mic-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
-            <h4 class="text-lg font-bold dark:text-white mb-2">DjangoCon Africa 2025</h4>
-            <p class="dark:text-dark-100 leading-relaxed text-sm">
-              Presented on Accessibility and Open Source at
-              <AccentLink to="/talks/djangocon-africa-2025" :external="false">DjangoCon Africa</AccentLink>.
-            </p>
-          </div>
-        </BaseCard>
+        <div class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <BaseCard variant="bento" :interactive="true" :glow="true" class="h-full relative" @click="handleCardClick($event, '/talks/djangocon-africa-2025')">
+            <div class="flex flex-col h-full">
+              <i class="bi bi-mic-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+              <h4 class="text-lg font-bold dark:text-white mb-2">
+                <NuxtLink to="/talks/djangocon-africa-2025" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  DjangoCon Africa 2025
+                </NuxtLink>
+              </h4>
+              <p class="dark:text-dark-100 leading-relaxed text-sm md:text-base">
+                Presented on Accessibility and Open Source at
+                <NuxtLink to="/talks/djangocon-africa-2025" class="accent-link">DjangoCon Africa</NuxtLink>.
+              </p>
+            </div>
+          </BaseCard>
+        </div>
 
         <!-- Djangonaut Space -->
-        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
-          <div class="flex flex-col h-full">
-            <i class="bi bi-rocket-takeoff-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
-            <h4 class="text-lg font-bold dark:text-white mb-2">Django Contributor</h4>
-            <p class="dark:text-dark-100 leading-relaxed text-sm">
-              Contributed to
-              <AccentLink to="https://www.djangoproject.com/" :external="true">Django</AccentLink>
-              Accessibility by participating in
-              <AccentLink to="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" :external="true">Session 4</AccentLink>
-              of the
-              <AccentLink to="https://djangonaut.space/" :external="true">Djangonaut Space Program</AccentLink>.
-            </p>
-          </div>
-        </BaseCard>
+        <div class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <BaseCard variant="bento" :interactive="true" :glow="true" class="h-full relative" @click="handleCardClick($event, 'https://djangonaut.space/')">
+            <div class="flex flex-col h-full">
+              <i class="bi bi-rocket-takeoff-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+              <h4 class="text-lg font-bold dark:text-white mb-2">
+                <a href="https://djangonaut.space/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  Django Contributor
+                </a>
+              </h4>
+              <p class="dark:text-dark-100 leading-relaxed text-sm md:text-base">
+                Contributed to
+                <AccentLink to="https://www.djangoproject.com/" :external="true">Django</AccentLink>
+                Accessibility by participating in
+                <AccentLink to="https://djangonaut.space/comms/2025/04/17/celebrating-session-4-achievements/" :external="true">Session 4</AccentLink>
+                of the
+                <AccentLink to="https://djangonaut.space/" :external="true">Djangonaut Space Program</AccentLink>.
+              </p>
+            </div>
+          </BaseCard>
+        </div>
 
         <!-- Equitech Scholar -->
-        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
-          <div class="flex flex-col h-full">
-            <i class="bi bi-mortarboard-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
-            <h4 class="text-lg font-bold dark:text-white mb-2">Equitech Scholar</h4>
-            <p class="dark:text-dark-100 leading-relaxed text-sm">
-              1 of 18 scholars selected for the
-              <AccentLink to="https://www.equitechfutures.com/programs/adi" :external="true">Applied Data Institute</AccentLink>
-              program at
-              <AccentLink to="https://www.equitechfutures.com/" :external="true">Equitech Futures</AccentLink>.
-            </p>
-          </div>
-        </BaseCard>
+        <div class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <BaseCard variant="bento" :interactive="true" :glow="true" class="h-full relative" @click="handleCardClick($event, 'https://www.equitechfutures.com/alumni')">
+            <div class="flex flex-col h-full">
+              <i class="bi bi-people-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+              <h4 class="text-lg font-bold dark:text-white mb-2">
+                <a href="https://www.equitechfutures.com/alumni" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  Equitech Scholar
+                </a>
+              </h4>
+              <p class="dark:text-dark-100 leading-relaxed text-sm md:text-base">
+                1 of 18 scholars selected for the
+                <AccentLink to="https://www.equitechfutures.com/programs/adi" :external="true">Applied Data Institute</AccentLink>
+                program at
+                <AccentLink to="https://www.equitechfutures.com/" :external="true">Equitech Futures</AccentLink>.
+              </p>
+            </div>
+          </BaseCard>
+        </div>
 
         <!-- Rigelis -->
-        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
-          <div class="flex flex-col h-full">
-            <i class="bi bi-heart-pulse-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
-            <h4 class="text-lg font-bold dark:text-white mb-2">Health-tech Startup</h4>
-            <p class="dark:text-dark-100 leading-relaxed text-sm">
-              Helped build referral and pharmacy management systems at
-              <AccentLink to="https://www.rigelisinc.com/" :external="true">Rigelis</AccentLink>.
-            </p>
-          </div>
-        </BaseCard>
+        <div class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <BaseCard variant="bento" :interactive="true" :glow="true" class="h-full relative" @click="handleCardClick($event, 'https://www.rigelisinc.com/')">
+            <div class="flex flex-col h-full">
+              <i class="bi bi-heart-pulse-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+              <h4 class="text-lg font-bold dark:text-white mb-2">
+                <a href="https://www.rigelisinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  Health-tech Startup
+                </a>
+              </h4>
+              <p class="dark:text-dark-100 leading-relaxed text-sm md:text-base">
+                Helped build referral and pharmacy management systems at
+                <AccentLink to="https://www.rigelisinc.com/" :external="true">Rigelis</AccentLink>.
+              </p>
+            </div>
+          </BaseCard>
+        </div>
 
         <!-- Education -->
-        <BaseCard variant="bento" :interactive="true" :glow="true" class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
-          <div class="flex flex-col h-full">
-            <i class="bi bi-bank text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
-            <h4 class="text-lg font-bold dark:text-white mb-2">Education</h4>
-            <p class="dark:text-dark-100 leading-relaxed text-sm">
-              BSc. Computer Engineering from
-              <AccentLink to="https://www.ashesi.edu.gh/" :external="true">Ashesi University</AccentLink>.
-            </p>
-          </div>
-        </BaseCard>
+        <div class="w-full md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] md:max-w-[calc(50%-0.75rem)] lg:max-w-[calc(33.333%-1rem)]">
+          <BaseCard variant="bento" :interactive="true" :glow="true" class="h-full relative" @click="handleCardClick($event, 'https://www.ashesi.edu.gh/')">
+            <div class="flex flex-col h-full">
+              <i class="bi bi-mortarboard-fill text-2xl text-orange-600 dark:text-orange-400 mb-3"></i>
+              <h4 class="text-lg font-bold dark:text-white mb-2">
+                <a href="https://www.ashesi.edu.gh/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  Education
+                </a>
+              </h4>
+              <p class="dark:text-dark-100 leading-relaxed text-sm md:text-base">
+                BSc. Computer Engineering from
+                <AccentLink to="https://www.ashesi.edu.gh/" :external="true">Ashesi University</AccentLink>.
+              </p>
+            </div>
+          </BaseCard>
+        </div>
       </div>
     </div>
 
@@ -220,6 +256,21 @@ const handleImageHover = (isHovering) => {
 // Use card click composable
 const { toggleCard, isCardClicked } = useCardClick()
 
+// Handle card click - navigate to primary link when clicking card (but not when clicking nested links)
+const handleCardClick = (event, url) => {
+  // If the click target is a link or inside a link, let it handle navigation
+  if (event.target.closest('a')) {
+    return
+  }
+
+  // Otherwise, navigate to the card's primary URL
+  if (url.startsWith('http')) {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  } else {
+    navigateTo(url)
+  }
+}
+
 // Cleanup image timeout on unmount
 onBeforeUnmount(() => {
   if (imageTimeout) {
@@ -241,5 +292,30 @@ onBeforeUnmount(() => {
 
 .animate-gentle-bounce {
   animation: gentle-bounce 0.6s ease-out;
+}
+
+/* Accent link styling to match AccentLink component */
+.accent-link {
+  @apply text-orange-700 dark:text-orange-400;
+  @apply transition-colors duration-300;
+  @apply relative inline-block;
+}
+
+.accent-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0;
+  @apply w-full h-0.5;
+  @apply bg-orange-600 dark:bg-orange-400;
+  @apply origin-left;
+  @apply transition-transform duration-300;
+  @apply scale-x-100;
+}
+
+.accent-link:hover {
+  @apply text-orange-600 dark:text-orange-300;
+}
+
+.accent-link:hover::after {
+  @apply scale-x-110;
 }
 </style>
