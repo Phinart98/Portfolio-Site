@@ -27,7 +27,7 @@
       </h1>
 
       <h2 class="text-xl sm:text-2xl my-4 dark:text-white transition-colors font-medium max-w-2xl mx-auto">
-        Software Engineer @ <a href="https://paicore.tech/" target="_blank" rel="noopener noreferrer" class="text-accent-700 dark:text-accent-400 underline underline-offset-4 hover:text-accent-600 dark:hover:text-accent-300 transition-colors">PAiCore Technologies</a>
+        Software Engineer @ <a href="https://paicore.tech/" target="_blank" rel="noopener noreferrer" class="text-accent-700 dark:text-accent-400 underline underline-offset-4 hover:text-accent-600 dark:hover:text-accent-300 transition-colors">PAiCore Technology</a>
       </h2>
 
       <!-- Blended description -->

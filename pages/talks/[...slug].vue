@@ -45,7 +45,7 @@
                   class="inline-flex items-center px-6 py-3 border border-accent-500 text-accent-600 dark:text-accent-400 rounded-xl hover:bg-accent-50 dark:hover:bg-accent-900/20 transition-all duration-300 hover:-translate-y-1"
                 >
                   <i class="bi bi-globe mr-2"></i>
-                  Visit DjangoCon Africa
+                  Visit {{ doc.navigation?.eventLabel || doc.navigation?.event || 'Event Website' }}
                 </a>
               </div>
             </template>
