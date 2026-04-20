@@ -38,6 +38,16 @@
                   View Official Talk Page
                 </a>
                 <a
+                  v-if="doc.navigation?.slidesLink"
+                  :href="doc.navigation.slidesLink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-xl hover:shadow-lg hover:shadow-accent-500/25 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <i class="bi bi-easel mr-2"></i>
+                  View Slides
+                </a>
+                <a
                   v-if="doc.navigation?.eventLink"
                   :href="doc.navigation.eventLink"
                   target="_blank"
