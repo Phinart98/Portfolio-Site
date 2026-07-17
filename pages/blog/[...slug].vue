@@ -9,17 +9,7 @@
           <div class="prose prose-lg dark:prose-invert max-w-none">
             <ContentDoc>
               <template #default="{ doc }">
-                <!-- Custom date/time header if available -->
-                <div v-if="doc.date || doc.readingTime" class="text-center mb-8">
-                  <div class="flex items-center justify-center gap-2 text-sm text-accent-600 dark:text-accent-400">
-                    <i v-if="doc.date" class="bi bi-calendar3"></i>
-                    <span v-if="doc.date">{{ doc.date }}</span>
-                    <span v-if="doc.date && doc.readingTime" class="text-surface-400 dark:text-surface-500">•</span>
-                    <i v-if="doc.readingTime" class="bi bi-clock"></i>
-                    <span v-if="doc.readingTime">{{ doc.readingTime }}</span>
-                  </div>
-                </div>
-                <!-- Render the content -->
+                <!-- Render the content (the in-content h6 byline carries date + reading time) -->
                 <ContentRenderer :value="doc" />
               </template>
             </ContentDoc>
