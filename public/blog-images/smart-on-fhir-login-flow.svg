@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 750" role="img" aria-labelledby="flowTitle flowDesc">
+  <title id="flowTitle">How a patient connects their records</title>
+  <desc id="flowDesc">Sequence diagram with three columns: the patient, the backend Philip built at D4CG, and the hospital's records system. Six numbered steps show the login flow from clicking connect to records appearing, with the access token stored encrypted along the way.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#C2410C"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+    .title { font-size: 19px; font-weight: 600; fill: #1F2937; }
+    .head  { font-size: 15.5px; font-weight: 600; fill: #1F2937; }
+    .headsub { font-size: 12px; fill: #57534E; }
+    .headw { font-size: 15.5px; font-weight: 600; fill: #FFFFFF; }
+    .headsubw { font-size: 12px; fill: #FDEBDD; }
+    .lbl   { font-size: 15px; fill: #1F2937; }
+    .sub   { font-size: 13px; fill: #57534E; }
+    .num   { font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+    .pill  { font-size: 13px; font-weight: 600; fill: #9A3412; }
+    .cap   { font-size: 13.5px; font-style: italic; fill: #78716C; }
+  </style>
+
+  <!-- card background -->
+  <rect x="2" y="2" width="756" height="746" rx="14" fill="#FDF8F1" stroke="#EAD9C0" stroke-width="1.5"/>
+
+  <text class="title" x="380" y="46" text-anchor="middle">How a patient connects their records</text>
+
+  <!-- lifelines -->
+  <line x1="110" y1="132" x2="110" y2="675" stroke="#D8C9B6" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="380" y1="132" x2="380" y2="675" stroke="#D8C9B6" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="650" y1="132" x2="650" y2="675" stroke="#D8C9B6" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- actor headers -->
+  <rect x="10" y="72" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="110" y="107" text-anchor="middle">The patient</text>
+
+  <rect x="280" y="72" width="200" height="58" rx="10" fill="#9A3412"/>
+  <text class="headw" x="380" y="97" text-anchor="middle">The backend I built</text>
+  <text class="headsubw" x="380" y="117" text-anchor="middle">running at D4CG</text>
+
+  <rect x="550" y="72" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="650" y="97" text-anchor="middle">The hospital&#8217;s system</text>
+  <text class="headsub" x="650" y="117" text-anchor="middle">Epic, Oracle Health, and others</text>
+
+  <!-- step 1: patient -> backend -->
+  <text class="lbl" x="245" y="180" text-anchor="middle">The patient clicks &#8220;Connect my records&#8221;</text>
+  <line x1="124" y1="202" x2="362" y2="202" stroke="#C2410C" stroke-width="2.25" marker-end="url(#arrow)"/>
+  <circle cx="140" cy="202" r="13" fill="#9A3412"/>
+  <text class="num" x="140" y="206.5" text-anchor="middle">1</text>
+
+  <!-- step 2: backend -> hospital -->
+  <text class="lbl" x="515" y="248" text-anchor="middle">It reads the hospital&#8217;s self-description</text>
+  <text class="sub" x="515" y="268" text-anchor="middle">(the discovery document)</text>
+  <line x1="394" y1="288" x2="632" y2="288" stroke="#C2410C" stroke-width="2.25" marker-end="url(#arrow)"/>
+  <circle cx="410" cy="288" r="13" fill="#9A3412"/>
+  <text class="num" x="410" y="292.5" text-anchor="middle">2</text>
+
+  <!-- step 3: patient -> hospital (full span) -->
+  <text class="lbl" x="380" y="334" text-anchor="middle">They log in on the hospital&#8217;s own page and approve access</text>
+  <text class="sub" x="380" y="354" text-anchor="middle">their password never touches the app</text>
+  <line x1="124" y1="374" x2="632" y2="374" stroke="#C2410C" stroke-width="2.25" marker-end="url(#arrow)"/>
+  <circle cx="140" cy="374" r="13" fill="#9A3412"/>
+  <text class="num" x="140" y="378.5" text-anchor="middle">3</text>
+
+  <!-- step 4: hospital -> backend -->
+  <text class="lbl" x="515" y="420" text-anchor="middle">A one-time code comes back</text>
+  <line x1="636" y1="442" x2="398" y2="442" stroke="#C2410C" stroke-width="2.25" marker-end="url(#arrow)"/>
+  <circle cx="620" cy="442" r="13" fill="#9A3412"/>
+  <text class="num" x="620" y="446.5" text-anchor="middle">4</text>
+
+  <!-- step 5: backend -> hospital -->
+  <text class="lbl" x="515" y="488" text-anchor="middle">The code, plus a secret proof (PKCE),</text>
+  <text class="lbl" x="515" y="508" text-anchor="middle">is traded for an access token</text>
+  <line x1="394" y1="528" x2="632" y2="528" stroke="#C2410C" stroke-width="2.25" marker-end="url(#arrow)"/>
+  <circle cx="410" cy="528" r="13" fill="#9A3412"/>
+  <text class="num" x="410" y="532.5" text-anchor="middle">5</text>
+
+  <!-- token stored encrypted pill on the backend lifeline -->
+  <rect x="282" y="556" width="196" height="32" rx="16" fill="#FDEBDD" stroke="#E5B99B" stroke-width="1.5"/>
+  <!-- padlock icon -->
+  <path d="M 302 570 v -3.5 a 5 5 0 0 1 10 0 v 3.5" fill="none" stroke="#9A3412" stroke-width="2"/>
+  <rect x="299" y="570" width="16" height="11" rx="2.5" fill="#9A3412"/>
+  <text class="pill" x="324" y="577">token stored encrypted</text>
+
+  <!-- step 6: backend -> patient -->
+  <text class="lbl" x="245" y="632" text-anchor="middle">Their records appear</text>
+  <line x1="366" y1="654" x2="128" y2="654" stroke="#C2410C" stroke-width="2.25" marker-end="url(#arrow)"/>
+  <circle cx="350" cy="654" r="13" fill="#9A3412"/>
+  <text class="num" x="350" y="658.5" text-anchor="middle">6</text>
+
+  <!-- caption -->
+  <text class="cap" x="380" y="716" text-anchor="middle">The same flow, driven by the same code, works for any hospital system that speaks SMART on FHIR.</text>
+</svg>
