@@ -35,11 +35,6 @@ module.exports = {
             '900': 'rgb(var(--color-surface-900) / <alpha-value>)',
             '950': 'rgb(var(--color-surface-950) / <alpha-value>)',
           },
-          // Semantic color tokens (auto-switch in dark mode)
-          'primary': 'rgb(var(--color-primary) / <alpha-value>)',
-          'primary-hover': 'rgb(var(--color-primary-hover) / <alpha-value>)',
-          'primary-subtle': 'rgb(var(--color-primary-subtle) / <alpha-value>)',
-          'primary-muted': 'rgb(var(--color-primary-muted) / <alpha-value>)',
         },
         backgroundImage: {
           'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

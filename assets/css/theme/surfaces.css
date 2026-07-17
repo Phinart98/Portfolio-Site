@@ -16,10 +16,4 @@
   --color-surface-800: 26 32 44;      /* #1a202c */
   --color-surface-900: 23 25 35;      /* #171923 */
   --color-surface-950: 13 17 23;      /* #0d1117 */
-
-  /* Syntax highlighting colors */
-  --color-syntax-text: 229 233 240;   /* #e5e9f0 */
-  --color-syntax-bg: 30 41 59;        /* #1e293b */
-  --color-syntax-string: 34 197 94;   /* #22c55e - green */
-  --color-syntax-function: 59 130 246; /* #3b82f6 - blue */
 }

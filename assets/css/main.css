@@ -1,16 +1,4 @@
 /* ===================================
-   Syntax Highlighting (Shiki)
-   =================================== */
-:root {
-  --shiki-color-text: rgb(var(--color-syntax-text));
-  --shiki-color-background: rgb(var(--color-syntax-bg));
-  --shiki-token-keyword: rgb(var(--color-accent-500));
-  --shiki-token-string: rgb(var(--color-syntax-string));
-  --shiki-token-function: rgb(var(--color-syntax-function));
-  --shiki-token-comment: rgb(var(--color-surface-500));
-}
-
-/* ===================================
    Base Styles
    =================================== */
 html {
