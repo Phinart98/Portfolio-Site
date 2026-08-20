@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600" role="img" aria-labelledby="archTitle archDesc">
+  <title id="archTitle">What the backend is made of at the end of the summer</title>
+  <desc id="archDesc">Architecture diagram. On the left, a patient's browser and the national endpoint list both call into the backend. The backend has three layers: an HTTP API, a single provider adapter that reads each server's discovery document, and a normalization layer that reshapes every answer into one US Core shape. Below it, Postgres holds tokens encrypted at rest, OAuth state with a time limit, and sessions. On the right, the same adapter drives Epic's sandbox, the public SMART Launcher and Oracle Health's sandbox, with any further server being a configuration entry rather than new code.</desc>
+
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#C2410C"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+    .title  { font-size: 19px; font-weight: 600; fill: #1F2937; }
+    .head   { font-size: 15px; font-weight: 600; fill: #1F2937; }
+    .headw  { font-size: 15.5px; font-weight: 600; fill: #FFFFFF; }
+    .headsubw { font-size: 12px; fill: #FDEBDD; }
+    .layer  { font-size: 14.5px; font-weight: 600; fill: #9A3412; }
+    .sub    { font-size: 12px; fill: #57534E; }
+    .mono   { font-size: 11.5px; fill: #57534E; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .edge   { font-size: 12px; fill: #78716C; }
+    .cap    { font-size: 13px; font-style: italic; fill: #78716C; }
+  </style>
+
+  <rect x="2" y="2" width="756" height="596" rx="14" fill="#FDF8F1" stroke="#EAD9C0" stroke-width="1.5"/>
+  <text class="title" x="380" y="44" text-anchor="middle">What the backend is made of</text>
+
+  <!-- ============ the backend ============ -->
+  <rect x="175" y="86" width="370" height="358" rx="12" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <path d="M 175 98 a 12 12 0 0 1 12 -12 h 346 a 12 12 0 0 1 12 12 v 32 h -370 z" fill="#9A3412"/>
+  <text class="headw" x="360" y="107" text-anchor="middle">The backend I built</text>
+  <text class="headsubw" x="360" y="124" text-anchor="middle">FastAPI, one codebase, no per-vendor classes</text>
+
+  <!-- layer 1: the API -->
+  <rect x="193" y="148" width="334" height="66" rx="9" fill="#FDF8F1" stroke="#EAD9C0" stroke-width="1.5"/>
+  <text class="layer" x="207" y="170">The API a caller talks to</text>
+  <text class="mono"  x="207" y="190">/auth/connect  /auth/callback  /providers/search</text>
+  <text class="mono"  x="207" y="206">/patients/{id}/summary  /providers/endpoint-check</text>
+
+  <!-- layer 2: the adapter -->
+  <rect x="193" y="230" width="334" height="94" rx="9" fill="#FDEBDD" stroke="#E5B99B" stroke-width="1.5"/>
+  <text class="layer" x="207" y="252">One provider adapter</text>
+  <text class="sub"   x="207" y="272">At connection time it reads the server&#8217;s own</text>
+  <text class="sub"   x="207" y="290">description of itself and takes its login URL, its</text>
+  <text class="sub"   x="207" y="308">token URL, PKCE and client authentication from it.</text>
+
+  <!-- layer 3: normalization -->
+  <rect x="193" y="340" width="334" height="66" rx="9" fill="#FDF8F1" stroke="#EAD9C0" stroke-width="1.5"/>
+  <text class="layer" x="207" y="362">Normalization</text>
+  <text class="sub"   x="207" y="382">Every server&#8217;s answer reshaped into one US Core</text>
+  <text class="sub"   x="207" y="398">shape, with the untouched original alongside it.</text>
+
+  <!-- ============ storage ============ -->
+  <line x1="360" y1="444" x2="360" y2="466" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+  <rect x="175" y="472" width="370" height="62" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <path d="M 199 494 v -4 a 6 6 0 0 1 12 0 v 4" fill="none" stroke="#9A3412" stroke-width="2"/>
+  <rect x="196" y="494" width="18" height="13" rx="3" fill="#9A3412"/>
+  <text class="head" x="226" y="497">Postgres</text>
+  <text class="sub"  x="226" y="516">Tokens encrypted at rest, OAuth state that expires, sessions</text>
+
+  <!-- ============ left: who calls in ============ -->
+  <rect x="20" y="160" width="132" height="56" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="86" y="184" text-anchor="middle">The patient&#8217;s</text>
+  <text class="head" x="86" y="202" text-anchor="middle">browser</text>
+  <line x1="154" y1="188" x2="167" y2="188" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+
+  <rect x="20" y="300" width="132" height="72" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="86" y="324" text-anchor="middle">The national</text>
+  <text class="head" x="86" y="342" text-anchor="middle">endpoint list</text>
+  <text class="sub"  x="86" y="360" text-anchor="middle">~70,000 entries</text>
+  <line x1="154" y1="336" x2="167" y2="336" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+
+  <!-- ============ right: the servers ============ -->
+  <line x1="545" y1="277" x2="566" y2="277" stroke="#C2410C" stroke-width="2.25"/>
+  <line x1="566" y1="150" x2="566" y2="440" stroke="#C2410C" stroke-width="2.25"/>
+
+  <rect x="586" y="122" width="154" height="58" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="663" y="145" text-anchor="middle">Epic sandbox</text>
+  <text class="sub"  x="663" y="164" text-anchor="middle">holds a secret</text>
+  <line x1="566" y1="150" x2="578" y2="150" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+
+  <rect x="586" y="200" width="154" height="58" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="663" y="223" text-anchor="middle">SMART Launcher</text>
+  <text class="sub"  x="663" y="242" text-anchor="middle">no secret, PKCE only</text>
+  <line x1="566" y1="228" x2="578" y2="228" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+
+  <rect x="586" y="278" width="154" height="66" rx="10" fill="#FFFFFF" stroke="#DCCDB9" stroke-width="1.5"/>
+  <text class="head" x="663" y="301" text-anchor="middle">Oracle Health</text>
+  <text class="head" x="663" y="319" text-anchor="middle">sandbox</text>
+  <text class="sub"  x="663" y="336" text-anchor="middle">grants no wildcard scope</text>
+  <line x1="566" y1="310" x2="578" y2="310" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+
+  <rect x="586" y="366" width="154" height="74" rx="10" fill="#FDF8F1" stroke="#DCCDB9" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text class="head" x="663" y="390" text-anchor="middle">Any other server</text>
+  <text class="sub"  x="663" y="409" text-anchor="middle">that speaks the</text>
+  <text class="sub"  x="663" y="425" text-anchor="middle">standard</text>
+  <line x1="566" y1="403" x2="578" y2="403" stroke="#C2410C" stroke-width="2.25" marker-end="url(#a2)"/>
+
+  <text class="edge" x="663" y="464" text-anchor="middle">a configuration entry,</text>
+  <text class="edge" x="663" y="480" text-anchor="middle">not new code</text>
+
+  <text class="cap" x="380" y="566" text-anchor="middle">The three servers on the right differ about as much as two SMART servers can. The same unchanged code drives all of them.</text>
+</svg>
