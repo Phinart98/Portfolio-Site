@@ -64,6 +64,15 @@ th {
   background-color: rgb(var(--color-surface-50));
 }
 
+/* Typography repads table cells and zeroes the outer edge of a row's first and last cell, which
+   suits its own borderless tables: a flush first column lines up with the body text. We draw a
+   full grid above, so that outer zero puts the text hard against a border. Restore the padding
+   declared above for every cell in prose, so no cell touches a line and all four sides match.
+   One class is enough to win because Typography wraps its selectors in :where(). */
+.prose th, .prose td {
+  padding: 12px;
+}
+
 .dark th, .dark td {
   border-color: rgb(var(--color-surface-700));
 }
