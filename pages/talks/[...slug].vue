@@ -133,8 +133,9 @@ useHead({
   text-decoration: none !important;
 }
 
+/* The tinted panel has a rounded right edge, so without pr-6 the text runs flush into it. */
 .prose blockquote {
-  @apply border-l-4 border-accent-500 pl-6 italic bg-accent-50/50 dark:bg-accent-900/20 py-4 rounded-r-lg;
+  @apply border-l-4 border-accent-500 pl-6 pr-6 italic bg-accent-50/50 dark:bg-accent-900/20 py-4 rounded-r-lg;
 }
 
 .prose code {

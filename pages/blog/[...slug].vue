@@ -96,8 +96,9 @@ useHead({
   @apply text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 underline underline-offset-4 decoration-accent-500/30 hover:decoration-accent-500/60 transition-all;
 }
 
+/* The tinted panel has a rounded right edge, so without pr-6 the text runs flush into it. */
 .prose blockquote {
-  @apply border-l-4 border-accent-500 pl-6 italic bg-accent-50/50 dark:bg-accent-900/20 py-4 rounded-r-lg;
+  @apply border-l-4 border-accent-500 pl-6 pr-6 italic bg-accent-50/50 dark:bg-accent-900/20 py-4 rounded-r-lg;
 }
 
 .prose code {
