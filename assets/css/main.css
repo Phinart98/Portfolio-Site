@@ -73,6 +73,36 @@ th {
   padding: 12px;
 }
 
+/* A long identifier has no break opportunity anywhere inside it, so on a narrow screen it runs
+   past the right edge instead of wrapping. `anywhere` rather than `break-word` because only
+   `anywhere` reduces min-content width, which is what lets a table cell holding a code span
+   shrink instead of dragging the whole table wider. */
+.prose code {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  /* 1.3em of the prose scale lands at 20.8px, larger than the body text it sits among and far too
+     wide for a three-column table on a phone. */
+  .prose th,
+  .prose td {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+
+  /* Last resort: anything that still cannot fit scrolls inside its own box rather than widening
+     the page. Width stays auto, so the table fills the column and wraps wherever it can first. */
+  .prose table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  /* Justified text on a column this narrow opens rivers between the words. */
+  .prose p {
+    text-align: left;
+  }
+}
+
 .dark th, .dark td {
   border-color: rgb(var(--color-surface-700));
 }
