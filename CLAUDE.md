@@ -27,6 +27,7 @@
 
 ## Writing Style
 - **No em dashes**: Never use em dashes in content or descriptions. Use colons, periods, or commas instead.
+- **Leave published posts alone**: these rules are for copy written for the site. Never change the wording of Philip's posts or talks unless he asks.
 - Plain, human English. Avoid semicolons, comma-tail run-on sentences and strings of short sentences.
 - Don't describe Philip by location.
 
