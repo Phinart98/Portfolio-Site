@@ -1,85 +1,61 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import 'photoswipe/style.css';
 
 interface Props { images: { src: ImageMetadata; alt: string }[]; }
 const { images } = Astro.props;
 ---
 
 <div class="gallery-root">
-  <!-- Without JS each thumbnail opens its full-size image. With JS it opens the viewer. -->
+  <!-- Without JS each thumbnail opens its full-size image. With JS it opens
+       PhotoSwipe: swipe, pinch or double-tap to zoom, drag to pan. -->
   <ul class="gallery">
     {images.map((img, i) => (
       <li>
-        <a href={img.src.src} data-index={i} aria-label={`${img.alt || 'Photo'}, open photo ${i + 1} of ${images.length}`}>
+        <a
+          href={img.src.src}
+          data-pswp-width={img.src.width}
+          data-pswp-height={img.src.height}
+          aria-label={`${img.alt || 'Photo'}, open photo ${i + 1} of ${images.length}`}
+        >
           <Image src={img.src} alt={img.alt} widths={[360, 540, 720]} sizes="(min-width: 760px) 350px, (min-width: 560px) 50vw, 100vw" />
         </a>
       </li>
     ))}
   </ul>
-
-  <dialog class="viewer" aria-label="Photo viewer">
-    <div class="track">
-      {images.map((img) => (
-        <figure class="slide">
-          <img src={img.src.src} alt={img.alt} width={img.src.width} height={img.src.height} loading="lazy" decoding="async" />
-        </figure>
-      ))}
-    </div>
-    <div class="bar">
-      <p class="count" aria-live="polite"></p>
-      <div class="btns">
-        <button type="button" class="prev" aria-label="Previous photo"><span aria-hidden="true">&#8592;</span></button>
-        <button type="button" class="next" aria-label="Next photo"><span aria-hidden="true">&#8594;</span></button>
-        <button type="button" class="close">Close</button>
-      </div>
-    </div>
-  </dialog>
 </div>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.gallery-root').forEach((root) => {
-    const dialog = root.querySelector<HTMLDialogElement>('.viewer')!;
-    const track = root.querySelector<HTMLElement>('.track')!;
-    const count = root.querySelector<HTMLElement>('.count')!;
-    const total = track.children.length;
-    const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
-    const current = () => Math.round(track.scrollLeft / track.clientWidth);
-    // The slide the viewer is on or heading to. Buttons and keys step from this,
-    // so quick presses during a smooth scroll don't land on the wrong photo.
-    let target = 0;
-    let settle = 0;
-    const show = (i: number, behavior: ScrollBehavior) => {
-      target = Math.max(0, Math.min(total - 1, i));
-      track.scrollTo({ left: target * track.clientWidth, behavior });
-    };
-    const update = () => { count.textContent = `${current() + 1} of ${total}`; };
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
-    root.querySelectorAll<HTMLAnchorElement>('.gallery a').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        dialog.showModal();
-        show(Number(a.dataset.index), 'auto');
-        update();
-      });
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll<HTMLElement>('.gallery-root').forEach((root) => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: root,
+      children: 'a',
+      // The viewer itself only downloads when someone opens a photo.
+      pswpModule: () => import('photoswipe'),
+      // Zoom is measured from the photo as it fits the screen, not from its
+      // file size: the photos are small (1080px wide at most), so a fixed level
+      // would jump far too close on a phone and do nothing on a laptop.
+      secondaryZoomLevel: (z) => z.fit * 2.5,
+      maxZoomLevel: (z) => z.fit * 5,
+      bgOpacity: 1,
+      padding: { top: 16, bottom: 16, left: 16, right: 16 },
+      wheelToZoom: true,
+      showHideAnimationType: still ? 'none' : 'zoom',
+      zoomAnimationDuration: still ? 0 : 300,
+      showAnimationDuration: still ? 0 : 300,
+      hideAnimationDuration: still ? 0 : 250,
+      arrowPrevTitle: 'Previous photo',
+      arrowNextTitle: 'Next photo',
+      closeTitle: 'Close',
+      zoomTitle: 'Zoom in or out',
     });
-    track.addEventListener('scroll', () => {
-      window.requestAnimationFrame(update);
-      // Once a swipe comes to rest, step from wherever it ended up.
-      clearTimeout(settle);
-      settle = window.setTimeout(() => { target = current(); }, 150);
-    }, { passive: true });
-    root.querySelector('.prev')!.addEventListener('click', () => show(target - 1, smooth()));
-    root.querySelector('.next')!.addEventListener('click', () => show(target + 1, smooth()));
-    root.querySelector('.close')!.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); show(target + 1, smooth()); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); show(target - 1, smooth()); }
-    });
-    // A tap on the dark area around the photo closes the viewer, like a phone gallery.
-    dialog.addEventListener('click', (e) => {
-      if (e.target === dialog || (e.target as HTMLElement).classList.contains('slide')) dialog.close();
-    });
+    // Give the viewer a name, so screen readers announce more than "dialog".
+    lightbox.on('afterInit', () => lightbox.pswp?.element?.setAttribute('aria-label', 'Photo viewer'));
+    lightbox.init();
   });
 </script>
 
@@ -89,18 +65,20 @@ const { images } = Astro.props;
   .gallery a { display: block; border-radius: 6px; }
   .gallery :global(img) { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px; }
 
-  /* The viewer is always dark, whatever the site theme, so photos read well. */
-  .viewer { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #0E0D0C; color: #F1EEE8; }
-  .viewer::backdrop { background: #0E0D0C; }
-  .viewer[open] { display: flex; flex-direction: column; }
-  .track { flex: 1; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior: contain; scrollbar-width: none; }
-  .track::-webkit-scrollbar { display: none; }
-  .slide { flex: 0 0 100%; margin: 0; scroll-snap-align: center; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: 16px; }
-  .slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 4px; }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px calc(12px + env(safe-area-inset-bottom)); }
-  .count { margin: 0; font-size: 17px; }
-  .btns { display: flex; gap: 8px; }
-  .btns button { min-width: 48px; min-height: 48px; padding: 0 16px; border: 1.5px solid #4A4640; border-radius: 6px; background: #1E1C1A; color: #F1EEE8; font: inherit; font-size: 17px; cursor: pointer; }
-  .btns button:hover { background: #2A2724; }
-  .viewer :focus-visible { outline: 3px solid #F0C674; outline-offset: 3px; }
+  /* PhotoSwipe adds its viewer at the end of <body>, so these are global. The
+     viewer is always dark, whatever the site theme, so photos read well. */
+  :global(.pswp) {
+    --pswp-bg: #0E0D0C;
+    --pswp-placeholder-bg: #1E1C1A;
+    --pswp-icon-color: #F1EEE8;
+    --pswp-icon-color-secondary: #0E0D0C;
+    --pswp-icon-stroke-color: #0E0D0C;
+    --pswp-error-text-color: #F1EEE8;
+    font-family: var(--font-sans);
+  }
+  /* A flat band keeps the counter and buttons readable over a zoomed-in photo. */
+  :global(.pswp__top-bar) { background: rgb(14 13 12 / 0.88); }
+  :global(.pswp__counter) { font-size: 17px; text-shadow: none; opacity: 1; }
+  :global(.pswp__button) { opacity: 1; }
+  :global(.pswp__button:focus-visible) { outline: 3px solid #F0C674; outline-offset: -3px; border-radius: 6px; }
 </style>
