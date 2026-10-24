@@ -43,7 +43,7 @@ const ogImage = new URL(image, SITE.url).href;
 
     <!-- Runs before first paint so nothing jumps once the page shows: the theme
          (and the browser bar colour), saved reading settings, and a "js" class
-         that lets the menu and the note switch render in their final state. -->
+         that lets the menu render in its final state. -->
     <script is:inline>
       (() => {
         const root = document.documentElement;

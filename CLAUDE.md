@@ -18,7 +18,7 @@
 - **Slugs**: files are named `N.slug.md`. `generateId` drops the number and lowercases, matching the old Nuxt Content paths.
 
 ## Code Style
-- **Components**: `.astro` files with scoped `<style>`, PascalCase names. Client scripts only where needed (theme toggle, note switch, reading settings), and the page must work without them.
+- **Components**: `.astro` files with scoped `<style>`, PascalCase names. Client scripts only where needed (theme toggle, menu, reading settings, photo viewer), and the page must work without them.
 - **Styling**: design tokens as CSS variables in `src/styles/global.css` (light and dark "night paper"), plus shared classes (`.wrap`, `.rows`, `.page-title`, `.cta`, `.prose`). Reuse them before writing new styles.
 - **Type**: Hanken Grotesk for everything; Atkinson Hyperlegible Next only through the reading settings.
 - **Design rules**: no gradients, no left-accent cards, no card grids with shadows. Solid fills, strong contrast, and both themes.

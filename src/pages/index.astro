@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import NoteSwitch from '../components/NoteSwitch.astro';
 import { SITE } from '../data/site';
 import { NOTE } from '../data/note';
 import { HIGHLIGHTS, EDUCATION } from '../data/highlights';
@@ -17,7 +16,9 @@ const posts = await getPosts(4);
       <Image src={SITE.heroImage} alt={SITE.heroAlt} widths={[320, 480, 624]} sizes="(min-width: 900px) 420px, 100vw" loading="eager" fetchpriority="high" />
       <div>
         <h1 id="hero-h">{NOTE.heading}</h1>
-        <NoteSwitch />
+        <div class="note">
+          {NOTE.paragraphs.map((p) => <p set:html={linkify(p)} />)}
+        </div>
         <a class="cta" href="/blog">Read my writing</a>
       </div>
     </section>
@@ -58,6 +59,9 @@ const posts = await getPosts(4);
   .hero :global(img) { width: 100%; max-width: 420px; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; border-radius: 6px; }
   @media (min-width: 900px) { .hero :global(img) { position: sticky; top: 24px; } }
   h1 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.14; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 22px; max-width: 16em; }
+  .note { max-width: 32em; margin-bottom: 28px; }
+  .note p { margin: 0 0 1em; }
+  .note p:last-child { margin-bottom: 0; }
   .block { padding-top: 80px; }
 
   .highlights { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 48px; }

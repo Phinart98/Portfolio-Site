@@ -71,7 +71,7 @@
 .cta { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 6px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; }
 .cta:hover { text-decoration: underline; }
 
-/* Pills: radio choices drawn as rounded buttons (note switch, reading settings).
+/* Pills: radio choices drawn as rounded buttons (reading settings).
    Markup: <label class="pill"><input type="radio" ...><span>Label</span></label> */
 .pill { position: relative; }
 .pill input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }

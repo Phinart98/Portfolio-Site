@@ -71,7 +71,7 @@ gallery:
 
 The home page copy lives in `src/data/`:
 
-- `note.ts` holds the introduction in two versions, one for engineers and one for people new to tech. Write links as `[text](url)`.
+- `note.ts` holds the introduction. Write links as `[text](url)`.
 - `highlights.ts` holds the highlights and the education line.
 - `site.ts` holds the photo, social links, email and analytics id.
 - `certifications.ts` holds the certifications and their Credly links.
