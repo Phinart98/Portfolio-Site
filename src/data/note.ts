@@ -13,8 +13,6 @@ export const NOTE = {
     `I also [write about what I learn](/blog). If you'd like to work together or just talk, [email me](${email}).`,
   ],
 
-  // TODO(Philip): tune this so it sounds like you explaining your job to a
-  // friend who doesn't work in tech. Keep the links; change any wording.
   plain: [
     "I'm a software engineer at [PAiCore Technology](https://paicore.tech/). I help build the systems that let phone networks deliver messages and connect to apps.",
     'Outside work, I help build free software that anyone can use, along with my own side projects. I care about software that makes a difference and works for everyone, including people who use tools like screen readers. Recently I helped build [a tool that lets patients share their medical records with childhood cancer researchers](/blog/gsoc-with-data-for-the-common-good-the-final-report).',

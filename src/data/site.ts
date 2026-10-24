@@ -1,4 +1,6 @@
-import heroImage from '../assets/img/Philip_headshot3.jpeg';
+// Black and white edit of Philip_headshot3.jpeg (the colour original is kept
+// next to it), toned so the photo sits quietly beside the note.
+import heroImage from '../assets/img/Philip_headshot3-bw.jpg';
 import { SHOW_PROJECTS } from './flags.mjs';
 
 export const SITE = {
