@@ -1,6 +1,0 @@
-/* Import theme tokens (colors) */
-@import './theme/tokens.css';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

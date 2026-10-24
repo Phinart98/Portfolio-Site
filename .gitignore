@@ -1,10 +1,6 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
+# Build output
 dist
+.astro
 
 # Node dependencies
 node_modules
@@ -13,10 +9,16 @@ node_modules
 logs
 *.log
 
+# Playwright
+.playwright-mcp
+test-results
+playwright-report
+
 # Misc
 .DS_Store
 .fleet
 .idea
+.vercel
 
 # Local env files
 .env

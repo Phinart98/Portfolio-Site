@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, seriesParts, type PostWithTime } from '../../utils/posts';
+import { SERIES } from '../../data/series';
+import { shortDate, isoDate, partTitle } from '../../utils/format';
+
+const posts = await getPosts();
+
+// One row per post, except a series, which becomes a single row (placed at its
+// newest part) listing its parts in order.
+type Row = { kind: 'post'; post: PostWithTime } | { kind: 'series'; name: string; parts: PostWithTime[] };
+const rows: Row[] = [];
+const seen = new Set<string>();
+for (const post of posts) {
+  const series = post.data.series;
+  if (!series) { rows.push({ kind: 'post', post }); continue; }
+  if (seen.has(series.name)) continue;
+  seen.add(series.name);
+  const parts = seriesParts(posts, series.name);
+  rows.push({ kind: 'series', name: series.name, parts });
+}
+
+const rowDate = (r: Row) =>
+  r.kind === 'post' ? r.post.data.date : new Date(Math.max(...r.parts.map((p) => +p.data.date)));
+const years = [...new Set(rows.map((r) => rowDate(r).getUTCFullYear()))];
+---
+
+<Base title="Writing" description="Notes by Philip Narteh on engineering and whatever else he is exploring.">
+  <div class="wrap-narrow">
+    <h1 class="page-title">Writing</h1>
+    <p class="page-intro">Notes on engineering and whatever else I'm exploring.</p>
+
+    {years.map((year) => (
+      <section aria-labelledby={`y-${year}`}>
+        <h2 id={`y-${year}`} class="year">{year}</h2>
+        <ul class="rows posts">
+          {rows.filter((r) => rowDate(r).getUTCFullYear() === year).map((r) =>
+            r.kind === 'post' ? (
+              <li>
+                <time class="when" datetime={isoDate(r.post.data.date)}>{shortDate(r.post.data.date)}</time>
+                <div>
+                  <a class="title" href={`/blog/${r.post.id}`}>{r.post.data.title}</a>
+                  <p class="desc">{r.post.data.description}</p>
+                </div>
+                <span class="len">{r.post.readingTime}</span>
+              </li>
+            ) : (
+              <li>
+                <span class="when range">
+                  <time datetime={isoDate(r.parts[r.parts.length - 1].data.date)}>{shortDate(r.parts[r.parts.length - 1].data.date)}</time> to <time datetime={isoDate(r.parts[0].data.date)}>{shortDate(r.parts[0].data.date)}</time>
+                </span>
+                <div>
+                  <p class="title series-name">{r.name}</p>
+                  <p class="desc">{SERIES[r.name] ?? `A series in ${r.parts.length} parts.`}</p>
+                  <p class="count">{r.parts.length} parts</p>
+                  <ol class="parts" reversed>
+                    {r.parts.map((p) => (
+                      <li><a href={`/blog/${p.id}`}>{partTitle(p.data.title, r.name)}</a> <span class="len">{p.readingTime}</span></li>
+                    ))}
+                  </ol>
+                </div>
+                <span class="len" />
+              </li>
+            ),
+          )}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .year { font-size: 22px; font-weight: 700; margin: 48px 0 8px; }
+  @media (min-width: 640px) { .posts > li { grid-template-columns: 7.5em 1fr auto; } }
+  .title { font-weight: 700; font-size: 20px; line-height: 1.35; }
+  .series-name { margin: 0; }
+  .desc { margin: 4px 0 0; color: var(--muted); font-size: 17px; max-width: 36em; }
+  .range time { white-space: nowrap; }
+  .count { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+  .parts { margin: 8px 0 0; padding-left: 1.3em; list-style: decimal; }
+  .parts li { margin: 6px 0; }
+  .parts .len { margin-left: 6px; }
+</style>

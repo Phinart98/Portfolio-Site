@@ -1,0 +1,128 @@
+@import "@fontsource-variable/hanken-grotesk";
+@import "@fontsource-variable/atkinson-hyperlegible-next";
+/* Only the reset and theme are used, so skip scanning files for utility
+   classes (it otherwise picks up words like "hidden" from post text). */
+@import "tailwindcss" source(none);
+
+/* Tokens. Light is the paper Philip picked; dark is "night paper". Every
+   text pair here is at least 4.5:1, so components should only use these. */
+:root {
+  --paper: #FAFAF7;
+  --ink: #141A33;
+  --muted: #50566F;
+  --link: #2346C8;
+  --rule: #DADCE4;
+  --plate: #EEEFF3;
+  --focus: #2346C8;
+  --code-bg: #F6F7F9;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --paper: #1A1917;
+  --ink: #F1EEE8;
+  --muted: #BAB5AC;
+  --link: #F0C674;
+  --rule: #36332E;
+  --plate: #26241F;
+  --focus: #F0C674;
+  --code-bg: #26241F;
+  color-scheme: dark;
+}
+
+@theme {
+  --font-sans: "Hanken Grotesk Variable", system-ui, sans-serif;
+  --font-reading: "Atkinson Hyperlegible Next Variable", system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-link: var(--link);
+  --color-rule: var(--rule);
+  --color-plate: var(--plate);
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; background: var(--paper); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 19px;
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+  }
+  a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.18em; }
+  a:hover { text-decoration-thickness: 3px; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+  img { max-width: 100%; height: auto; display: block; }
+}
+
+/* Layout helpers shared by every page */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 640px) { .wrap, .wrap-narrow { padding: 0 32px; } }
+.sr-only-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.page-title { font-size: clamp(32px, 4.2vw, 46px); line-height: 1.12; font-weight: 700; letter-spacing: -0.015em; margin: 48px 0 12px; }
+.page-intro { color: var(--muted); font-size: 20px; max-width: 34em; margin: 0 0 32px; }
+.section-title { font-size: 26px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 18px; }
+
+.cta { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 6px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; }
+.cta:hover { text-decoration: underline; }
+
+/* Pills: radio choices drawn as rounded buttons (note switch, reading settings).
+   Markup: <label class="pill"><input type="radio" ...><span>Label</span></label> */
+.pill { position: relative; }
+.pill input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.pill span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 22px; border: 1.5px solid var(--rule); background: var(--paper); }
+.pill input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pill input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* Rows: dated lists for writing, open source and certifications */
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows > li { padding: 14px 0; border-top: 1px solid var(--rule); display: grid; gap: 2px; }
+@media (min-width: 640px) { .rows > li { grid-template-columns: 8.5em 1fr; gap: 16px; align-items: baseline; } }
+.rows .when { color: var(--muted); font-size: 16px; }
+.rows a { color: var(--ink); }
+.rows .desc { color: var(--muted); font-size: 17px; }
+.len { color: var(--muted); font-size: 16px; white-space: nowrap; }
+
+/* Article prose. Left-aligned and ragged on purpose: justified text opens
+   uneven gaps that make reading harder, especially for dyslexic readers. */
+.prose { --prose-size: 20px; --prose-leading: 1.65; font-size: var(--prose-size); line-height: var(--prose-leading); max-width: 68ch; overflow-wrap: anywhere; }
+/* Reading settings live on <html> so the head script can apply them before paint. */
+:root[data-rs-size="s"] .prose { --prose-size: 18px; }
+:root[data-rs-size="l"] .prose { --prose-size: 23px; }
+:root[data-rs-spacing="wide"] .prose { --prose-leading: 1.9; }
+:root[data-rs-font="atkinson"] .prose { font-family: var(--font-reading); }
+.prose > * { margin: 0 0 1.1em; }
+.prose h2 { font-size: 1.45em; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; margin: 2em 0 0.6em; }
+.prose h3 { font-size: 1.2em; line-height: 1.3; font-weight: 700; margin: 1.7em 0 0.5em; }
+.prose h4 { font-size: 1em; font-weight: 700; margin: 1.5em 0 0.4em; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+/* Tailwind's reset removes list markers, so put them back for writing. */
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li { margin: 0.35em 0; }
+.prose li > p { margin: 0.35em 0; }
+.prose strong { font-weight: 700; }
+.prose hr { border: 0; border-top: 1px solid var(--rule); margin: 2.4em 0; }
+.prose img { margin: 2em auto; border-radius: 6px; }
+.prose p:has(> img:only-child) { background: var(--plate); border-radius: 6px; padding: 16px; }
+.prose p:has(> img:only-child) img { margin: 0 auto; }
+.prose blockquote { margin: 1.6em 0; padding: 16px 20px; background: var(--plate); border-radius: 6px; }
+.prose blockquote > :last-child { margin-bottom: 0; }
+.prose :not(pre) > code { font-family: var(--font-mono); font-size: 0.9em; background: var(--plate); padding: 0.12em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
+.prose pre { font-family: var(--font-mono); font-size: 16px; line-height: 1.55; padding: 18px 20px; border-radius: 6px; overflow-x: auto; max-width: 100%; }
+.prose pre code { font-family: inherit; }
+.prose table { display: block; overflow-x: auto; border-collapse: collapse; font-size: 0.95em; max-width: 100%; }
+.prose th, .prose td { border-bottom: 1px solid var(--rule); padding: 8px 12px; text-align: left; vertical-align: top; }
+.prose th { font-weight: 700; }
+.prose a { overflow-wrap: anywhere; }
+
+/* Shiki dual themes: light colours inline, dark ones swapped in here. The
+   code background is a touch lighter than --plate so every token clears 4.5:1. */
+.astro-code { background-color: var(--code-bg) !important; border: 1px solid var(--rule); }
+:root[data-theme="dark"] .astro-code,
+:root[data-theme="dark"] .astro-code span { color: var(--shiki-dark) !important; }

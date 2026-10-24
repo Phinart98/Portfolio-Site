@@ -1,0 +1,112 @@
+---
+import { NAV, SITE } from '../data/site';
+import ThemeToggle from './ThemeToggle.astro';
+import { cleanPath } from '../utils/format';
+
+const path = cleanPath(Astro.url.pathname);
+const isCurrent = (href: string) => path === href || path.startsWith(`${href}/`);
+---
+
+<header class="wrap top">
+  <a class="mark" href="/" aria-current={path === '/' ? 'page' : undefined}>{SITE.name}</a>
+  <div class="right">
+    <!-- On small screens the links fold behind a labelled Menu button and open
+         as a panel over the page. Without JS the links simply wrap. -->
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <ThemeToggle />
+  </div>
+  <nav id="site-nav" aria-label="Main">
+    <ul>
+      {NAV.map((item) => (
+        <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+<div class="scrim" aria-hidden="true"></div>
+
+<script>
+  const header = document.querySelector<HTMLElement>('header.top');
+  const btn = header?.querySelector<HTMLButtonElement>('.menu-btn');
+  const scrim = document.querySelector<HTMLElement>('.scrim');
+  const small = matchMedia('(max-width: 719px)');
+  if (header && btn && scrim) {
+    const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
+    const set = (open: boolean) => {
+      btn.setAttribute('aria-expanded', String(open));
+      header.classList.toggle('open', open);
+      scrim.classList.toggle('open', open);
+      // Hold the page still behind the panel while it's open.
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+    };
+    btn.addEventListener('click', () => set(!isOpen()));
+    scrim.addEventListener('click', () => set(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) { set(false); btn.focus(); }
+    });
+    // Tabbing past the last link closes the panel (a tap on the panel itself moves
+    // focus to nothing, so that is ignored) instead of leaving it open over the page.
+    header.addEventListener('focusout', (e) => {
+      const to = e.relatedTarget as Node | null;
+      if (isOpen() && to && !header.contains(to)) set(false);
+    });
+    small.addEventListener('change', () => { if (!small.matches) set(false); });
+  }
+</script>
+
+<style>
+  .top { position: relative; z-index: 30; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; padding-top: 20px; padding-bottom: 20px; background: var(--paper); }
+  .mark { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 17px; white-space: nowrap; justify-self: start; padding: 10px 0; }
+  .right { display: flex; align-items: center; gap: 4px; }
+  nav { grid-column: 1 / -1; }
+  ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; gap: 2px; }
+  ul a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; font-size: 17px; padding: 0 8px; border-radius: 6px; }
+  ul a:hover { background: var(--plate); }
+  ul a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.3em; }
+  /* Shown only when JS runs (the head script adds .js before paint). */
+  .menu-btn { display: none; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--rule); border-radius: 22px; background: none; color: var(--ink); font: inherit; font-size: 17px; cursor: pointer; }
+  .menu-btn[aria-expanded='true'] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .scrim { display: none; }
+
+  /* Small screens with JS: the list is a solid panel that drops over the page. */
+  @media (max-width: 719px) {
+    :global(.js) .menu-btn { display: inline-flex; align-items: center; }
+    :global(.js) .top nav {
+      position: absolute; top: 100%; left: 0; right: 0;
+      grid-column: auto; grid-row: auto; /* so it spans the header, not its grid cell */
+      padding-inline: inherit; padding-bottom: 16px; background: var(--paper); border-bottom: 1px solid var(--rule);
+      visibility: hidden; opacity: 0; transform: translateY(-8px);
+      transition: opacity 150ms cubic-bezier(0.4, 0, 1, 1), transform 150ms cubic-bezier(0.4, 0, 1, 1), visibility 0s linear 150ms;
+    }
+    :global(.js) .top.open nav {
+      visibility: visible; opacity: 1; transform: none;
+      transition: opacity 200ms cubic-bezier(0.2, 0, 0, 1), transform 200ms cubic-bezier(0.2, 0, 0, 1), visibility 0s;
+    }
+    :global(.js) .top ul { flex-direction: column; gap: 0; border-top: 1px solid var(--rule); }
+    :global(.js) .top li { border-bottom: 1px solid var(--rule); }
+    :global(.js) .top li:last-child { border-bottom: 0; }
+    :global(.js) .top ul a { display: flex; min-height: 56px; padding: 0 4px; font-size: 20px; border-radius: 0; }
+
+    .scrim {
+      display: block; position: fixed; inset: 0; z-index: 20;
+      background: rgb(20 26 51 / 0.45);
+      visibility: hidden; opacity: 0;
+      transition: opacity 150ms cubic-bezier(0.4, 0, 1, 1), visibility 0s linear 150ms;
+    }
+    .scrim.open { visibility: visible; opacity: 1; transition: opacity 200ms cubic-bezier(0.2, 0, 0, 1), visibility 0s; }
+    :global(:root[data-theme='dark']) .scrim { background: rgb(0 0 0 / 0.6); }
+  }
+
+  @media (max-width: 719px) and (prefers-reduced-motion: reduce) {
+    :global(.js) .top nav, :global(.js) .top.open nav { transform: none; }
+  }
+
+  /* Wider screens: links sit inline next to the theme toggle. */
+  @media (min-width: 720px) {
+    .top { grid-template-columns: auto 1fr auto; }
+    nav { grid-column: 2; grid-row: 1; justify-self: end; }
+    .right { grid-column: 3; }
+    .menu-btn { display: none; }
+  }
+</style>

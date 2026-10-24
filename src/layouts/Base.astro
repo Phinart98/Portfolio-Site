@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../data/site';
+import { cleanPath } from '../utils/format';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const { title, description = SITE.description, image = '/og.png', type = 'website', noindex = false } = Astro.props;
+const fullTitle = title ? `${title} - ${SITE.name}` : SITE.title;
+const canonical = new URL(cleanPath(Astro.url.pathname), SITE.url).href;
+const ogImage = new URL(image, SITE.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name}'s writing`} href="/rss.xml" />
+    <meta name="theme-color" content="#FAFAF7" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Runs before first paint so nothing jumps once the page shows: the theme
+         (and the browser bar colour), saved reading settings, and a "js" class
+         that lets the menu and the note switch render in their final state. -->
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        root.classList.add('js');
+        const dark = matchMedia('(prefers-color-scheme: dark)');
+        const saved = () => { try { return localStorage.getItem('theme'); } catch { return null; } };
+        const apply = (t) => {
+          root.dataset.theme = t;
+          document.querySelector('meta[name="theme-color"]').content = t === 'dark' ? '#1A1917' : '#FAFAF7';
+        };
+        const t = saved();
+        apply(t === 'light' || t === 'dark' ? t : dark.matches ? 'dark' : 'light');
+        // Until someone picks a theme with the toggle, keep following the system.
+        dark.addEventListener('change', (e) => { if (!saved()) apply(e.matches ? 'dark' : 'light'); });
+        let rs = {};
+        try { rs = JSON.parse(localStorage.getItem('reading-settings') || '{}'); } catch {}
+        if (rs.size) root.dataset.rsSize = rs.size;
+        if (rs.spacing) root.dataset.rsSpacing = rs.spacing;
+        if (rs.font) root.dataset.rsFont = rs.font;
+      })();
+    </script>
+
+    {import.meta.env.PROD && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaId}`}></script>
+        <script is:inline define:vars={{ id: SITE.gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', id);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute; left: 16px; top: -100px; z-index: 20;
+    background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: 6px;
+  }
+  .skip:focus { top: 12px; }
+</style>

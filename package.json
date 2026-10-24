@@ -1,25 +1,21 @@
 {
-  "name": "nuxt-app",
+  "name": "philipnarteh-me",
+  "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/content": "^2.8.2",
-    "@nuxt/devtools": "latest",
-    "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "nuxt": "^3.7.0",
-    "nuxt-gtag": "^3.0.2",
-    "reading-time": "^1.5.0"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.11.3",
-    "nuxt-protected-mailto": "^0.0.12"
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.0",
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "@fontsource-variable/hanken-grotesk": "^5.2.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.1",
+    "reading-time": "^1.5.0",
+    "tailwindcss": "^4.2.1"
   }
 }

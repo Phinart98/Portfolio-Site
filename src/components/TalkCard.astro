@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { monthYear, isoDate } from '../utils/format';
+
+interface Props { talk: CollectionEntry<'talks'>; headingLevel?: 'h2' | 'h3'; }
+const { talk, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+const d = talk.data;
+---
+
+<article class="talk">
+  <a href={`/talks/${talk.id}`}>
+    <Image src={d.headerImage} alt="" widths={[480, 720, 1040]} sizes="(min-width: 720px) 50vw, 100vw" />
+    <H class="t">{d.title}</H>
+  </a>
+  <p class="e">{d.event}, {d.venue.split(',')[0]}, <time datetime={isoDate(d.date)}>{monthYear(d.date)}</time></p>
+</article>
+
+<style>
+  .talk a { color: var(--ink); text-decoration: none; display: block; }
+  .talk :global(img) { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 6px; }
+  .t { margin: 12px 0 0; font-size: 21px; font-weight: 700; line-height: 1.3; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.18em; }
+  .talk a:hover .t { text-decoration-thickness: 3px; }
+  .e { margin: 4px 0 0; color: var(--muted); font-size: 17px; }
+</style>

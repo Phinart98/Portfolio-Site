@@ -1,0 +1,31 @@
+<button class="theme" type="button" aria-label="Switch to dark mode">
+  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+    <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+    <path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor" />
+  </svg>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.querySelector<HTMLButtonElement>('.theme');
+  const label = () => {
+    btn?.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  label();
+  btn?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute('content', getComputedStyle(root).getPropertyValue('--paper').trim());
+    try { localStorage.setItem('theme', next); } catch {}
+    label();
+  });
+</script>
+
+<style>
+  .theme {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border: 0; border-radius: 6px;
+    background: none; color: var(--ink); cursor: pointer;
+  }
+  .theme:hover { background: var(--plate); }
+</style>

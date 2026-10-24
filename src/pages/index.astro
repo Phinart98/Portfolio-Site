@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import NoteSwitch from '../components/NoteSwitch.astro';
+import { SITE } from '../data/site';
+import { NOTE } from '../data/note';
+import { HIGHLIGHTS, EDUCATION } from '../data/highlights';
+import { shortDate, isoDate, linkify } from '../utils/format';
+import { getPosts } from '../utils/posts';
+
+const posts = await getPosts(4);
+---
+
+<Base>
+  <div class="wrap">
+    <section class="hero" aria-labelledby="hero-h">
+      <Image src={SITE.heroImage} alt={SITE.heroAlt} widths={[320, 480, 624]} sizes="(min-width: 900px) 420px, 100vw" loading="eager" fetchpriority="high" />
+      <div>
+        <h1 id="hero-h">{NOTE.heading}</h1>
+        <NoteSwitch />
+        <a class="cta" href="/blog">Read my writing</a>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="hl-h">
+      <h2 id="hl-h" class="section-title">Highlights</h2>
+      <ul class="highlights">
+        {HIGHLIGHTS.map((h) => (
+          <li>
+            <h3><a href={h.href}>{h.title}</a></h3>
+            <p class="role">{h.role}</p>
+            <p class="desc" set:html={linkify(h.desc)} />
+          </li>
+        ))}
+      </ul>
+      <p class="edu" set:html={linkify(EDUCATION)} />
+    </section>
+
+    <section class="block" aria-labelledby="writing-h">
+      <h2 id="writing-h" class="section-title">Latest writing</h2>
+      <ul class="rows">
+        {posts.map((p) => (
+          <li>
+            <time class="when" datetime={isoDate(p.data.date)}>{shortDate(p.data.date)}</time>
+            <a href={`/blog/${p.id}`}>{p.data.title}</a>
+            <span class="len">{p.readingTime}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="more"><a href="/blog">All writing</a></p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .hero { display: grid; gap: 28px; padding: 24px 0 8px; }
+  @media (min-width: 900px) { .hero { grid-template-columns: 420px 1fr; gap: 64px; align-items: start; padding-top: 40px; } }
+  .hero :global(img) { width: 100%; max-width: 420px; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; border-radius: 6px; }
+  @media (min-width: 900px) { .hero :global(img) { position: sticky; top: 24px; } }
+  h1 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.14; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 22px; max-width: 16em; }
+  .block { padding-top: 80px; }
+
+  .highlights { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 48px; }
+  @media (min-width: 720px) { .highlights { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1040px) { .highlights { grid-template-columns: 1fr 1fr 1fr; } }
+  .highlights li { border-top: 1px solid var(--rule); padding: 18px 0 28px; }
+  .highlights h3 { margin: 0; font-size: 21px; line-height: 1.3; font-weight: 700; }
+  .highlights h3 a { color: var(--ink); }
+  .role { margin: 4px 0 8px; color: var(--muted); font-size: 17px; }
+  .desc { margin: 0; max-width: 30em; }
+
+  .edu { margin: 0; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .more { margin: 16px 0 0; }
+  @media (min-width: 640px) { .rows > li { grid-template-columns: 8.5em 1fr auto; } }
+</style>

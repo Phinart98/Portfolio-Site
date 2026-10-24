@@ -1,0 +1,65 @@
+---
+// Lets readers tune text size, line spacing and typeface for long posts.
+// Choices are remembered per browser, and the page reads fine without them.
+---
+
+<details class="reading">
+  <summary>Reading settings</summary>
+  <div class="panel">
+    <fieldset>
+      <legend>Text size</legend>
+      <label class="pill"><input type="radio" name="rs-size" value="s" /><span>Smaller</span></label>
+      <label class="pill"><input type="radio" name="rs-size" value="m" checked /><span>Default</span></label>
+      <label class="pill"><input type="radio" name="rs-size" value="l" /><span>Larger</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Line spacing</legend>
+      <label class="pill"><input type="radio" name="rs-spacing" value="normal" checked /><span>Default</span></label>
+      <label class="pill"><input type="radio" name="rs-spacing" value="wide" /><span>Wider</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Typeface</legend>
+      <label class="pill"><input type="radio" name="rs-font" value="hanken" checked /><span>Hanken Grotesk</span></label>
+      <label class="pill"><input type="radio" name="rs-font" value="atkinson" /><span>Atkinson Hyperlegible</span></label>
+    </fieldset>
+  </div>
+</details>
+
+<script>
+  const KEY = 'reading-settings';
+  const panel = document.querySelector('.reading');
+  type Prefs = { size: string; spacing: string; font: string };
+  let prefs: Prefs = { size: 'm', spacing: 'normal', font: 'hanken' };
+  try { prefs = { ...prefs, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch {}
+
+  // The head script in Base.astro applies saved prefs before paint; this keeps
+  // <html> in step as the reader changes them.
+  const apply = () => {
+    const root = document.documentElement;
+    root.dataset.rsSize = prefs.size;
+    root.dataset.rsSpacing = prefs.spacing;
+    root.dataset.rsFont = prefs.font;
+  };
+  for (const [k, v] of Object.entries(prefs)) {
+    const input = panel?.querySelector<HTMLInputElement>(`input[name="rs-${k}"][value="${v}"]`);
+    if (input) input.checked = true;
+  }
+  panel?.addEventListener('change', (e) => {
+    const input = e.target as HTMLInputElement;
+    const key = input.name.replace('rs-', '') as keyof Prefs;
+    prefs[key] = input.value;
+    apply();
+    try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch {}
+  });
+</script>
+
+<style>
+  .reading { margin: 20px 0 36px; font-size: 17px; }
+  summary { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 22px; border: 1.5px solid var(--rule); cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ''; width: 8px; height: 8px; margin-left: 10px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+  .reading[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+  .panel { margin-top: 12px; padding: 16px 18px; background: var(--plate); border-radius: 6px; display: grid; gap: 14px; }
+  fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  legend { float: left; width: 100%; margin-bottom: 4px; padding: 0; font-weight: 700; }
+</style>

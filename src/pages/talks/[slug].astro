@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
+import { fullDate, isoDate } from '../../utils/format';
+
+export async function getStaticPaths() {
+  const talks = await getCollection('talks');
+  return talks.map((talk) => ({ params: { slug: talk.id }, props: { talk } }));
+}
+
+const { talk } = Astro.props;
+const { Content } = await render(talk);
+const d = talk.data;
+const links = [
+  d.talkLink && { href: d.talkLink, label: 'Session page' },
+  d.slidesLink && { href: d.slidesLink, label: 'Slides' },
+  d.eventLink && { href: d.eventLink, label: `${d.event} website` },
+].filter(Boolean) as { href: string; label: string }[];
+// The header photo is already shown at the top, so leave it out of the gallery.
+const gallery = d.gallery.filter((g) => g.src.src !== d.headerImage.src);
+---
+
+<Base title={d.title} description={d.description} type="article">
+  <article class="wrap-narrow">
+    <h1 class="page-title">{d.title}</h1>
+    <dl class="facts">
+      <div><dt>Event</dt><dd>{d.event}</dd></div>
+      <div><dt>Where</dt><dd>{d.venue}</dd></div>
+      <div><dt>When</dt><dd><time datetime={isoDate(d.date)}>{fullDate(d.date)}</time></dd></div>
+    </dl>
+    {links.length > 0 && (
+      <ul class="links">{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+    )}
+
+    <Image class="header" src={d.headerImage} alt={d.gallery.find((g) => g.src.src === d.headerImage.src)?.alt ?? ''} widths={[480, 720, 1040]} sizes="(min-width: 760px) 700px, 100vw" loading="eager" />
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {gallery.length > 0 && (
+      <section class="photos" aria-labelledby="photos-h">
+        <h2 id="photos-h" class="section-title">Photos</h2>
+        <Gallery images={gallery} />
+      </section>
+    )}
+
+    <p class="back"><a href="/talks">All talks</a></p>
+  </article>
+</Base>
+
+<style>
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 0 0 12px; }
+  .facts div { display: grid; }
+  .facts dt { color: var(--muted); font-size: 16px; }
+  .facts dd { margin: 0; }
+  .links { list-style: none; margin: 0 0 32px; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; }
+  .links a { display: inline-block; padding: 8px 0; }
+  .header { width: 100%; border-radius: 6px; margin-bottom: 36px; }
+  .photos { margin-top: 56px; }
+  .back { margin-top: 56px; }
+</style>

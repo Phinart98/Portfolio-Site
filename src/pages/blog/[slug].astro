@@ -1,0 +1,92 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ReadingSettings from '../../components/ReadingSettings.astro';
+import { fullDate, isoDate, partTitle } from '../../utils/format';
+import { getSortedPosts, seriesParts } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      newer: posts[i - 1],
+      older: posts[i + 1],
+      series: post.data.series ? seriesParts(posts, post.data.series.name) : [],
+    },
+  }));
+}
+
+const { post, older, newer, series } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(post);
+const d = post.data;
+const part = d.series ? series.findIndex((p) => p.id === post.id) : -1;
+const nextPart = part > 0 ? series[part - 1] : undefined;
+const prevPart = part >= 0 && part < series.length - 1 ? series[part + 1] : undefined;
+---
+
+<Base title={d.title} description={d.description} type="article">
+  <article class="wrap-narrow">
+    <header class="head">
+      {d.series && <p class="series">Part {d.series.part} of {d.series.name}</p>}
+      <h1 class="page-title">{d.heading ?? d.title}</h1>
+      <p class="meta">
+        <time datetime={isoDate(d.date)}>{fullDate(d.date)}</time>
+        <span>{remarkPluginFrontmatter.readingTime}</span>
+      </p>
+      <ReadingSettings />
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {d.series && (
+      <nav class="pager" aria-label={`${d.series.name} series`}>
+        <h2 class="pager-title">{d.series.name}</h2>
+        <ul class="parts">
+          {series.map((p) => (
+            <li>
+              {p.id === post.id
+                ? <span aria-current="page">Part {p.data.series!.part}: {partTitle(p.data.title, p.data.series!.name)}</span>
+                : <a href={`/blog/${p.id}`}>Part {p.data.series!.part}: {partTitle(p.data.title, p.data.series!.name)}</a>}
+            </li>
+          ))}
+        </ul>
+        {(prevPart || nextPart) && (
+          <p class="pn">
+            {prevPart && <a href={`/blog/${prevPart.id}`}>Previous part</a>}
+            {nextPart && <a href={`/blog/${nextPart.id}`}>Next part</a>}
+          </p>
+        )}
+      </nav>
+    )}
+
+    <nav class="pager" aria-label="More writing">
+      <ul class="adj">
+        {newer && <li><span class="lbl">Newer</span><a href={`/blog/${newer.id}`}>{newer.data.title}</a></li>}
+        {older && <li><span class="lbl">Older</span><a href={`/blog/${older.id}`}>{older.data.title}</a></li>}
+      </ul>
+      <p><a href="/blog">All writing</a></p>
+    </nav>
+  </article>
+</Base>
+
+<style>
+  .head { padding-top: 8px; }
+  .series { margin: 48px 0 0; color: var(--muted); font-size: 17px; }
+  .series + .page-title { margin-top: 8px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; color: var(--muted); font-size: 17px; }
+  .pager { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .pager-title { font-size: 20px; margin: 0 0 12px; }
+  .parts { margin: 0 0 12px; padding-left: 0; list-style: none; }
+  .parts li { margin: 6px 0; }
+  .parts [aria-current] { font-weight: 700; }
+  .pn { display: flex; gap: 24px; margin: 0; }
+  .adj { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 16px; }
+  @media (min-width: 640px) { .adj { grid-template-columns: 1fr 1fr; } }
+  .adj li { display: grid; gap: 2px; }
+  .lbl { color: var(--muted); font-size: 16px; }
+  .adj a { color: var(--ink); font-weight: 700; }
+</style>

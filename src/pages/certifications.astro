@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { CERTIFICATIONS } from '../data/certifications';
+import { monthYear } from '../utils/format';
+---
+
+<Base title="Certifications" description="Professional certifications held by Philip Narteh in cloud and cloud native computing.">
+  <div class="wrap-narrow">
+    <h1 class="page-title">Certifications</h1>
+    <p class="page-intro">Certifications I hold in cloud and cloud native computing. Each one links to its Credly record.</p>
+    <ul class="certs">
+      {CERTIFICATIONS.map((c) => (
+        <li>
+          <Image src={c.badge} alt="" width={88} height={88} />
+          <div>
+            <h2>{c.name}</h2>
+            <p class="meta">{c.issuer}, <time datetime={c.date}>{monthYear(c.date)}</time></p>
+            <a href={c.verify}>Verify on Credly<span class="sr-only-text">: {c.name}</span></a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .certs { list-style: none; margin: 0; padding: 0; }
+  .certs li { display: grid; grid-template-columns: 88px 1fr; gap: 20px; align-items: start; padding: 24px 0; border-top: 1px solid var(--rule); }
+  .certs :global(img) { width: 88px; height: 88px; object-fit: contain; }
+  h2 { margin: 0; font-size: 21px; line-height: 1.3; font-weight: 700; }
+  .meta { margin: 4px 0 8px; color: var(--muted); font-size: 17px; }
+</style>

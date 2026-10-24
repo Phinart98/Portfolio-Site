@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import TalkCard from '../../components/TalkCard.astro';
+import { newestFirst } from '../../utils/posts';
+
+const talks = newestFirst(await getCollection('talks'));
+---
+
+<Base title="Talks" description="Talks Philip Narteh has given at meetups and conferences.">
+  <div class="wrap">
+    <h1 class="page-title">Talks</h1>
+    <p class="page-intro">Now and then I share what I've learned at meetups and conferences.</p>
+    <div class="talks">
+      {talks.map((t) => <TalkCard talk={t} headingLevel="h2" />)}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .talks { display: grid; gap: 40px 28px; }
+  @media (min-width: 720px) { .talks { grid-template-columns: 1fr 1fr; } }
+</style>

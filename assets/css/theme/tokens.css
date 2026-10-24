@@ -1,9 +1,0 @@
-/* ===================================
-   Theme Tokens - Single Source of Truth
-   =================================== */
-
-/* Accent color palette (the site's theme) */
-@import './palettes/orange.css';
-
-/* Shared surface/background colors */
-@import './surfaces.css';
